@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_16_072952) do
+ActiveRecord::Schema.define(version: 2020_03_16_091009) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -49,12 +49,12 @@ ActiveRecord::Schema.define(version: 2020_03_16_072952) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.integer "genre_id"
-    t.string "name"
-    t.text "description"
-    t.integer "image_id"
-    t.integer "no_tax"
-    t.boolean "is_active"
+    t.integer "genre_id", null: false
+    t.string "name", null: false
+    t.text "description", null: false
+    t.integer "image_id", null: false
+    t.integer "no_tax", null: false
+    t.boolean "is_active", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -70,14 +70,14 @@ ActiveRecord::Schema.define(version: 2020_03_16_072952) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "payment"
-    t.string "postal_code"
-    t.text "address"
-    t.string "addressee"
-    t.integer "delivery_charge"
-    t.integer "charge"
-    t.integer "status"
+    t.integer "user_id", null: false
+    t.integer "payment", default: 0, null: false
+    t.integer "postal_code", null: false
+    t.text "address", null: false
+    t.string "addressee", null: false
+    t.integer "delivery_charge", null: false
+    t.integer "charge", null: false
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
