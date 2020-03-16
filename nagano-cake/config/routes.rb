@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root 'homes#top'
   get 'homes/about'
 
-  resources :users, only: [:show, :edit, :update, :destroy] do
+  resources :users, only: [:show, :edit, :update] do
   		collection do
   		   get 'leave'
   		end
@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    root 'homes#top'
+    get 'homes/top'
     resources :users, only: [:index, :show, :edit, :update] do
     	member do
     		get 'order_index'
