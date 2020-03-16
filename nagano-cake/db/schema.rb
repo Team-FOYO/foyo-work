@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 2020_03_16_092458) do
   create_table "orders", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "payment", default: 0, null: false
-    t.integer "postal_code", null: false
+    t.string "postal_code", null: false
     t.text "address", null: false
     t.string "addressee", null: false
     t.integer "delivery_charge", null: false
