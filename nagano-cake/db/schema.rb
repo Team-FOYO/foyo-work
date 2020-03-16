@@ -10,12 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_15_115412) do
+ActiveRecord::Schema.define(version: 2020_03_16_035330) do
 
   create_table "cart_items", force: :cascade do |t|
     t.integer "user_id"
     t.integer "item_id"
     t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.integer "genre_id"
+    t.string "name"
+    t.text "description"
+    t.integer "image_id"
+    t.integer "no_tax"
+    t.boolean "is_active"
+    t.datetime "created_day"
+    t.datetime "updated_day"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
