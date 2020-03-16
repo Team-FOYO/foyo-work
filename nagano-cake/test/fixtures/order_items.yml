@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  order_id: 1
+  item_id: 1
+  unit_price: 1
+  quantity: 1
+  status: 1
+  created_at: 2020-03-16 04:01:41
+  updated_at: 2020-03-16 04:01:41
+
+two:
+  order_id: 1
+  item_id: 1
+  unit_price: 1
+  quantity: 1
+  status: 1
+  created_at: 2020-03-16 04:01:41
+  updated_at: 2020-03-16 04:01:41
