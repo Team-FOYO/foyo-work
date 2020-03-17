@@ -6,22 +6,22 @@
 			<div class="delivery-edit">
 		　　　　<%= form_for(@delivery) do |f| %>
 		　　　　<div class="field">
-					<%= f.label :postcode, '郵便番号（ハイフンなし）' %>
-					<%= f.text_field :postcode, class: "delivery-postcode" %>
+					<%= f.label :postal_code, '郵便番号（ハイフンなし）' %>
+					<%= f.text_field :postal_code, class: "delivery-postcode" %>
 		　　　　</div>
 
 		　　　　<div class="field">
-					<%= f.label :adress, '住所' %>
-					<%= f.text_area :adress, class: "delivery-adress" %>
+					<%= f.label :address, '住所' %>
+					<%= f.text_field :address, class: "delivery-address" %>
 		　　　　</div>
 
 				<div class="field">
-					<%= f.label :adressee, '宛名' %>
-					<%= f.text_area :adressee, class: "delivery-adressee" %>
+					<%= f.label :addressee, '宛名' %>
+					<%= f.text_field :addressee, class: "delivery-addressee" %>
 		　　　　</div>
 
 		　　　　<div class="actions row">
-			　　　<%= f.submit '編集する',class: "btn btn btn-primary" %>
+			　　　<%= f.submit '編集する(今はできない)',class: "btn btn btn-primary" %>
 		　　　　</div>
 		　　　<% end %>
 			</div>

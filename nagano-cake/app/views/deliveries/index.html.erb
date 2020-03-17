@@ -27,8 +27,40 @@
 			</div>
 
 			<div class="delivery-index">
-
+				<div class="row">
+				 <div class="col-xs-8">
+				   <table class="table">
+					<thead>
+						<tr>
+							<th>郵便番号</th>
+							<th>住所</th>
+							<th>宛名</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @deliveries.each do |delivery| %>
+							<td>
+								<%= delivery.postal_code%>
+							</td>
+							<td>
+								<%= delivery.address%>
+							</td>
+							<td>
+								<%= delivery.addressee%>
+							</td>
+							<td>
+								<%= link_to '編集する',edit_delivery_path(delivery), class: "btn btn-primary " %>
+							</td>
+							<td>
+								<button class="btn btn-danger">削除する（リンクなし）</button>
+							</td>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
 			</div>
 		</div>
 	</div>
+</div>
 </div>
