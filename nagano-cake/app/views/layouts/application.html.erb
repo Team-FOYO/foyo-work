@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NaganoCake</title>
+    <title>ながCAKE</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,37 @@
   </head>
 
   <body>
+    <!--ヘッダーの記述-->
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="row">
+        <nav class="nav navbar-nav navbar-left">
+          <span><%= link_to 'ながのCAKE', root_path %></span>
+        </nav>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <!--if文でサインインとアウト時の表示を変更-->
+            <% if user_signed_in? %>
+            <li><p>ようこそ<%= @user.name %>さん！</p></li>
+            <li><%= link_to 'マイページ', user_path %></li>
+            <li><%= link_to '商品一覧', items_path %></li>
+            <li><%= link_to 'カート', cort_items_path %></li>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete%></li>
+            <% else %>
+            <li><%= link_to 'ながのCAKEについて', homes_about_path %></li>
+            <li><%= link_to '商品一覧', items_path %></li>
+            <li><%= link_to '新規登録',new_user_registration_path %></li>
+            <li><%= link_to 'ログイン', new_user_registration_path %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+      </div>
+    </header>
+        <!--ヘッダーの記述-->
+    <div class="container">
+      <p id="notice"><%= notice %></p> <!--デバイスでnotice設定で呼び出し-->
+    </div>
     <%= yield %>
   </body>
 </html>
