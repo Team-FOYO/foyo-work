@@ -21,7 +21,7 @@
           <ul class="nav nav-pills navbar-right">
             <!--if文でサインインとアウト時の表示を変更-->
             <% if user_signed_in? %>
-            <li><p class="navbar-text">ようこそ <%= @user.first_name%><%= @user.last_name%> さん！</p></li>
+            <li><p class="navbar-text">ようこそ <strong><%= current_user.first_name%><%= current_user.last_name%></strong> さん！</p></li>
             <li><%= link_to 'ながのCAKEについて', homes_about_path %></li>
             <li><%= link_to 'マイページ', user_path(current_user) %></li>
             <li><%= link_to '商品一覧', items_path %></li>
@@ -47,9 +47,9 @@
     <footer>
       <div class="container">
         <div class="row">
-          <p>----------footer---------------</p><br>
-          <p>ながのCAKE</p><br>
-          <p>【所在地】　〒123-4567　長野県長野市〇〇1 丁目２−３</p><br>
+          <p>----------footer---------------</p>
+          <p>ながのCAKE</p>
+          <p>【所在地】　〒123-4567　長野県長野市〇〇1 丁目２−３</p>
           <p>【電話番号】     123-4567-8901</p>
         </div>
       </div>
