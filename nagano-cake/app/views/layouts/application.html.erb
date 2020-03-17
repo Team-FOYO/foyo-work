@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ながCAKE</title>
+    <title>ながのCAKE</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -18,13 +18,14 @@
           <span><%= link_to 'ながのCAKE', root_path %></span>
         </nav>
         <nav>
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav nav-pills">
             <!--if文でサインインとアウト時の表示を変更-->
             <% if user_signed_in? %>
-            <li><p>ようこそ<%= @user.name %>さん！</p></li>
-            <li><%= link_to 'マイページ', user_path %></li>
+            <li><p>ようこそ test(@user.name)さん！</p></li>
+            <li><%= link_to 'ながのCAKEについて', homes_about_path %></li>
+            <li><%= link_to 'マイページ', user_path(current_user) %></li>
             <li><%= link_to '商品一覧', items_path %></li>
-            <li><%= link_to 'カート', cort_items_path %></li>
+            <li><%= link_to 'カート', cart_items_path %></li>
             <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete%></li>
             <% else %>
             <li><%= link_to 'ながのCAKEについて', homes_about_path %></li>
