@@ -5,7 +5,7 @@ class Admin::GenresController < ApplicationController
 	end
 
 	def edit
-
+		@genre = Genre.find(params[:id])
 	end
 
 	def create
@@ -14,17 +14,22 @@ class Admin::GenresController < ApplicationController
 		if @genre.save#, notice : '追加されました'
 			redirect_back(fallback_location: root_path)
 		else
-			redirect_back(fallback_location: root_path)
+			redirect_back(fallback_location: root_path)#, notice : '追加に失敗しました'
 		end
 	end
 
 	def update
-
+		@genre = Genre.find(params[:id])
+		if @genre.update#, notice : '更新されました'
+			redirect_admin_genres_path
+		else
+			redirect_back(fallback_location: root_path)#, notice : '更新に失敗しました'
+		end
 	end
-	
+
 
 	private
 		def genre_params
-			params.require(:genre).permit(:name)
+			params.require(:genre).permit(:name, :is_active)
 		end
 end

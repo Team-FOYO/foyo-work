@@ -1,1 +1,10 @@
-<h1>ジャンルの編集</h1>
+<h1>ジャンルの編集画面</h1>
+<p>ジャンル</p>
+<%= form_for(@genre,url:admin_user_path) do |f| %>
+
+	<%= f.text_field :name %>
+	<%= f.radio_button :is_active, :true, checked: true %>有効
+	<%= f.radio_button :is_active, :false %>無効
+	<%= f.submit '変更を保存する', class: "btn btn-primary" %>
+
+<% end %>
