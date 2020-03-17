@@ -40,6 +40,7 @@
 					</thead>
 					<tbody>
 						<% @deliveries.each do |delivery| %>
+						<tr>
 							<td>
 								<%= delivery.postal_code%>
 							</td>
@@ -55,6 +56,7 @@
 							<td>
 								<button class="btn btn-danger">削除する（リンクなし）</button>
 							</td>
+						</tr>
 						<% end %>
 					</tbody>
 				</table>
