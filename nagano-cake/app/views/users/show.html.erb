@@ -8,7 +8,9 @@
 				<button class="btn btn-primary">パスワードを編集する</button>
 				<% end %>
 			</h4>
-				<table class="table">
+			<div class="row">
+				<div class="col-xs-8">
+				   <table class="table">
 					<tr>
 						<th>氏名</th>
 						<td><%= @user.first_name%><%= @user.last_name%></td>
@@ -33,7 +35,9 @@
 						<th>メールアドレス</th>
 						<td><%= @user.email %></td>
 					</tr>
-				</table>
+					</table>
+			       </div>
+		        </div>
 				<h4>配送先
 				<%= link_to '一覧を見る',deliveries_path, class: "btn btn-primary " %></h4>
 				<h4>注文履歴
