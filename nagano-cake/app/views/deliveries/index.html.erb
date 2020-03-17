@@ -53,8 +53,7 @@
 							<td>
 								<%= link_to '編集する',edit_delivery_path(delivery), class: "btn btn-primary " %>
 							</td>
-							<td>
-								<button class="btn btn-danger">削除する（リンクなし）</button>
+							<td><%= link_to '削除する',delivery_path(delivery), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger" %>
 							</td>
 						</tr>
 						<% end %>

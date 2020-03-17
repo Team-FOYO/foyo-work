@@ -20,9 +20,18 @@ class DeliveriesController < ApplicationController
 	end
 
 	def update
+		@delivery = Delivery.find(params[:id])
+  			if @delivery.update(delivery_params)
+  				redirect_to deliveries_path, notice: "successfully updated!"
+  			else
+  		  		render "edit"
+  			end
 	end
 
 	def destroy
+	  	@delivery = Delivery.find(params[:id])
+	    @delivery.destroy
+	  	redirect_to deliveries_path, notice: "successfully delete"
 	end
 # private-----------------
 	private
