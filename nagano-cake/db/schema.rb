@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_16_092458) do
+ActiveRecord::Schema.define(version: 2020_03_17_054624) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2020_03_16_092458) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
-    t.boolean "is_active"
+    t.boolean "is_active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2020_03_16_092458) do
     t.text "description", null: false
     t.integer "image_id", null: false
     t.integer "no_tax", null: false
-    t.boolean "is_active", null: false
+    t.boolean "is_active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 2020_03_16_092458) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.boolean "is_active"
+    t.boolean "is_active", default: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
