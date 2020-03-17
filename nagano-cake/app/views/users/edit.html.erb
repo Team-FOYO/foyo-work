@@ -1,0 +1,61 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h4>登録情報編集</h4>
+			<div class="form-group">
+				<%= form_for(@user) do |f| %>
+				<tr>
+					<th>名前</th>
+					<td>
+						<div class="field">
+							<%= f.label :first_name,'（姓）' %>
+							<%= f.text_field :first_name, class: "first_name" %>
+						</div>
+						<div class="field">
+							<%= f.label :last_name,'（名）' %>
+							<%= f.text_field :last_name, class: "last_name" %>
+						</div>
+					</td>
+				</tr>
+
+				<tr>
+					<th>フリガナ</th>
+					<td>
+						<div class="field">
+							<%= f.label :first_name_kana,'（セイ）' %>
+							<%= f.text_field :first_name_kana, class: "first_name_kana" %>
+						</div>
+						<div class="field">
+							<%= f.label :last_name_kana,'（メイ）' %>
+							<%= f.text_field :last_name_kana, class: "last_name_kana" %>
+						</div>
+					</td>
+				</tr>
+
+				<div class="field">
+					<%= f.label :email,'メールアドレス' %>
+					<%= f.email_field :email, class: "email" %>
+				</div>
+
+				<div class="field">
+					<%= f.label :postcode,'郵便番号' %>
+					<%= f.text_field :postcode, class: "postcode" %>
+				</div>
+				<div class="field">
+					<%= f.label :address,'住所' %>
+					<%= f.text_field :address, class: "address" %>
+				</div>
+				<div class="field">
+					<%= f.label :phone_number,'電話番号' %>
+					<%= f.text_field :phone_number, class: "phone_number" %>
+				</div>
+
+				<div class="actions">
+					<%= f.submit "編集内容を保存する" ,class: "btn btn-primary "%>
+					<%= link_to '退会する',leave_users_path, class: "btn btn-danger" %>
+				</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
