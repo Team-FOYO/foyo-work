@@ -11,17 +11,17 @@
 
   <body>
     <!--ヘッダーの記述-->
-    <header class="navbar navbar-fixed-top navbar-inverse">
+    <header class="navbar navbar-fixed-top ">
       <div class="container">
         <div class="row">
         <nav class="nav navbar-nav navbar-left">
-          <span><%= link_to 'ながのCAKE', root_path %></span>
+          <h2><%= link_to 'ながのCAKE', root_path %></h2>
         </nav>
         <nav>
-          <ul class="nav nav-pills">
+          <ul class="nav nav-pills navbar-right">
             <!--if文でサインインとアウト時の表示を変更-->
             <% if user_signed_in? %>
-            <li><p>ようこそ test(@user.name)さん！</p></li>
+            <li><p class="navbar-text">ようこそ test(@user.name)さん！</p></li>
             <li><%= link_to 'ながのCAKEについて', homes_about_path %></li>
             <li><%= link_to 'マイページ', user_path(current_user) %></li>
             <li><%= link_to '商品一覧', items_path %></li>
@@ -43,5 +43,17 @@
       <p id="notice"><%= notice %></p> <!--デバイスでnotice設定で呼び出し-->
     </div>
     <%= yield %>
+ <!--フッターの記述-->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <p>----------footer---------------</p><br>
+          <p>ながのCAKE</p><br>
+          <p>【所在地】　〒123-4567　長野県長野市〇〇1 丁目２−３</p><br>
+          <p>【電話番号】     123-4567-8901</p>
+        </div>
+      </div>
+    </footer>
+    <!-- フッターの記述 -->
   </body>
 </html>
