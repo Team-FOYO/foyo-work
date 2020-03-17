@@ -1,0 +1,67 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h4>配送先登録/一覧</h4>
+		<!-- 配送先登録用フォーム -->
+			<div class="delivery-new">
+		　　　　<%= form_for(@delivery) do |f| %>
+		　　　　<div class="field">
+					<%= f.label :postal_code, '郵便番号（ハイフンなし）' %>
+					<%= f.text_field :postal_code, class: "delivery-postcode" %>
+		　　　　</div>
+
+		　　　　<div class="field">
+					<%= f.label :address, '住所' %>
+					<%= f.text_field :address, class: "delivery-address" %>
+		　　　　</div>
+
+				<div class="field">
+					<%= f.label :addressee, '宛名' %>
+					<%= f.text_field :addressee, class: "delivery-addressee" %>
+		　　　　</div>
+
+		　　　　<div class="actions row">
+			　　　<%= f.submit '登録する',class: "btn btn btn-success" %>
+		　　　　</div>
+		　　　<% end %>
+			</div>
+
+			<div class="delivery-index">
+				<div class="row">
+				 <div class="col-xs-8">
+				   <table class="table">
+					<thead>
+						<tr>
+							<th>郵便番号</th>
+							<th>住所</th>
+							<th>宛名</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @deliveries.each do |delivery| %>
+						<tr>
+							<td>
+								<%= delivery.postal_code%>
+							</td>
+							<td>
+								<%= delivery.address%>
+							</td>
+							<td>
+								<%= delivery.addressee%>
+							</td>
+							<td>
+								<%= link_to '編集する',edit_delivery_path(delivery), class: "btn btn-primary " %>
+							</td>
+							<td><%= link_to '削除する',delivery_path(delivery), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger" %>
+							</td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

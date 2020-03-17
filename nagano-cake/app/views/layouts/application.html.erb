@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NaganoCake</title>
+    <title>ながのCAKE</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,50 @@
   </head>
 
   <body>
+    <!--ヘッダーの記述-->
+    <header class="navbar navbar-fixed-top ">
+      <div class="container">
+        <div class="row">
+        <nav class="nav navbar-nav navbar-left">
+          <h2><%= link_to 'ながのCAKE', root_path %></h2>
+        </nav>
+        <nav>
+          <ul class="nav nav-pills navbar-right">
+            <!--if文でサインインとアウト時の表示を変更-->
+            <% if user_signed_in? %>
+            <li><p class="navbar-text">ようこそ <strong><%= current_user.first_name%><%= current_user.last_name%></strong> さん！</p></li>
+            <li><%= link_to 'ながのCAKEについて', homes_about_path %></li>
+            <li><%= link_to 'マイページ', user_path(current_user) %></li>
+            <li><%= link_to '商品一覧', items_path %></li>
+            <li><%= link_to 'カート', cart_items_path %></li>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete%></li>
+            <% else %>
+            <li><%= link_to 'ながのCAKEについて', homes_about_path %></li>
+            <li><%= link_to '商品一覧', items_path %></li>
+            <li><%= link_to '新規登録',new_user_registration_path %></li>
+            <li><%= link_to 'ログイン', new_user_session_path %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+      </div>
+    </header>
+        <!--ヘッダーの記述-->
+    <div class="container">
+      <p id="notice"><%= notice %></p> <!--デバイスでnotice設定で呼び出し-->
+    </div>
     <%= yield %>
+ <!--フッターの記述-->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <p>----------footer---------------</p>
+          <p>ながのCAKE</p>
+          <p>【所在地】　〒123-4567　長野県長野市〇〇1 丁目２−３</p>
+          <p>【電話番号】     123-4567-8901</p>
+        </div>
+      </div>
+    </footer>
+    <!-- フッターの記述 -->
   </body>
 </html>

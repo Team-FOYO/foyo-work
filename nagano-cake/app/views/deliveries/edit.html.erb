@@ -1,0 +1,30 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h4>配送先編集</h4>
+		<!-- 配送先編集用フォーム -->
+			<div class="delivery-edit">
+		　　　　<%= form_for(@delivery) do |f| %>
+		　　　　<div class="field">
+					<%= f.label :postal_code, '郵便番号（ハイフンなし）' %>
+					<%= f.text_field :postal_code, class: "delivery-postcode" %>
+		　　　　</div>
+
+		　　　　<div class="field">
+					<%= f.label :address, '住所' %>
+					<%= f.text_field :address, class: "delivery-address" %>
+		　　　　</div>
+
+				<div class="field">
+					<%= f.label :addressee, '宛名' %>
+					<%= f.text_field :addressee, class: "delivery-addressee" %>
+		　　　　</div>
+
+		　　　　<div class="actions row">
+			　　　<%= f.submit '編集する',class: "btn btn btn-primary" %>
+		　　　　</div>
+		　　　<% end %>
+			</div>
+		</div>
+	</div>
+</div>
