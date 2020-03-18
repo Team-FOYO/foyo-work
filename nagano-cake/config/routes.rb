@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    get 'homes/top'
+    get 'homes/top' => 'admin/homes#top'
     devise_for :admins, controller: { sessions: 'admin/sessions', registrations: 'admin/registrations', passwords: 'admin/passwords'}
 
     resources :users, only: [:index, :show, :edit, :update] do

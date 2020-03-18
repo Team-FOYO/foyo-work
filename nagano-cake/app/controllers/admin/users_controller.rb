@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
 	def order_index
-		
+
 	end
 
 	def index
@@ -18,5 +18,5 @@ class Admin::UsersController < ApplicationController
 	def update
 
 	end
-	
+
 end
