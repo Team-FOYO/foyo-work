@@ -1,1 +1,41 @@
-<h1>管理者の商品新規</h1>
+<div class="container">
+    <div class="row">
+        <div class="cart">
+            <div class="col-xs-12">
+				<h1>商品 新規登録画面</h1>
+
+				<%= form_for(@item,url:new_admin_item_path) do |f| %>
+
+					<div class="field">
+						<%= f.label :image %>
+						<%= f.attachment_field :image %>
+					</div>
+
+					<div class="field">
+						<%= f.label :name %>
+						<%= f.text_field :name, class: "name" %>
+					</div>
+
+					<div class="field">
+						<%= f.label :description %>
+						<%= f.text_area :description, class: "description" %>
+					</div>
+
+					<div class="field">
+						<%= f.label :no_tax %>
+						<%= f.text_field :no_tax, class: "no_tax" %>
+					</div>
+
+					<div class="actions">
+						<%= f.submit %>
+					</div>
+
+		t.integer :genre_id
+      t.boolean :is_active
+
+					<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+
