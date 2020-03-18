@@ -1,6 +1,6 @@
 class Admin::ItemsController < ApplicationController
 	def index
-
+		@items = Item.all
 	end
 
 	def show
@@ -17,11 +17,10 @@ class Admin::ItemsController < ApplicationController
 
 	def create
   		@item = Item.new(item_params)
-  		@item.genre_id =
-    	if @item.save #入力されたデータをdbに保存する。
-  			redirect_to items_path
+      	if @item.save
+  			redirect_to admin_items_path
   		else
-  			render 'new'
+  			render new_admin_item_path
   		end
 	end
 
@@ -31,6 +30,6 @@ class Admin::ItemsController < ApplicationController
 
 	private
 	def item_params
-		params.require(:item).permit(:genre_id,:name,:description, :image_id ,:no_tax , :is_active)
+		params.require(:item).permit(:genre_id,:name,:description,:image,:no_tax,:is_active)
 	end
 end

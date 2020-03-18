@@ -4,32 +4,34 @@
             <div class="col-xs-12">
 				<h1>商品 新規登録画面</h1>
 
-				<%= form_for(@item,url:new_admin_item_path) do |f| %>
+				<%= form_for(@item,url:admin_items_path) do |f| %>
 
 					<div class="field">
-						<%= f.label :image %>
+						<%= f.label :image,'商品画像' %>
 						<%= f.attachment_field :image %>
 					</div>
 
 					<div class="field">
-						<%= f.label :name %>
-						<%= f.text_field :name, class: "name" %>
+						<%= f.label :name,'商品名' %>
+						<%= f.text_field :name %>
 					</div>
 
 					<div class="field">
-						<%= f.label :description %>
-						<%= f.text_area :description, class: "description" %>
+						<%= f.label :description,'商品説明' %>
+						<%= f.text_area :description %>
 					</div>
 
 					<div class="field">
-						<%= f.label :no_tax %>
-						<%= f.text_field :no_tax, class: "no_tax" %>
+						<%= f.label :no_tax,'税抜価格' %>
+						<%= f.text_field :no_tax %>円
 					</div>
 
 					<div>
-						<%= f.collection_select :genre_id, Genre.all, :id, :name, :include_blank => true %>
+						<%= f.label :genre_id,'商品ジャンル' %>
+						<%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい" %>
 					</div>
 					<div>
+						<%= f.label :is_active?,'販売ステータス' %>
 						<%= f.select :is_active?, [["販売中", "true"], ["売り切れ", "fale"]], include_blank: "選択して下さい" %>
 					</div>
 
