@@ -8,7 +8,16 @@ class Item < ApplicationRecord
 	validates :genre_id ,presence: true
     validates :name ,presence: true
     validates :description ,presence: true
-    validates :image_id ,presence: true
+    validates :image,presence: true
     validates :no_tax ,presence: true
 
+	def if_is_active
+		hanbai = "販売中"
+		urikire = "売り切れ"
+		if true == is_active
+			hanbai
+		else
+			urikire
+		end
+	end
 end

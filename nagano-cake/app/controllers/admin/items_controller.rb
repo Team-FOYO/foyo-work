@@ -20,7 +20,7 @@ class Admin::ItemsController < ApplicationController
       	if @item.save
   			redirect_to admin_items_path
   		else
-  			redirect_back(fallback_location: root_path)
+  			render :new
   		end
 	end
 
@@ -30,6 +30,6 @@ class Admin::ItemsController < ApplicationController
 
 	private
 	def item_params
-		params.require(:item).permit(:genre_id,:name,:description,:image,:no_tax,:is_active)
+		params.require(:item).permit(:name,:description,:image,:no_tax,:genre_id,:is_active)
 	end
 end
