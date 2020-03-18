@@ -7,5 +7,4 @@ class User < ApplicationRecord
   has_many :deliveries
   has_many :orders
   has_many :cart_items
-
 end
