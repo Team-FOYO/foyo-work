@@ -3,7 +3,16 @@
         <div class="cart">
             <div class="col-xs-12">
 				<h1>商品 新規登録画面</h1>
-
+	    <!-- エラーメッセージ表示-->
+<% if @item.errors.any? %>
+	<h3><%= @item.errors.count %>error occurrence</h3><!--エラーメッセ-->
+	<ul>
+		<% @item.errors.full_messages.each do |message| %>
+		<li><%= message %></li>
+		<% end %>
+	</ul>
+<% end %>
+<!-- エラーメッセージ表示-->
 				<%= form_for(@item,url:admin_items_path) do |f| %>
 
 					<div class="field">
@@ -28,15 +37,14 @@
 
 					<div>
 						<%= f.label :genre_id,'商品ジャンル' %>
-						<%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい" %>
+						<%= f.collection_select :genre_id,Genre.all, :id, :name, include_blank: "選択して下さい" %>
 					</div>
 					<div>
-						<%= f.label :is_active?,'販売ステータス' %>
-						<%= f.select :is_active?, [["販売中", "true"], ["売り切れ", "fale"]], include_blank: "選択して下さい" %>
+						<%= f.label :is_active,'販売ステータス' %>
+						<%= f.select :is_active, [["販売中", "true"], ["売り切れ", "fale"]], include_blank: "選択して下さい" %>
 					</div>
 
-
-					<div class="actions">
+					<div>
 						<%= f.submit '新規登録' %>
 					</div>
 

@@ -10,5 +10,5 @@ class Item < ApplicationRecord
     validates :description ,presence: true
     validates :image_id ,presence: true
     validates :no_tax ,presence: true
-    validates :is_active ,presence: true
+
 end

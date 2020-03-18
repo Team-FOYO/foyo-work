@@ -20,7 +20,7 @@ class Admin::ItemsController < ApplicationController
       	if @item.save
   			redirect_to admin_items_path
   		else
-  			render new_admin_item_path
+  			redirect_back(fallback_location: root_path)
   		end
 	end
 
