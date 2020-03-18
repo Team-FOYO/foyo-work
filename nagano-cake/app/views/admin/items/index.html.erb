@@ -1,1 +1,37 @@
-<h1>管理者の商品一覧</h1>
+<h1>商品一覧</h1>
+
+<div class="delivery-index">
+				<div class="row">
+				 <div class="col-xs-8">
+				   <table class="table">
+					<thead>
+						<tr>
+							<th>商品ID</th>
+							<th>商品名</th>
+							<th>税抜価格</th>
+							<th>ジャンル</th>
+							<th>ステータス</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @items.each do |item| %>
+						<tr>
+							<td>
+								<%= item.id %>
+							</td>
+							<td>
+								<%= item.name %>
+							</td>
+							<td>
+								<%= item.description%>
+							</td>
+							<td>
+								<%= item.no_tax%>
+							</td>
+							<td>
+								<%= item.genre_id %>
+							</td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>

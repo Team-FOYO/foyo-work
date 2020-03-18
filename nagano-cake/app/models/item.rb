@@ -1,5 +1,6 @@
-class Item < ApplicationRecord]
+class Item < ApplicationRecord
 	belongs_to :genre
+	attachment :image
 
 	has_many :cart_items
 	has_many :order_items
@@ -9,5 +10,5 @@ class Item < ApplicationRecord]
     validates :description ,presence: true
     validates :image_id ,presence: true
     validates :no_tax ,presence: true
-    validates :is_active ,presence: true
+
 end

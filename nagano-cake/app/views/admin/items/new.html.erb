@@ -1,1 +1,56 @@
-<h1>管理者の商品新規</h1>
+<div class="container">
+    <div class="row">
+        <div class="cart">
+            <div class="col-xs-12">
+				<h1>商品 新規登録画面</h1>
+	    <!-- エラーメッセージ表示-->
+<% if @item.errors.any? %>
+	<h3><%= @item.errors.count %>error occurrence</h3><!--エラーメッセ-->
+	<ul>
+		<% @item.errors.full_messages.each do |message| %>
+		<li><%= message %></li>
+		<% end %>
+	</ul>
+<% end %>
+<!-- エラーメッセージ表示-->
+				<%= form_for(@item,url:admin_items_path) do |f| %>
+
+					<div class="field">
+						<%= f.label :image,'商品画像' %>
+						<%= f.attachment_field :image %>
+					</div>
+
+					<div class="field">
+						<%= f.label :name,'商品名' %>
+						<%= f.text_field :name %>
+					</div>
+
+					<div class="field">
+						<%= f.label :description,'商品説明' %>
+						<%= f.text_area :description %>
+					</div>
+
+					<div class="field">
+						<%= f.label :no_tax,'税抜価格' %>
+						<%= f.text_field :no_tax %>円
+					</div>
+
+					<div>
+						<%= f.label :genre_id,'商品ジャンル' %>
+						<%= f.collection_select :genre_id,Genre.all, :id, :name, include_blank: "選択して下さい" %>
+					</div>
+					<div>
+						<%= f.label :is_active,'販売ステータス' %>
+						<%= f.select :is_active, [["販売中", "true"], ["売り切れ", "fale"]], include_blank: "選択して下さい" %>
+					</div>
+
+					<div>
+						<%= f.submit '新規登録' %>
+					</div>
+
+					<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+
