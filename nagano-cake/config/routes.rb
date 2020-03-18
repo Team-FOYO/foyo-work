@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :admins
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'homes#top'
@@ -28,6 +27,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'homes/top'
+    devise_for :admins, controller: { sessions: 'admin/sessions', registrations: 'admin/registrations', passwords: 'admin/passwords'}
+
     resources :users, only: [:index, :show, :edit, :update] do
     	member do
     		get 'order_index'

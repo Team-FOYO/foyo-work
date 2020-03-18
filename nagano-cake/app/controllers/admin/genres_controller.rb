@@ -3,7 +3,7 @@ class Admin::GenresController < ApplicationController
 
 		@genre = Genre.new
 		@genres = Genre.all
-
+	end
 
 	def edit
 
@@ -18,15 +18,12 @@ class Admin::GenresController < ApplicationController
 		else
 			redirect_back(fallback_location: root_path)
 		end
-
-
-
 	end
 
 	def update
 
 	end
-	
+
 
 
 	private
