@@ -8,7 +8,6 @@
 						<tr>
 							<th>商品ID</th>
 							<th>商品名</th>
-							<th>商品説明</th>
 							<th>税抜価格</th>
 							<th>ジャンル</th>
 							<th>ステータス</th>
@@ -21,13 +20,11 @@
 								<%= item.id %>
 							</td>
 							<td>
-								<%= item.name %>
+								<%= link_to admin_item_path(item) do %>
+								<%= item.name %><% end %>
 							</td>
 							<td>
-								<%= item.description%>
-							</td>
-							<td>
-								<%= item.no_tax%>
+								<%= item.no_tax%>円
 							</td>
 							<td>
 								<%= item.genre.name%>
