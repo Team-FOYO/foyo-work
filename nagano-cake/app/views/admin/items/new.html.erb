@@ -26,12 +26,17 @@
 						<%= f.text_field :no_tax, class: "no_tax" %>
 					</div>
 
-					<div class="actions">
-						<%= f.submit %>
+					<div>
+						<%= f.collection_select :genre_id, Genre.all, :id, :name, :include_blank => true %>
+					</div>
+					<div>
+						<%= f.select :is_active?, [["販売中", "true"], ["売り切れ", "fale"]], include_blank: "選択して下さい" %>
 					</div>
 
-		t.integer :genre_id
-      t.boolean :is_active
+
+					<div class="actions">
+						<%= f.submit '新規登録' %>
+					</div>
 
 					<% end %>
 			</div>
