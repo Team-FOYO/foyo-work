@@ -3,7 +3,7 @@ class Admin::GenresController < ApplicationController
 
 		@genre = Genre.new
 		@genres = Genre.all
-
+	end
 
 	def edit
 		@genre = Genre.find(params[:id])
@@ -18,9 +18,6 @@ class Admin::GenresController < ApplicationController
 		else
 			redirect_back(fallback_location: root_path)#, notice : '追加に失敗しました'
 		end
-
-
-
 	end
 
 	def update
