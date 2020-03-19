@@ -8,7 +8,4 @@ class ItemsController < ApplicationController
 		@item = Item.find(params[:id])
 		@cart_item = CartItem.new
 	end
-
-
-
 end

@@ -1,16 +1,4 @@
 <h1>会員の商品詳細</h1>
-<<<<<<< HEAD
-<%= image_tag 'no_image.jpg' %>
-<%# attachment_image_tag @item, url:admin_item_path(@item), :image, :fill, 200, 100, format: "jpeg" , fallback: "no_image.jpg", size:'200 x 100' %>
-<h3>
-    <%= @item.name %>
-</h3>
-<p>テストだよテスト１０テストだよテスト２０テストだよテスト３０テストだよテスト４０テストだよテスト５０
-    <%# item.description %>
-</p>
-<p><span style="font-size:2em;">¥
-        <%# @itme.item.tax %> </span>(税込)</p><!-- あとでやりますbyくすな -->
-=======
 
 <%= image_tag 'no_image.jpg' %><%# attachment_image_tag @item, :image, :fill, 400, 200, format: "jpeg" , fallback: "no_image.jpg", size:'400 x 200' %>
 
@@ -19,10 +7,9 @@
 <p><%= @item.description %></p>
 
 <p><span style="font-size:2em;">¥ <%= @item.tax %> </span>(税込)</p>
->>>>>>> de5de3e1a671c5e4e011f7950ae7aa881cd5e234
+
 <!-- 商品個数選択、カートに追加 -->
-<%= form_tag(cart_items_path,method: :post) do%>
-<%= hidden_field_tag(:item_id, item.id) %>
+<%= form_tag(cart_items_path(@item.id),method: :post) do%>
 <%= select_tag(:quantity, options_for_select([["1", "1"],["2","2"], ["3","3"], ["4","4"], ["5","5"], ["6","6"], ["7","7"], ["8","8"],["9","9"]]))%>
 <%= submit_tag "カートに入れる" %>
 <% end %>
