@@ -8,7 +8,7 @@ class CartItemsController < ApplicationController
   	def create
     	@item = Item.find(params[:id])
 		session[:cart] << @item
-    	redirect_to root_path
+    	redirect_to cart_items_path
  	end
 
  	def update
@@ -26,5 +26,8 @@ class CartItemsController < ApplicationController
 	def all_destroy
 	end
 
-
+private
+def item_params
+    params.require(:item).permit(:name, :image,:no_tax)
+ end
 end
