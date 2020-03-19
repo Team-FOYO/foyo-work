@@ -11,4 +11,8 @@ class Item < ApplicationRecord
     validates :image_id ,presence: true
     validates :no_tax ,presence: true
 
+
+    def tax
+    	no_tax * 1.1
+    end
 end
