@@ -7,7 +7,11 @@
 
 				<div>
 					<%= link_to '退会しない',user_path(current_user), class: "btn btn-primary" %>
-					<button class="btn btn-danger">退会する</button>
+
+						<%= form_for @user do |f| %>
+						<%= f.hidden_field :is_active, :value => false %>
+						<%= f.submit "退会する",class: "btn btn-danger" %>
+						<% end %>
 				</div>
 			</div>
 		</div>

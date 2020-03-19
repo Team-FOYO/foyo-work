@@ -35,6 +35,12 @@
 						<th>メールアドレス</th>
 						<td><%= @user.email %></td>
 					</tr>
+		<!-- User側での退会フラグ確認用（最後に消す） -->
+					<tr>
+						<th>退会フラグ（is_active）</th>
+						<td><%= @user.if_is_active%></td>
+					</tr>
+		<!-- User側での退会フラグ確認用（最後に消す） -->
 					</table>
 			       </div>
 		        </div>
