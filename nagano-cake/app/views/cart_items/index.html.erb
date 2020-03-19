@@ -4,6 +4,7 @@
             <div class="col-xs-12">
                 <h4><span style="background-color:#e9e9e9;">ショッピングカート</span></h4>
                 <!-- ショッピングカートテーブル -->
+                
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -15,26 +16,31 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th>
-                                <a>商品画像 </a><a> イチゴのショートケーキ</a>
-                            </th>
-                            <td>1,110</td>
-                            <td>
-                                <a>個数</a>
-                                <button type="button" class="btn btn-primary">変更</button>
-                            </td>
-                            <td>1,100
-                            </td>
-                            <td>
-                                <button type="button" class="btn btn-danger">削除する</button>
-                            </td>
-                        </tr>
+                        <% @cart.each do |item| %>
+                            <tr>
+                                <th>
+                                    <%= attachment_image_tag item, :image,size:"50x50"%><%= item.name %>
+                                </th>
+                                <td><%= item.no_tax%></td>
+                                <% form_for(@cart_item) do |f|%>
+                                <td>
+                                    <%= f.label :quantity %>
+                                    <%= f.text_field :quantity%><!--個数入力フォーム-->
+                                    <button type="button" class="btn btn-primary">変更</button>
+                                </td>
+                                <td><%= item.no_tax*cart_item.quantity%>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-danger">削除する</button>
+                                </td>
+                                <%= f.submit %>
+                                <% end %>
+                            </tr>
+                        <% end %>
                     </tbody>
                 </table>
                 <div class="col-xs-8 pull-left">
-                    <button type="button" class="btn btn-primary">買い物を続ける
-                    </button>
+                    <%= link_to '買い物を続ける',root_path, class: "btn btn-primary"%>
                 </div>
                 <div class="col-xs-4">
                     <table class="table table-bordered">

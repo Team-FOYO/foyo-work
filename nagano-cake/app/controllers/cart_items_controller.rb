@@ -1,24 +1,30 @@
 class CartItemsController < ApplicationController
-	def create
-		@cart_items = Car
-	end
 
 	def index
-		@cart_items = Cart_items.all
-	end
+    	@cart = Item.find(session[:cart])
+    	@cart_item = CartItem.new
+  	end
 
-	def update
-		@cart_item = Cart_items.find(params[:id])
-		if  @cart_item.update(book_params)
+  	def create
+    	@item = Item.find(params[:id])
+		session[:cart] << @item
+    	redirect_to root_path
+ 	end
+
+ 	def update
+    if  @cart_item.update(cart_item_params)
         redirect_back(fallback_location: root_path)
-    	else
+    else
         render :index
-    	end
-	end
+    end
+  end
 
 	def destroy
+
 	end
 
 	def all_destroy
 	end
+
+
 end
