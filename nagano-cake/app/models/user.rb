@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   	def if_is_active
 		yuukou = "有効"
-		taikai = "退会済み"
+		taikai = "退会済"
 		if true == is_active
 			yuukou
 		else
