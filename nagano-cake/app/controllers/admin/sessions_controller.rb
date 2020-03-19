@@ -4,20 +4,20 @@ class Admin::SessionsController < Devise::SessionsController
   # layout "admin/sessions/new"
   # before_action :configure_sign_in_params, only: [:create]
 
-  # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+  #GET /resource/sign_in
+   def new
+   end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+     redirect_to admin_homes_top_path
+  end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  def destroy
+    redirect_to new_admin_admin_session_path
+  end
+
 
   # protected
 
