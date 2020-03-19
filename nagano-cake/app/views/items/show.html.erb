@@ -1,4 +1,5 @@
 <h1>会員の商品詳細</h1>
+<<<<<<< HEAD
 <%= image_tag 'no_image.jpg' %>
 <%# attachment_image_tag @item, url:admin_item_path(@item), :image, :fill, 200, 100, format: "jpeg" , fallback: "no_image.jpg", size:'200 x 100' %>
 <h3>
@@ -9,6 +10,16 @@
 </p>
 <p><span style="font-size:2em;">¥
         <%# @itme.item.tax %> </span>(税込)</p><!-- あとでやりますbyくすな -->
+=======
+
+<%= image_tag 'no_image.jpg' %><%# attachment_image_tag @item, :image, :fill, 400, 200, format: "jpeg" , fallback: "no_image.jpg", size:'400 x 200' %>
+
+<h3><%= @item.name %></h3>
+
+<p><%= @item.description %></p>
+
+<p><span style="font-size:2em;">¥ <%= @item.tax %> </span>(税込)</p>
+>>>>>>> de5de3e1a671c5e4e011f7950ae7aa881cd5e234
 <!-- 商品個数選択、カートに追加 -->
 <%= form_tag(cart_items_path,method: :post) do%>
 <%= hidden_field_tag(:item_id, item.id) %>

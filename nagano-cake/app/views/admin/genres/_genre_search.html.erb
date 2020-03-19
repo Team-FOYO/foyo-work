@@ -1,0 +1,7 @@
+<table>
+	<thead>ジャンル検索</thead>
+	<tbody>
+		<% @genres.each do |genre| %><% end %>
+		<tr><%= link_to genre.name, items_path %></tr>
+	</tbody>
+</table>
