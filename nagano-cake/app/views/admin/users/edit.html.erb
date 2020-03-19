@@ -17,13 +17,11 @@
 								<th>名前</th>
 								<td>
 									<div class="field">
-										<%= f.label :first_name,'（姓）' %>
 										<%= f.text_field :first_name, class: "first_name" %>
 									</div>
 								</td>
 								<td>
 									<div class="field">
-										<%= f.label :last_name,'（名）' %>
 										<%= f.text_field :last_name, class: "last_name" %>
 									</div>
 								</td>
@@ -34,13 +32,11 @@
 							<th>フリガナ</th>
 								<td>
 									<div class="field">
-										<%= f.label :first_name_kana,'（セイ）' %>
 										<%= f.text_field :first_name_kana, class: "first_name_kana" %>
 									</div>
 								</td>
 								<td>
 									<div class="field">
-										<%= f.label :last_name_kana,'（メイ）' %>
 										<%= f.text_field :last_name_kana, class: "last_name_kana" %>
 									</div>
 								</td>
@@ -91,8 +87,10 @@
 							<th>会員ステータス</th>
 							<td>
 								<div class="field">
+									<h4>
 									<%= f.radio_button :is_active, :true ,checked: true%>有効
-									<%= f.radio_button :is_active, :false %>退会
+									<%= f.radio_button :is_active, :false %>退会済み
+									</h4>
 								</div>
 							</td>
 						</tr>
