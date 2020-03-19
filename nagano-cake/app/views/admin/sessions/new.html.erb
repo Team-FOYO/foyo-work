@@ -1,5 +1,6 @@
 <h2>Admins Log in</h2>
 
+<% resource = Admin.new unless resource %>
 <%= form_for(resource, as: resource_name, url: new_admin_admin_session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
