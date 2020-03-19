@@ -8,10 +8,8 @@ class Item < ApplicationRecord
 	validates :genre_id ,presence: true
     validates :name ,presence: true
     validates :description ,presence: true
-    validates :image,presence: true
     validates :no_tax ,presence: true
 
-<<<<<<< HEAD
 	def if_is_active
 		hanbai = "販売中"
 		urikire = "売り切れ"
@@ -21,10 +19,10 @@ class Item < ApplicationRecord
 			urikire
 		end
 	end
-=======
 
     def tax
-    	no_tax * 1.1
+    	@tax = no_tax * 1.1
+    	@tax.floor
     end
->>>>>>> e2f242303ad8ae2f21615298ac33dd5d36346715
+
 end
