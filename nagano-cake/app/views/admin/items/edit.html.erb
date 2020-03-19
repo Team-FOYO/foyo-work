@@ -1,1 +1,56 @@
-<h1>管理者の商品編集</h1>
+<div class="container">
+    <div class="row">
+        <div class="itemindex">
+            <div class="col-xs-12">
+				<h1>商品編集</h1>
+								<% if @item.errors.any? %>
+				  <div id="error_explanation" class="alert alert-danger">
+				    <ul>
+				      <% @item.errors.full_messages.each do |message| %>
+				        <li><%= message %></li>
+				      <% end %>
+				    </ul>
+				  </div>
+				<% end %>
+
+				<%= form_for(@item,url:admin_item_path) do |f| %>
+
+					<div class="field">
+						<%= f.label :image_id,'商品画像' %>
+						<%= f.attachment_field :image %>
+					</div>
+
+					<div class="field">
+						<%= f.label :name,'商品名' %>
+						<%= f.text_field :name %>
+					</div>
+
+					<div class="field">
+						<%= f.label :description,'商品説明' %>
+						<%= f.text_area :description %>
+					</div>
+
+					<div class="field">
+						<%= f.label :no_tax,'税抜価格' %>
+						<%= f.text_field :no_tax %>円
+					</div>
+
+					<div>
+						<%= f.label :genre_id,'商品ジャンル' %>
+						<%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい" %>
+					</div>
+					<div>
+						<%= f.label :is_active,'販売ステータス' %>
+						<%= f.select :is_active, [["販売中", "true"], ["売り切れ", "false"]], include_blank: "選択して下さい" %>
+					</div>
+
+					<div>
+					　　　<%= f.submit '編集する',class: "btn btn btn-primary" %>
+					</div>
+
+					<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+

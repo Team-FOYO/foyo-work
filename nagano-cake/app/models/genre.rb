@@ -1,6 +1,6 @@
 class Genre < ApplicationRecord
 
-	has_one :item
+	has_many :items
 
 	validates :name ,presence: true
     # validates :is_active ,presence: true

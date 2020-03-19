@@ -20,16 +20,17 @@
 								<%= item.id %>
 							</td>
 							<td>
-								<%= item.name %>
+								<%= link_to admin_item_path(item) do %>
+								<%= item.name %><% end %>
 							</td>
 							<td>
-								<%= item.description%>
+								<%= item.no_tax%>円
 							</td>
 							<td>
-								<%= item.no_tax%>
+								<%= item.genre.name%>
 							</td>
 							<td>
-								<%= item.genre_id %>
+								<%= item.if_is_active %>
 							</td>
 						</tr>
 						<% end %>

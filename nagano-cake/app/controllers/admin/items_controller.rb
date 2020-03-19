@@ -4,7 +4,8 @@ class Admin::ItemsController < ApplicationController
 	end
 
 	def show
-
+		@item = Item.find(params[:id])
+		@item_tax = @item.no_tax*1.1
 	end
 
 	def new
@@ -12,7 +13,7 @@ class Admin::ItemsController < ApplicationController
 	end
 
 	def edit
-
+		@item = Item.find(params[:id])
 	end
 
 	def create
@@ -20,16 +21,21 @@ class Admin::ItemsController < ApplicationController
       	if @item.save
   			redirect_to admin_items_path
   		else
-  			redirect_back(fallback_location: root_path)
+  			render :new
   		end
 	end
 
 	def update
-
+		@item = Item.find(params[:id])
+	  	if @item.update(item_params)
+	  		redirect_to admin_item_path(@item), notice: "successfully updated!"
+	  	else
+	  		render :edit
+	  	end
 	end
 
 	private
 	def item_params
-		params.require(:item).permit(:genre_id,:name,:description,:image,:no_tax,:is_active)
+		params.require(:item).permit(:name,:description,:image,:no_tax,:genre_id,:is_active)
 	end
 end
