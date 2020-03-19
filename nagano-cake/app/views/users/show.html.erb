@@ -1,3 +1,4 @@
+<div class="user_user">
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12">
@@ -35,6 +36,12 @@
 						<th>メールアドレス</th>
 						<td><%= @user.email %></td>
 					</tr>
+		<!-- User側での退会フラグ確認用（最後に消す） -->
+					<tr>
+						<th>★最後に消す★退会フラグ</th>
+						<td><%= @user.if_is_active%></td>
+					</tr>
+		<!-- User側での退会フラグ確認用（最後に消す） -->
 					</table>
 			       </div>
 		        </div>
@@ -45,4 +52,4 @@
 		</div>
 	</div>
 </div>
-
+</div>
