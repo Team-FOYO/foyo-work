@@ -3,6 +3,7 @@ class Order < ApplicationRecord
 	belongs_to :user
 
 	has_many :order_items
+    has_many :deliveries
 
 	validates :user_id ,presence: true
     validates :payment ,presence: true
@@ -13,4 +14,7 @@ class Order < ApplicationRecord
     validates :charge ,presence: true
     validates :status ,presence: true
 
+    def total_address
+        "#{postal_code} #{address} #{addressee}"
+    end
 end
