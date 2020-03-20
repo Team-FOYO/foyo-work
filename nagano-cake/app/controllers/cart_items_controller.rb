@@ -6,10 +6,10 @@ class CartItemsController < ApplicationController
   	end
 
   	def create
-    	@item = Item.find(params[:id])
-		session[:cart] << @item
+      session[:cart] = [] unless session[:cart]
+		  session[:cart] << @item
     	redirect_to cart_items_path
- 	end
+ 	  end
 
  	def update
     if  @cart_item.update(cart_item_params)
@@ -26,8 +26,5 @@ class CartItemsController < ApplicationController
 	def all_destroy
 	end
 
-private
-def item_params
-    params.require(:item).permit(:name, :image,:no_tax)
- end
+
 end
