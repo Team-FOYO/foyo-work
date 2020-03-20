@@ -1,7 +1,8 @@
-<table>
-	<thead>ジャンル検索</thead>
-	<tbody>
-		<% @genres.each do |genre| %><% end %>
-		<tr><%= link_to genre.name, items_path %></tr>
-	</tbody>
-</table>
+<div class="col-xs-3">
+	<div>
+		<div>ジャンル検索</div>
+		<% genres.each do |genre| %>
+			<div class="genre_search_tr"><%= link_to genre.name, items_path(genre) %></div><!-- 飛び先はid参照のifで分岐 -->
+		<% end %>
+	</div>
+</div>
