@@ -17,4 +17,6 @@ class Order < ApplicationRecord
     def total_address
         "#{postal_code} #{address} #{addressee}"
     end
+
+    scope :created_today, -> { where(created_at: Time.zone.now.all_day) }
 end
