@@ -1,4 +1,4 @@
-<div class="user_user">
+<div class="home-top">
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
@@ -7,10 +7,15 @@
 				</div>
 				<div class="col-xs-9">
 					<div class="row">
-						<div class="top-image">
-							<h3>↓トップページ の見出し画像↓</h3>
-							<%= image_tag 'no_image.jpg' %>
-							<h3>↑トップページ の見出し画像↑</h3>
+						<div class="main-visual">
+						  <div class="main-visual-content">
+						    <p class="main-visual-text">
+						    	ようこそ、NaganoCakeへ！<br>
+								このサイトは、ケーキ販売のECサイトになります。<br>
+								会員でない方も商品の閲覧はできますが、<br>
+								購入には会員登録が必要になります。<br>
+						    </p>
+						  </div>
 						</div>
 					</div>
 					<div class="row">
@@ -22,7 +27,7 @@
 									<% @items.first(4).each do |item| %>
 									<th>
 										<div><%= link_to (item) do %>
-											<%= attachment_image_tag item, :image,size:"200x150", fallback: "no_image.jpg",  size:'200x150' %>
+											<%= attachment_image_tag item, :image,size:"180x110", fallback: "no_image.jpg",  size:'180x110' %>
 												<% end %>
 										<div><%= link_to item.name, item_path(item) %></div>
 										<div>¥<%= item.tax %></div>
