@@ -9,7 +9,6 @@ class Item < ApplicationRecord
     validates :name ,presence: true
     validates :description ,presence: true
     validates :no_tax ,presence: true
-    validates :iamge ,presence: true
 
 	def if_is_active
 		hanbai = "販売中"

@@ -22,7 +22,7 @@
 									<% @items.first(4).each do |item| %>
 									<th>
 										<div><%= link_to (item) do %>
-												<%= image_tag 'no_image.jpg', :size =>'200x100' %><%# attachment_image_tag item, :image, :fill, 200, 100, format: "jpeg" , fallback: "no_image.jpg", size:'200x100' %></div>
+											<%= attachment_image_tag item, :image,size:"200x150", fallback: "no_image.jpg",  size:'200x150' %>
 												<% end %>
 										<div><%= link_to item.name, item_path(item) %></div>
 										<div>¥<%= item.tax %></div>
