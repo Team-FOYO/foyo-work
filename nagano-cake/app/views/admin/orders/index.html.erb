@@ -17,7 +17,7 @@
                     <tr>
                         <th><%= order.created_at %></th>
                         <th><%= order.user %></th>
-                        <!-- eachで出されたorder毎にそのorder.idに属するorder_itemのquanitityカラムの値を合計したものを出したい -->
+                        <!--↓ eachで出されたorder毎にそのorder.idに属するorder_itemのquanitityカラムの値を合計したものを出したい ↓-->
                         <th><%= order.order_item.sum(:quantity) %></th>
                         <th><%= order.status %></th>
                   </tr>

@@ -56,7 +56,7 @@
                         <% @sum = 0 %>
                         <% @order_item.each do |orderitem| %>
                         <tr>
-                            <th><%= orderitem.item %></th>
+                            <th><%= orderitem.item.name %></th>
                             <th><%= orderitem.unit_price %>円</th>
                             <th><%= orderitem.quantity %></th>
                             <th><%= orderitem.subtotal %></th>
@@ -82,7 +82,7 @@
                     <td class="col-xs-7">
                         <% @sum += orderitem.subtotal %>
                         <% @sum %>円</td>
-                        <!-- ↑ここら辺の計算はだいぶ不安あり↑ -->
+                        <!-- ↑ここら辺の計算はだいぶ不安あり↑ subtotalはorder_item.model.rbで定義-->
                 </tr>
                 <tr>
                     <th class="col-xs-5">
