@@ -1,17 +1,52 @@
-<!-- ジャンル検索部分テンプレート -->
-<%# render 'genre_search', genre: @genre %><!-- うまくいってない -->
+<div class="container">
+	<div class="row">
+		<!-- ジャンル検索部分テンプレート -->
+		<%= render 'admin/genres/genre_search', genres: @genres %>
 
-<p><span style="font-size:2em;">会員者の商品一覧 </span>(全<%= @items.count %>件)</p>
-<table>
-	<tbody>
-		<tr><!-- 画像の折り返しはbootstrapで領域を指定すれば実現か？ -->
-			<% @items.each do |item| %>
-			<th>
-				<div><%= image_tag 'no_image.jpg', :size =>'200x100' %><%# attachment_image_tag item, :image, :fill, 200, 100, format: "jpeg" , fallback: "no_image.jpg", size:'200x100' %></div>
-				<div><%= item.name %></div>
-				<div>¥<%= item.tax %></div>
-			</th>
-			<% end %>
-		</tr>
-	</tbody>
-</table>
+		<!-- 全商品一覧表示 -->
+		<% if @genre.nil? %>
+		<p><span style="font-size:2em;">会員の商品一覧 </span>(全<%= @items.count %>件)</p>
+		<div class="col-xs-9">
+			<table>
+				<tbody>
+					<tr><!-- 画像の折り返しはcss -->
+						<% @items.each do |item| %>
+						<th>
+							<div><%= link_to (item) do %>
+									<%= image_tag 'no_image.jpg', :size =>'200x100' %><%# attachment_image_tag item, :image, :fill, 200, 100, format: "jpeg" , fallback: "no_image.jpg", size:'200x100' %></div>
+									<% end %>
+							<div><%= link_to item.name, item_path(item) %></div>
+							<div>¥<%= item.tax %></div>
+						</th>
+						<% end %>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<% else %>
+
+		<!-- ジャンルごとの一覧表示 -->
+		<p><span style="font-size:2em;"><%= @genre.name %>の商品一覧 </span>(全<%= @genres.count %>件)</p>
+		<div class="col-xs-9">
+			<table>
+				<tbody>
+					<tr><!-- 画像の折り返しはcss -->
+						<% @genre.items.each do |item| %>
+						<th>
+							<div><%= link_to (genre.item) do %>
+									<%= image_tag 'no_image.jpg', :size =>'200x100' %><%# attachment_image_tag genre.item, :image, :fill, 200, 100, format: "jpeg" , fallback: "no_image.jpg", size:'200x100' %></div>
+									<% end %>
+							<div><%= link_to genre.item.name, item_path(item) %></div>
+							<div>¥<%= genre.item.tax %></div>
+						</th>
+						<% end %>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<% end %>
+
+	</div>
+</div>
