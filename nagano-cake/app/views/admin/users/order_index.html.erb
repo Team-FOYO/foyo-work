@@ -1,0 +1,29 @@
+<div class="new">
+    <div class="container">
+        <div class="row">
+            <h3><span style="background-color:#e9e9e9;">注文履歴一覧</span></h3><br>
+            <!-- 注文履歴詳細テーブル -->
+            <table class="table">
+                <thead style="background-color:#e9e9e9;">
+                    <tr>
+                        <th class="col-xs-3">購入日時</th>
+                        <th class="col-xs-3">購入者</th>
+                        <th class="col-xs-3">注文個数</th>
+                        <th class="col-xs-3">注文ステータス</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @orders.each do |order| %>
+                    <tr>
+                        <th><%= order.created_at %></th>
+                        <th><%= order.user %></th>
+                        <!-- eachで出されたorder毎にそのorder.idに属するorder_itemのquanitityカラムの値を合計したものを出したい -->
+                        <th><%= order.order_item.sum(:quantity) %></th>
+                        <th><%= order.status %></th>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
