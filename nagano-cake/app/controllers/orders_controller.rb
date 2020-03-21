@@ -9,6 +9,10 @@ class OrdersController < ApplicationController
 	end
 
     def create
+    	@cart_item = CartItem.new(cart_item_params)
+    	@cart_item.user_id = current_user.id
+    	@cart_item.save
+    	redirect_to orders_path
     end
 
 	def complete
