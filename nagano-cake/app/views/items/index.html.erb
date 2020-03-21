@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container itemindex">
 	<div class="row">
 		<!-- ジャンル検索部分テンプレート -->
 		<%= render 'admin/genres/genre_search', genres: @genres %>
@@ -8,13 +8,19 @@
 		<p><span style="font-size:2em;">会員の商品一覧 </span>(全<%= @items.count %>件)</p>
 			<div class="index_div">
 				<% @items.each do |item| %>
-					<div class="col-xs-3 item_div">
-						<%= link_to (item) do %>
-							<%= image_tag 'no_image.jpg' %><%# attachment_image_tag item, :image, format: "jpeg" , fallback: "no_image.jpg" %>
-							<% end %>
-						<%= link_to item.name, item_path(item) %><br>
-						¥<%= item.tax %><br>
-					</div>
+					<!-- 有効、無効で表示する、しないを分岐 -->
+					<% if true == item.is_active %>
+
+						<div class="col-xs-3 item_div">
+							<%= link_to (item) do %>
+								<%= attachment_image_tag item, :image, format: "jpeg" , fallback: "no_image.jpg" %>
+								<% end %>
+							<%= link_to item.name, item_path(item) %><br>
+							¥<%= item.tax %><br>
+						</div>
+
+					<% end %>
+
 				<% end %>
 			</div>
 		</div>
