@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
 	def order_index
 		@user = User.find(params[:id])
-		@orders = Order.find(user_id == @user.id)
+		@orders = Order.where(user_id: '@user.id')
 	end
 
 	def index
