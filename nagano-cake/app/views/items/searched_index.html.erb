@@ -5,16 +5,22 @@
 
 		<!-- ジャンル検索後の一覧表示 -->
 		<div class="col-xs-10">
-		<p><span style="font-size:2em;"><%= @genre.name %>の商品一覧 </span>(全<%= @genre.items.count %>件)</p>
+		<p><span><%= @genre.name %>の商品一覧 </span>(全<%= @genre.items.where(is_active: 'true').count %>件)</p>
 			<div class="index_div">
 				<% @genre.items.each do |item| %>
-					<div class="col-xs-3 item_div">
-						<%= link_to (item) do %>
-							<%= image_tag 'no_image.jpg' %><%# attachment_image_tag item, :image, format: "jpeg" , fallback: "no_image.jpg" %>
-							<% end %>
-						<%= link_to item.name, item_path(item) %><br>
-						¥<%= item.tax %><br>
-					</div>
+					<!-- 有効、無効で表示する、しないを分岐 -->
+					<% if true == item.is_active %>
+
+						<div class="col-xs-3 item_div">
+							<%= link_to (item) do %>
+								<% attachment_image_tag item, :image, format: "jpeg" , fallback: "no_image.jpg" %>
+								<% end %>
+							<%= link_to item.name, item_path(item) %><br>
+							¥<%= item.tax %><br>
+						</div>
+
+					<% end %>
+
 				<% end %>
 			</div>
 		</div>
