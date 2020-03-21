@@ -8,21 +8,32 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th scope="col-xs-6">商品名</th>
-                                <th scope="col-xs-2">単価(税込)</th>
-                                <th scope="col-xs-2">数量</th>
-                                <th scope="col-xs-2">小計</th>
+                                <th class="col-xs-6">商品名</th>
+                                <th class="col-xs-2">単価(税込)</th>
+                                <th class="col-xs-2">数量</th>
+                                <th class="col-xs-2">小計</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <% @sum = 0 %>
+                            <% @cart_item.each do |cart_item| %>
                             <tr>
                                 <td>
-                                    <a>商品画像</a><a>イチゴのショートケーキ</a>
+                                    <%= attachment_image_tag cart_item.item,:image,size:"50x50"%>
+                                    <%= cart_item.item.name %>
                                 </td>
-                                <td>1,110</td>
-                                <td>個数</td>
-                                <td>1,100</td>
+                                <td>
+                                    <%= cart_item.item.tax%>
+                                </td>
+                                <td>
+                                    <%= cart_item.quantity%>
+                                </td>
+                                <td>
+                                    <%= cart_item.item.tax*cart_item.quantity %>
+                                </td>
                             </tr>
+                            <% @sum += cart_item.item.tax*cart_item.quantity %>
+                            <% end %>
                         </tbody>
                     </table>
                 </div>
@@ -31,21 +42,29 @@
                     <table class="table table-bordered">
                         <tr>
                             <th>送料</th>
-                            <td></td>
+                            <td>
+                                <%= @delivery_charge%>
+                            </td>
                         </tr>
                         <tr>
                             <th>商品合計</th>
-                            <td></td>
+                            <td>
+                                <%= @sum%>
+                            </td>
                         </tr>
                         <tr>
                             <th>請求金額</th>
-                            <td></td>
+                            <td>
+                                <%= @sum + @delivery_charge%>
+                            </td>
                         </tr>
                     </table>
                 </div>
-                <h4>支払方法</h4><a>ここに支払い方法反映</a>
-                <h4>お届け先</h4><a>ここにお届け先反映</a><br>
                 <div class="col-xs-2"></div>
+                <div class="col-xs-12">
+                    <h4>支払方法</h4><a><%= @order.payment%></a>
+                    <h4>お届け先</h4><a><%= @order.address%></a><br>
+                </div>
                 <div class="col-xs-8">
                     <button type="button" class="btn btn-success">購入を確定する</button>
                 </div>
