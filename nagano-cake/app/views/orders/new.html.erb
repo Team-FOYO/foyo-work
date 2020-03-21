@@ -2,43 +2,42 @@
     <div class="container">
         <div class="row">
             <h3><span style="background-color:#e9e9e9;">注文情報入力</span></h3><br>
-            <div class="col-xs-12">
-                <h4><strong>支払方法</strong></h4>
-                <%= check_box_tag :payment %>
-                <%= label_tag :payment, "クレジットカード" %><br>
-                <%= check_box_tag :payment %>
-                <%= label_tag :payment, "銀行振込" %><br>
-            </div>
-            <div class="col-xs-12">
-                <h4><strong>お届け先</strong></h4>
-                <%= check_box_tag :total_adress %>
-                <%= label_tag :total_adress, "ご自身の住所" %><br>
-                <%= current_user.postcode %>
-                <%= current_user.address %><br>
-                <%= current_user.full_name %><br>
-                <%= check_box_tag :total_adress %>
-                <%= label_tag :total_adress, "登録済み住所から選択" %><br>
-                <%= form_for @order do |f|%>
-                <%= f.select :total_address, options_from_collection_for_select(Delivery.all, :id, :total_address), multiple: true%>
-                <% end %>
-                <div class="row">
-                    <%= check_box_tag :total_adress %>
-                    <%= form_for @order do |f|%>
-                    <div class="col-xs-12">
-                        <h4 class="col-xs-3">郵便番号（ハイフンなし）</h4>
-                        <%= f.text_field :postal_code, class: 'col-xs-6'%>
-                    </div>
-                    <div class="col-xs-12">
-                        <h4 class="col-xs-3">住所</h4>
-                        <%= f.text_field :address ,class: 'col-xs-6'%>
-                    </div>
-                    <div class="col-xs-12">
-                        <h4 class="col-xs-3">宛名</h4>
-                        <%= f.text_field :addressee ,class: 'col-xs-6'%>
-                    </div>
-                    <% end %>
+            <%= form_for @order do |f|%>
+                <div class="col-xs-12">
+                    <h4><strong>支払方法</strong></h4>
+                    <%= f.check_box :payment %>
+                    <%= f.label :payment, "クレジットカード" %><br>
+                    <%= f.check_box :payment %>
+                    <%= f.label :payment, "銀行振込" %><br>
                 </div>
-            </div>
+                <div class="col-xs-12">
+                    <h4><strong>お届け先</strong></h4>
+                    <%= f.check_box :address %>
+                    <%= f.label :address, "ご自身の住所" %><br>
+                    <%= current_user.postcode %>
+                    <%= current_user.address %><br>
+                    <%= current_user.full_name %><br>
+                    <%= f.check_box :address %>
+                    <%= f.label :total_adress, "登録済み住所から選択" %><br>
+                    <%= f.select :total_address, options_from_collection_for_select(Delivery.all, :id, :total_address), multiple: true%>
+                    <div class="row">
+                        <%= f.check_box :address %>
+                        <div class="col-xs-12">
+                            <h4 class="col-xs-3">郵便番号（ハイフンなし）</h4>
+                            <%= f.text_field :postal_code, class: 'col-xs-6'%>
+                        </div>
+                        <div class="col-xs-12">
+                            <h4 class="col-xs-3">住所</h4>
+                            <%= f.text_field :address ,class: 'col-xs-6'%>
+                        </div>
+                        <div class="col-xs-12">
+                            <h4 class="col-xs-3">宛名</h4>
+                            <%= f.text_field :addressee ,class: 'col-xs-6'%>
+                        </div>
+                    </div>
+                </div>
+                <%= f.submit '確認画面へ進む',confirm_orders_path%>
+            <% end %>
         </div>
     </div>
 </div>
