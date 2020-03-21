@@ -32,6 +32,11 @@ ActiveRecord::Schema.define(version: 2020_03_21_051735) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "deliveries", force: :cascade do |t|
     t.integer "user_id"
     t.integer "postal_code"
@@ -72,7 +77,7 @@ ActiveRecord::Schema.define(version: 2020_03_21_051735) do
   create_table "orders", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "payment", default: 0, null: false
-    t.string "postal_code", null: false
+    t.integer "postal_code", null: false
     t.text "address", null: false
     t.string "addressee", null: false
     t.integer "delivery_charge", null: false
