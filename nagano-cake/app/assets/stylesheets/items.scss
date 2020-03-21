@@ -2,6 +2,34 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+<<<<<<< HEAD
 .itemindex{
 	margin-top: 50px;
+=======
+
+// item全体
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+
+// 2個index
+.item_div {
+	margin: 1em 0;
+}
+
+// show
+.item_name {
+	font-size: 2em;
+}
+
+.item_description {
+	min-height:3em ;
+	max-height:10em ;
+}
+
+span {
+	font-size: 2em;
+>>>>>>> origin/genre_view_controller
 }
