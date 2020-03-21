@@ -1,9 +1,13 @@
 class ItemsController < ApplicationController
 
 	def index
-		@items = Item.all
 		@genres = Genre.all
+		@items = Item.all
+	end
+
+	def searched_index
 		@genre = Genre.find(params[:id])
+		@genres = Genre.all
 	end
 
 	def show
