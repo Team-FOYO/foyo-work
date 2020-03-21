@@ -2,6 +2,7 @@ class CartItemsController < ApplicationController
 
 	def index
     	@cart_item = CartItem.where(user_id: current_user.id)
+      @user = current_user
   end
 
   def create
