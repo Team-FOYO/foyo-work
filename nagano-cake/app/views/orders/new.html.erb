@@ -12,29 +12,25 @@
             </div>
             <div class="col-xs-12">
                 <h4><strong>お届け先</strong></h4>
+                <%= f.radio_button :address, :user_address,checked_value: "true", unchecked_value: "false"%>
+                    <h4>ご自身の住所<h4/>
                 <%= f.radio_button :address,{},checked_value: "true",unchecked_value: "false" %>
-                <%= f.label :address, "ご自身の住所" %><br>
-                <%= current_user.postcode %>
-                <%= current_user.address %><br>
-                <%= current_user.full_name %><br>
+                    <%= f.select :address, options_from_collection_for_select(Delivery.all, :id, :total_address), multiple: true%>
+                    <div class="row">
                 <%= f.radio_button :address,{},checked_value: "true",unchecked_value: "false" %>
-                <%= f.label :total_adress, "登録済み住所から選択" %><br>
-                <%= f.select :address, options_from_collection_for_select(Delivery.all, :id, :total_address), multiple: true%>
-                <div class="row">
-                    <%= f.radio_button :address,{},checked_value: "true",unchecked_value: "false" %>
-                    <div class="col-xs-12">
-                        <h4 class="col-xs-3">郵便番号（ハイフンなし）</h4>
-                        <%= f.text_field :postal_code, class: 'col-xs-6'%>
+                        <div class="col-xs-12">
+                            <h4 class="col-xs-3">郵便番号（ハイフンなし）</h4>
+                            <%= f.text_field :postal_code, class: 'col-xs-6'%>
+                        </div>
+                        <div class="col-xs-12">
+                            <h4 class="col-xs-3">住所</h4>
+                            <%= f.text_field :address ,class: 'col-xs-6'%>
+                        </div>
+                        <div class="col-xs-12">
+                            <h4 class="col-xs-3">宛名</h4>
+                            <%= f.text_field :addressee ,class: 'col-xs-6'%>
+                        </div>
                     </div>
-                    <div class="col-xs-12">
-                        <h4 class="col-xs-3">住所</h4>
-                        <%= f.text_field :address ,class: 'col-xs-6'%>
-                    </div>
-                    <div class="col-xs-12">
-                        <h4 class="col-xs-3">宛名</h4>
-                        <%= f.text_field :addressee ,class: 'col-xs-6'%>
-                    </div>
-                </div>
             </div>
             <%= f.submit '確認画面へ進む'%>
             <% end %>
