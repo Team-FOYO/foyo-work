@@ -14,7 +14,7 @@ img {
 	height: auto;
 }
 
-span {
+.item_span {
 	font-size: 2em;
 }
 
@@ -22,13 +22,6 @@ span {
 // admin_index
 .table {
 	background-color: #fff;
-}
-
-.new_button {
-	font-size: 3em;
-	color: #fff;
-	background-color: gray;
-	border-radius: 1em;
 }
 
 button.new_button {
@@ -40,11 +33,9 @@ button.new_button {
 	margin: 0.2em;
 }
 
-.table {
-	border: solid 1px;
-	border-color: silver;
-	margin: 0 3em;
+.item_index_table {
 }
+
 
 // item_2index
 .item_div {

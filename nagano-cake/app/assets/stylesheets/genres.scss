@@ -3,18 +3,22 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.div_table {
+//genre_search
+.genre_table {
+	background-color: #fff;
 	border-left: solid 1px;
 	border-right: solid 1px;
 	border-bottom: solid 1px;
+	border-color: gray;
 }
-.div_thead {
-	background-color: #fffaf0;
+.genre_thead {
+	background-color: #faf0e6;
 	border-top: solid 1px;
 	border-bottom: solid 1px;
 	text-align: center;
+	border-color: gray;
 }
 
-.div_tr {
-	margin: 5px 10px;
+.genre_tr {
+	margin: 0.5em;
 }

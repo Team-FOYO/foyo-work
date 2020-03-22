@@ -1,54 +1,77 @@
-<div class="user_user">
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12">
-			<h3>マイページ</h3>
-			<h4>登録情報
-			<% if @user == current_user %>
-				<%= link_to '編集する',edit_user_path(@user), class: "btn btn-primary " %>
-				<button class="btn btn-primary">パスワードを編集する</button>
-				<% end %>
-			</h4>
+			<h4><span style="background-color:#e9e9e9;">マイページ</span></h4>
+			  <div class="row">
+		        <table class="col-xs-6 user-table">
+		        	<tbody>
+		        		<tr>
+		        			<th class="col-xs-2"><h4><strong>登録情報</strong></th>
+		        			<td class="col-xs-3">
+								<% if @user == current_user %>
+								<%= link_to '編集する',edit_user_path(@user), class: "btn btn-primary " %><% end %>
+							</td>
+							<td class="col-xs-3">
+								<button class="btn btn-primary">パスワードを編集する</button>
+							</td>
+		        		</tr>
+		        	</tbody>
+		        </table>
+		    </div>
 			<div class="row">
 				<div class="col-xs-8">
-				   <table class="table">
+				   <table class="table table-bordered">
 					<tr>
-						<th>氏名</th>
-						<td><%= @user.first_name%><%= @user.last_name%></td>
+						<th class="col-xs-2" style="background-color:#e9e9e9;">氏名</th>
+						<td class="col-xs-4"><%= @user.first_name%><%= @user.last_name%></td>
 					</tr>
 					<tr>
-						<th>カナ</th>
-						<td><%= @user.first_name_kana%><%= @user.last_name_kana%></td>
+						<th class="col-xs-2" style="background-color:#e9e9e9;">カナ</th>
+						<td class="col-xs-4"><%= @user.first_name_kana%><%= @user.last_name_kana%></td>
 					</tr>
 					<tr>
-						<th>郵便番号</th>
-						<td><%= @user.postcode %></td>
+						<th class="col-xs-2" style="background-color:#e9e9e9;">郵便番号</th>
+						<td class="col-xs-4"><%= @user.postcode %></td>
 					</tr>
 					<tr>
-						<th>住所</th>
-						<td><%= @user.address %></td>
+						<th class="col-xs-2" style="background-color:#e9e9e9;">住所</th>
+						<td class="col-xs-4"><%= @user.address %></td>
 					</tr>
 					<tr>
-						<th>電話番号</th>
-						<td><%= @user.phone_number %></td>
+					 	<th class="col-xs-2" style="background-color:#e9e9e9;">電話番号</th>
+						<td class="col-xs-4"><%= @user.phone_number %></td>
 					</tr>
 					<tr>
-						<th>メールアドレス</th>
-						<td><%= @user.email %></td>
-					</tr>
-		<!-- User側での退会フラグ確認用（最後に消す） -->
-					<tr>
-						<th>★最後に消す★退会フラグ</th>
-						<td><%= @user.if_is_active%></td>
+						<th class="col-xs-2" style="background-color:#e9e9e9;">メールアドレス</th>
+						<td class="col-xs-4"><%= @user.email %></td>
 					</tr>
 		<!-- User側での退会フラグ確認用（最後に消す） -->
-					</table>
-			       </div>
+					<tr>
+						<th class="col-xs-2" style="background-color:red;">★最後に消す★退会フラグ</th>
+						<td class="col-xs-4"><%= @user.if_is_active%></td>
+					</tr>
+		<!-- User側での退会フラグ確認用（最後に消す） -->
+				   </table>
 		        </div>
-				<h4>配送先
-				<%= link_to '一覧を見る',deliveries_path, class: "btn btn-primary " %></h4>
-				<h4>注文履歴
-				<%= link_to '一覧を見る',orders_path, class: "btn btn-primary " %></h4>
+		        <div>
+		        <table class="col-xs-8">
+		        	<tbody>
+		        		<tr>
+		        			<th class="col-xs-2"><h4><strong>配送先</strong></h4></th>
+		        			<td>
+								<%= link_to '一覧を見る',deliveries_path, class: "btn btn-primary " %>
+							</td>
+		        		</tr>
+		        		<tr>
+		        			<th class="col-xs-2"><h4><strong>注文履歴</strong></h4></th>
+		        			<td>
+								<%= link_to '一覧を見る',orders_path, class: "btn btn-primary " %>
+							</td>
+		        		</tr>
+		        	</tbody>
+		        </table>
+		    </div>
+		   </div>
 		</div>
 	</div>
 </div>
