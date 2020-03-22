@@ -32,9 +32,11 @@
 header {
 	a {
 	color: Wheat;
+	background-color: SaddleBrown;
 }
 	li {
-	font-size: 20px
+	font-size: 15px;
+	padding: 4px;
 }
 	ul {
 	padding-top: 20px;
@@ -58,3 +60,10 @@ footer {
 }
 
 
+.logo {
+	width: 130px;
+	height: 130px;
+	position: absolute;
+	top: 30px;
+	left: 50px;
+}
