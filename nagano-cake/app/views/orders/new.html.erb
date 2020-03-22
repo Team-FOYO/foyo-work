@@ -2,45 +2,38 @@
     <div class="container">
         <div class="row">
             <h3><span style="background-color:#e9e9e9;">注文情報入力</span></h3><br>
-            
-                <div class="col-xs-12">
-                    <h3><strong>支払方法</strong></h3>
-                    <%= check_box_tag :payment, 0 %>
-                    <%= label_tag :payment, "クレジットカード" %><br>
-                    <%= check_box_tag :payment, 1 %>
-                    <%= label_tag :payment, "銀行振込" %><br>
-                </div>
-                
-                <div class="col-xs-12">
-                    <h3><strong>お届け先</strong></h3>
-                    <%= check_box_tag :order,checked_value: "true",unchecked_value: "false" %>
-                    <h4>ご自身の住所</h4><br>
-                    <%= label_tag :postal_code, current_user.postcode %>
-                    <%= label_tag :address, current_user.address %><br>
-                    <%= label_tag :addressee, current_user.full_name %>
-
-                    <%= check_box_tag :order, checked_value: "true",unchecked_value: "false" %>
-                    <h4>登録済み住所から選択</h4><br>
-                    <%= select_tag :order, options_from_collection_for_select(Delivery.all, :id, :total_address), multiple: true%>
-                    
-                    
-                        <%= check_box_tag :order,checked_value: "true",unchecked_value: "false" %>
-                        <h4>新しお届け先</h4><br>
+            <%= form_for @order do |f|%>
+            <div class="col-xs-12">
+                <h4><strong>支払方法</strong></h4>
+                <%= f.radio_button :payment, :クレジットカード, checked: "checked"%>
+                <%= f.label :payment, "クレジットカード" %><br>
+                <%= f.radio_button :payment, :銀行振込%>
+                <%= f.label :payment, "銀行振込" %><br>
+            </div>
+            <div class="col-xs-12">
+                <h4><strong>お届け先</strong></h4>
+                <%= f.radio_button :address, :user_address,checked_value: "true", unchecked_value: "false"%>
+                    <h4>ご自身の住所<h4/>
+                <%= f.radio_button :address,{},checked_value: "true",unchecked_value: "false" %>
+                    <%= f.select :address, options_from_collection_for_select(Delivery.all, :id, :total_address), multiple: true%>
+                    <div class="row">
+                <%= f.radio_button :address,{},checked_value: "true",unchecked_value: "false" %>
                         <div class="col-xs-12">
                             <h4 class="col-xs-3">郵便番号（ハイフンなし）</h4>
-                            <%= text_field_tag :postal_code%>
+                            <%= f.text_field :postal_code, class: 'col-xs-6'%>
                         </div>
                         <div class="col-xs-12">
                             <h4 class="col-xs-3">住所</h4>
-                            <%= text_field_tag :address %>
+                            <%= f.text_field :address ,class: 'col-xs-6'%>
                         </div>
                         <div class="col-xs-12">
                             <h4 class="col-xs-3">宛名</h4>
-                            <%= text_field_tag :addressee %>
+                            <%= f.text_field :addressee ,class: 'col-xs-6'%>
                         </div>
                     </div>
-                </div>
-                <%= link_to '確認画面へ進む',confirm_orders_path, order: postal_code%>
+            </div>
+            <%= f.submit '確認画面へ進む'%>
+            <% end %>
         </div>
     </div>
 </div>

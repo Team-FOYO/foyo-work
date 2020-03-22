@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :deliveries, only: [:index, :edit, :create, :update, :destroy]
   resources :orders, only: [:index, :show, :new, :create] do
     collection do
+      post 'confirm'
       get 'confirm'
       get 'complete'
     end

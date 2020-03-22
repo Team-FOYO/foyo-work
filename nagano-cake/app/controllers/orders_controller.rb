@@ -16,7 +16,11 @@ class OrdersController < ApplicationController
     	@order = Order.new(order_params)
     	@order.user_id = current_user.id
     	@order.save
-    	redirect_to confirm_orders_path
+    	if @order.save
+    		redirect_to confirm_orders_path
+    	else
+    		redirect_to root_path
+    	end
     end
 
 	def complete
@@ -30,6 +34,6 @@ class OrdersController < ApplicationController
 
 	private
 	def order_params
-    	params.require(:order).permit(:address,:payment)
+    	params.permit(:address,:payment,)
   	end
 end
