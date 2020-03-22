@@ -3,92 +3,87 @@
 	<div class="row">
 		<div class="col-xs-12">
 			<h4>登録情報編集</h4>
-				<%= form_for(@user) do |f| %>
-				<div class="form-group">
-					<table class="table">
-						<div class="form-inline">
+			<div class="col-xs-8">
+				<table class="table user-table">
+					<div class="form-group">
+						<%= form_for(@user) do |f| %>
+						<form class="form-inline">
 							<tr>
-								<th>名前</th>
+								<th class="col-xs-2">名前</th>
 								<td>
-									<div class="field">
-										<%= f.label :first_name,'（姓）' %>
-										<%= f.text_field :first_name, class: "first_name" %>
-									</div>
+									<%= f.label :first_name,'（姓）' %>
+								</td>
+								<td><%= f.text_field :first_name, class: "form-control" %>
 								</td>
 								<td>
-									<div class="field">
-										<%= f.label :last_name,'（名）' %>
-										<%= f.text_field :last_name, class: "last_name" %>
-									</div>
-								</td>
-							</tr>
-						</div>
-					<div class="form-inline">
-						<tr>
-							<th>フリガナ</th>
-								<td>
-									<div class="field">
-										<%= f.label :first_name_kana,'（セイ）' %>
-										<%= f.text_field :first_name_kana, class: "first_name_kana" %>
-									</div>
+									<%= f.label :last_name,'（名）' %>
 								</td>
 								<td>
-									<div class="field">
-										<%= f.label :last_name_kana,'（メイ）' %>
-										<%= f.text_field :last_name_kana, class: "last_name_kana" %>
-									</div>
+									<%= f.text_field :last_name, class: "form-control" %>
 								</td>
 							</tr>
-						</div>
-					<div class="form-inline">
+						</form>
+					<form class="form-inline">
 						<tr>
-							<th>メールアドレス</th>
+							<th class="col-xs-2">フリガナ</th>
+								<td>
+									<%= f.label :first_name_kana,'（セイ）' %>
+								</td>
+								<td>
+									<%= f.text_field :first_name_kana, class: "form-control" %>
+								</td>
+								<td>
+									<%= f.label :last_name_kana,'（メイ）' %>
+								</td>
+								<td>
+									<%= f.text_field :last_name_kana, class: "form-control" %>
+								</td>
+							</tr>
+					</form>
+					<form class="form-inline">
+						<tr>
+							<th class="col-xs-2">メールアドレス</th>
+							<td></td>
 							<td>
-								<div class="field">
-									<%= f.email_field :email, class: "email" %>
-								</div>
+								<%= f.email_field :email, class: "form-control" %>
 							</td>
 						</tr>
-					</div>
-
-					<div class="form-inline">
+					</form>
+					<form class="form-inline">
 						<tr>
-							<th>郵便番号</th>
+							<th class="col-xs-2">郵便番号</th>
+							<td></td>
 							<td>
-								<div class="field">
-									<%= f.text_field :postcode, class: "postcode" %>
-								</div>
+								<%= f.text_field :postcode, class: "form-control" %>
 							</td>
 						</tr>
-					</div>
-					<div class="form-inline">
+					</form>
+					<form class="form-inline">
 						<tr>
-							<th>住所</th>
-							<td>
-								<div class="field">
-									<%= f.text_field :address, class: "address" %>
-								</div>
+							<th class="col-xs-2">住所</th>
+							<td></td>
+							<td colspan="3">
+								<%= f.text_field :address, class: "form-control" %>
 							</td>
 						</tr>
-					</div>
-					<div class="form-inline">
+					</form>
+					<form class="form-inline">
 						<tr>
-							<th>電話番号</th>
+							<th class="col-xs-2">電話番号</th>
+							<td></td>
 							<td>
-								<div class="field">
-									<%= f.text_field :phone_number, class: "phone_number" %>
-								</div>
+								<%= f.text_field :phone_number, class: "form-control" %>
 							</td>
 						</tr>
-					</div>
-			</table>
-
-				<div class="actions">
-					<%= f.submit "編集内容を保存する" ,class: "btn btn-primary "%>
-					<%= link_to '退会する',leave_users_path, class: "btn btn-danger" %>
+					</form>
 				</div>
+				</table>
+				<div class="btn">
+					<%= f.submit "編集内容を保存する" ,class: "btn btn-primary "%>
+					<%= link_to '退会する',leave_users_path, class: "btn btn-sm btn-danger" %>
 				</div>
 				<% end %>
+			</div>
 			</div>
 		</div>
 	</div>
