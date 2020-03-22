@@ -2,14 +2,56 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.user_user{
-	margin-top: 50px;
-}
 .user-table{
+	th{
+		color: SaddleBrown;
+	}
+	margin-bottom: 10px;
+}
+.user-table-line{
+	th{
+		color: SaddleBrown;
+	}
+	border:1px solid SaddleBrown;
 	margin-bottom: 10px;
 }
 .leave-confirm-message{
 	width: 100%;
 	height: 250px;
 	text-align: center;
+}
+.user-title{
+	font-size: 2em;
+	color: SaddleBrown;
+}
+
+// ボタンの色　Bootstrap の　btn-primary　から btn-brown　に変えてね
+
+.btn-brown,
+.btn-brown.disabled, .btn-brown:disabled {
+  color: Wheat;
+  background-color: SaddleBrown;
+  border-color: SaddleBrown;
+}
+
+/* focusされた時の枠線の色 */
+.btn-brown:focus, .btn-brown.focus,
+.btn-brown:not(:disabled):not(.disabled):active:focus, .btn-brown:not(:disabled):not(.disabled).active:focus,
+.show > .btn-brown.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(189, 183, 107,0.5)
+}
+
+/* hover時（マウスカーソルを重ねた時）の色（通常より濃いor暗めの色を指定） */
+.btn-brown:hover {
+  color: SaddleBrown;
+  background-color: Wheat;
+  border-color: Wheat;
+}
+
+/* active時の色（hover時と同等かさらに濃いor暗めの色を指定） */
+.btn-brown:not(:disabled):not(.disabled):active, .btn-brown:not(:disabled):not(.disabled).active,
+.show > .btn-brown.dropdown-toggle {
+  color: SaddleBrown;
+  background-color: Wheat;
+  border-color: Wheat;
 }

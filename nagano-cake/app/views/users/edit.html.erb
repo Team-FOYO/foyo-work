@@ -1,8 +1,7 @@
-<div class="user_user">
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12">
-			<h4>登録情報編集</h4>
+			<p class="user-title">登録情報編集</p>
 			<div class="col-xs-8">
 				<%= form_for(@user) do |f| %>
 					<div class="form-group">
@@ -67,7 +66,7 @@
 						<tr>
 							<td colspan="2"></td>
 							<td colspan="2">
-								<%= f.submit "編集内容を保存する" ,class: "btn btn-primary" %>
+								<%= f.submit "編集内容を保存する" ,class: "btn btn-brown" %>
 							</td>
 							<td>
 								<%= link_to '退会する',leave_users_path, class: "btn btn-danger" %>

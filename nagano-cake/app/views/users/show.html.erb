@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12">
-			<h4><span style="background-color:#e9e9e9;">マイページ</span></h4>
+			<p class="user-title">マイページ</p>
 			  <div class="row">
 		        <table class="col-xs-6 user-table">
 		        	<tbody>
@@ -9,10 +9,10 @@
 		        			<th class="col-xs-2"><h4><strong>登録情報</strong></th>
 		        			<td class="col-xs-3">
 								<% if @user == current_user %>
-								<%= link_to '編集する',edit_user_path(@user), class: "btn btn-primary " %><% end %>
+								<%= link_to '編集する',edit_user_path(@user), class: "btn btn-brown " %><% end %>
 							</td>
 							<td class="col-xs-3">
-								<button class="btn btn-primary">パスワードを編集する</button>
+								<button class="btn btn-brown">パスワードを編集する</button>
 							</td>
 		        		</tr>
 		        	</tbody>
@@ -20,29 +20,29 @@
 		    </div>
 			<div class="row">
 				<div class="col-xs-8">
-				   <table class="table table-bordered">
+				   <table class="table table-bordered user-table-line">
 					<tr>
-						<th class="col-xs-2" style="background-color:#e9e9e9;">氏名</th>
+						<th class="col-xs-2">氏名</th>
 						<td class="col-xs-4"><%= @user.first_name%><%= @user.last_name%></td>
 					</tr>
 					<tr>
-						<th class="col-xs-2" style="background-color:#e9e9e9;">カナ</th>
+						<th class="col-xs-2">カナ</th>
 						<td class="col-xs-4"><%= @user.first_name_kana%><%= @user.last_name_kana%></td>
 					</tr>
 					<tr>
-						<th class="col-xs-2" style="background-color:#e9e9e9;">郵便番号</th>
+						<th class="col-xs-2">郵便番号</th>
 						<td class="col-xs-4"><%= @user.postcode %></td>
 					</tr>
 					<tr>
-						<th class="col-xs-2" style="background-color:#e9e9e9;">住所</th>
+						<th class="col-xs-2">住所</th>
 						<td class="col-xs-4"><%= @user.address %></td>
 					</tr>
 					<tr>
-					 	<th class="col-xs-2" style="background-color:#e9e9e9;">電話番号</th>
+					 	<th class="col-xs-2">電話番号</th>
 						<td class="col-xs-4"><%= @user.phone_number %></td>
 					</tr>
 					<tr>
-						<th class="col-xs-2" style="background-color:#e9e9e9;">メールアドレス</th>
+						<th class="col-xs-2">メールアドレス</th>
 						<td class="col-xs-4"><%= @user.email %></td>
 					</tr>
 		<!-- User側での退会フラグ確認用（最後に消す） -->
@@ -54,18 +54,18 @@
 				   </table>
 		        </div>
 		        <div>
-		        <table class="col-xs-8">
+		        <table class="col-xs-8 user-table">
 		        	<tbody>
 		        		<tr>
 		        			<th class="col-xs-2"><h4><strong>配送先</strong></h4></th>
 		        			<td>
-								<%= link_to '一覧を見る',deliveries_path, class: "btn btn-primary " %>
+								<%= link_to '一覧を見る',deliveries_path, class: "btn btn-brown " %>
 							</td>
 		        		</tr>
 		        		<tr>
 		        			<th class="col-xs-2"><h4><strong>注文履歴</strong></h4></th>
 		        			<td>
-								<%= link_to '一覧を見る',orders_path, class: "btn btn-primary " %>
+								<%= link_to '一覧を見る',orders_path, class: "btn btn-brown " %>
 							</td>
 		        		</tr>
 		        	</tbody>
