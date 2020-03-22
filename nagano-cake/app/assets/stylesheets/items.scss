@@ -2,14 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+// item全体
 .itemindex{
 	margin-top: 50px;
 }
 
+<<<<<<< HEAD
 // item全体
+=======
+>>>>>>> 8e62a88ec281e109f00da9f9623a64f5f3d6e436
 img {
 	max-width: 100%;
 	height: auto;
+}
+
+span {
+	font-size: 2em;
 }
 
 
@@ -19,14 +28,24 @@ img {
 }
 
 // show
+.item_image {
+	margin-left: 3em;
+}
+
 .item_name {
 	font-size: 2em;
 }
 
 .item_description {
+<<<<<<< HEAD
 	min-height:3em ;
 	max-height:10em ;
 }span {
 	font-size: 2em;
 }
 
+=======
+	min-height:11em ;
+	max-height:22em ;
+}
+>>>>>>> 8e62a88ec281e109f00da9f9623a64f5f3d6e436
