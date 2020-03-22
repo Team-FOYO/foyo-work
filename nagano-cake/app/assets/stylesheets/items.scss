@@ -19,12 +19,39 @@ span {
 }
 
 
-// 2個index
+// admin_index
+.table {
+	background-color: #fff;
+}
+
+.new_button {
+	font-size: 3em;
+	color: #fff;
+	background-color: gray;
+	border-radius: 1em;
+}
+
+button.new_button {
+	font-size: 2em;
+	color: gray;
+	background-color: #fff;
+	border-radius: 3em;
+	padding: 0 0.21em;
+	margin: 0.2em;
+}
+
+.table {
+	border: solid 1px;
+	border-color: silver;
+	margin: 0 3em;
+}
+
+// item_2index
 .item_div {
 	margin: 1em 0;
 }
 
-// show
+// item_show
 .item_image {
 	margin-left: 3em;
 }
