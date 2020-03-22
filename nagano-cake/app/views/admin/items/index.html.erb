@@ -1,14 +1,15 @@
 <div class="container itemindex">
 	<div class="row">
-		<div class="col-xs-11 index_head"><span>商品一覧</span></div>
-	 	<div class="col-xs-1 index_head">
+		<div class="col-xs-10 item_index_head"><span class="item_span">商品一覧</span></div>
+	 	<div class="col-xs-2 item_index_head">
 		 	<%= link_to new_admin_item_path do %>
 		 		<button class="new_button" type="button">＋</button>
 		 	<% end %>
 		</div>
 	</div>
-	<div class="row">
-	    <table class="col-xs-10 table">
+	<div class="row item_index_row">
+	    <div class="col-xs-1"></div>
+		<table class="col-xs-11 table item_index_table">
 			<thead>
 				<tr>
 					<th>商品ID</th>
