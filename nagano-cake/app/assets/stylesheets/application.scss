@@ -30,9 +30,19 @@
 
 
 header {
+	a {
+	color: Wheat;
+}
+	li {
+	font-size: 20px
+}
 	ul {
 	padding-top: 20px;
   }
+}
+
+body {
+	background-color: BlanchedAlmond;
 }
 
 .glyphicon-log-out{
@@ -47,6 +57,4 @@ footer {
 	}
 }
 
-a {
-	color: black;
-}
+
