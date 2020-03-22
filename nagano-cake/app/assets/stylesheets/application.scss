@@ -15,3 +15,46 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.section{
+	padding-top:215px;
+}
+
+
+
+header {
+	a {
+	color: Wheat;
+}
+	li {
+	font-size: 20px
+}
+	ul {
+	padding-top: 20px;
+  }
+}
+
+body {
+	background-color: BlanchedAlmond;
+}
+
+.glyphicon-log-out{
+	top: 10px;
+	left: 10px;
+}
+
+footer {
+	text-align: center;
+	.footer-address {
+	padding-right: 178px;
+	}
+}
+
+
