@@ -2,6 +2,65 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+// item全体
 .itemindex{
 	margin-top: 50px;
+}
+
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+span {
+	font-size: 2em;
+}
+
+
+// admin_index
+.table {
+	background-color: #fff;
+}
+
+.new_button {
+	font-size: 3em;
+	color: #fff;
+	background-color: gray;
+	border-radius: 1em;
+}
+
+button.new_button {
+	font-size: 2em;
+	color: gray;
+	background-color: #fff;
+	border-radius: 3em;
+	padding: 0 0.21em;
+	margin: 0.2em;
+}
+
+.table {
+	border: solid 1px;
+	border-color: silver;
+	margin: 0 3em;
+}
+
+// item_2index
+.item_div {
+	margin: 1em 0;
+}
+
+// item_show
+.item_image {
+	margin-left: 3em;
+}
+
+.item_name {
+	font-size: 2em;
+}
+
+.item_description {
+	min-height:11em ;
+	max-height:22em ;
 }

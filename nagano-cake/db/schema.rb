@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_21_051735) do
+ActiveRecord::Schema.define(version: 2020_03_22_035225) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -72,11 +72,11 @@ ActiveRecord::Schema.define(version: 2020_03_21_051735) do
   create_table "orders", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "payment", default: 0, null: false
-    t.string "postal_code", null: false
-    t.text "address", null: false
-    t.string "addressee", null: false
-    t.integer "delivery_charge", null: false
-    t.integer "charge", null: false
+    t.integer "postal_code"
+    t.text "address"
+    t.string "addressee"
+    t.integer "delivery_charge"
+    t.integer "charge"
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

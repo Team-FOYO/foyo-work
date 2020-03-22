@@ -9,33 +9,33 @@
                         <th>
                             <h4><strong>購入者</strong></h4>
                         </th>
-                        <td></td>
+                        <td>
+                            <%= link_to admin_user_path(order.user) do %> <%#リンク先はUser詳細か%>
+                            <%= order.user %>
+                            <% end %>
+                        </td>
                     </tr>
                     <tr>
                         <th>
                             <h4><strong>配送先</strong></h4>
                         </th>
-                        <td></td>
+                        <td><%= order.postal_code%><%= order.address %><%= order.addressee %></td>
                     </tr>
                     <tr>
                         <th>
                             <h4><strong>支払方法</strong></h4>
                         </th>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th>
-                            <h4><strong>注文方法</strong></h4>
-                        </th>
-                        <td></td>
+                        <td><%= order.payment %></td>
                     </tr>
                     <tr>
                         <th>
                             <h4><strong>注文ステータス</strong></h4>
                         </th>
                         <td>
-                            <a>ステータス選択タグが入る</a><button type="button" class="btn btn-primary">更新
-                            </button>
+                            <% form_for (@order,url:admin_order_path) do |f|%>
+                            <% f.select :status, options_for_select(Order.stasuses.keys) %>
+                            <% f.submit '更新',class="btn btn-primary" %>
+                            <% end %>
                         </td>
                     </tr>
                 </table>
@@ -45,7 +45,7 @@
                     <thead style="background-color:#e9e9e9;">
                         <tr>
                             <th class="col-xs-3">商品名</th>
-                            <th class="col-xs-2">単価</th>
+                            <th class="col-xs-2">単価（税込）</th>
                             <th class="col-xs-2">数量</th>
                             <th class="col-xs-2">小計</th>
                             <th class="col-xs-2">制作ステータス</th>
@@ -53,14 +53,20 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <% @sum = 0 %>
+                        <% @order_item.each do |orderitem| %>
                         <tr>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th><button type="button" class="btn btn-primary">更新
-                                </button></th>
+                            <th><%= orderitem.item.name %></th>
+                            <th><%= orderitem.unit_price %>円</th>
+                            <th><%= orderitem.quantity %></th>
+                            <th><%= orderitem.subtotal %></th>
+                            <th>
+                                <% form_for (oderitem,url:admin_order_path) do |f|%>
+                                <% f.select :status, options_for_select(Order_item.stasuses.keys) %>
+                            </th>
+                            <th>
+                                <% f.submit '更新',class="btn btn-primary" %><% end %>
+                            </th>
                         </tr>
                     </tbody>
             </div>
@@ -73,20 +79,24 @@
                     <th class="col-xs-5">
                         <h4><strong>商品合計</strong></h4>
                     </th>
-                    <td class="col-xs-7"></td>
+                    <td class="col-xs-7">
+                        <% @sum += orderitem.subtotal %>
+                        <% @sum %>円</td>
+                        <!-- ↑ここら辺の計算はだいぶ不安あり↑ subtotalはorder_item.model.rbで定義-->
                 </tr>
                 <tr>
                     <th class="col-xs-5">
                         <h4><strong>送料</strong></h4>
                     </th>
-                    <td class="col-xs-7"></td>
+                    <td class="col-xs-7"><%= @delivery_charge %>円</td>
                 </tr>
                 <tr>
                     <th class="col-xs-5">
                         <h4><strong>請求金額合計</strong></h4>
                     </th>
-                    <td class="col-xs-7"><strong>ここに金額が入る</strong></td>
+                    <td class="col-xs-7"><strong><%= @sum + @delivery_charge%>円</strong></td>
                 </tr>
+                    <% end %>
             </table>
         </div>
     </div>

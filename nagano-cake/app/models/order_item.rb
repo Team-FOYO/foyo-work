@@ -8,4 +8,8 @@ class OrderItem < ApplicationRecord
     validates :unit_price ,presence: true
     validates :quantity ,presence: true
     validates :status ,presence: true
+
+    def subtotal
+		unit_price*quantity
+	end
 end

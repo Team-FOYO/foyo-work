@@ -3,3 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.div_table {
+	border-left: solid 1px;
+	border-right: solid 1px;
+	border-bottom: solid 1px;
+}
+.div_thead {
+	background-color: #fffaf0;
+	border-top: solid 1px;
+	border-bottom: solid 1px;
+	text-align: center;
+}
+
+.div_tr {
+	margin: 5px 10px;
+}

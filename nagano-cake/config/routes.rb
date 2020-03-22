@@ -10,10 +10,16 @@ Rails.application.routes.draw do
   		end
   end
 
-  resources :items, only: [:index, :show]
+  resources :items, only: [:index, :show] do
+      member do
+        get 'searched_index'
+      end
+  end
+
   resources :deliveries, only: [:index, :edit, :create, :update, :destroy]
   resources :orders, only: [:index, :show, :new, :create] do
     collection do
+      post 'confirm'
       get 'confirm'
       get 'complete'
     end

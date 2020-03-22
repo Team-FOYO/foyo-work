@@ -1,7 +1,7 @@
 class Delivery < ApplicationRecord
 
 	belongs_to :user
-	belongs_to :order
+	belongs_to :order,optional: true
 
 	validates :user_id ,presence: true
     validates :postal_code ,presence: true
