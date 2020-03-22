@@ -1,29 +1,41 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12 delivery-form">
-			<h4>配送先編集</h4>
-		<!-- 配送先編集用フォーム -->
-			<div class="delivery-edit">
-		　　　　<%= form_for(@delivery) do |f| %>
-		　　　　<div class="field">
-					<%= f.label :postal_code, '郵便番号（ハイフンなし）' %>
-					<%= f.text_field :postal_code, class: "delivery-postcode" %>
-		　　　　</div>
-
-		　　　　<div class="field">
-					<%= f.label :address, '住所' %>
-					<%= f.text_field :address, class: "delivery-address" %>
-		　　　　</div>
-
-				<div class="field">
-					<%= f.label :addressee, '宛名' %>
-					<%= f.text_field :addressee, class: "delivery-addressee" %>
-		　　　　</div>
-
-		　　　　<div class="actions row">
-			　　　<%= f.submit '編集する',class: "btn btn btn-brown" %>
-		　　　　</div>
-		　　　<% end %>
+		<p class="deli-title">配送先編集</p>
+			<div class="col-xs-8">
+			<!-- 配送先編集用フォーム -->
+				<%= form_for(@delivery) do |f| %>
+					<div class="form-group">
+						<table class="table delivery-table">
+							<tr>
+								<th class="col-xs-4">郵便番号（ハイフンなし）</th>
+								<td>
+									<%= f.text_field :postal_code, class: "form-control" %>
+								</td>
+								<td class="col-xs-3"></td>
+							</tr>
+							<tr>
+								<th class="col-xs-2">住所</th>
+								<td colspan="2">
+									<%= f.text_field :address, class: "form-control" %>
+								</td>
+							</tr>
+							<tr>
+								<th class="col-xs-2">宛名</th>
+								<td>
+									<%= f.text_field :addressee, class: "form-control" %>
+								</td>
+								<td class="col-xs-3"></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>
+									<%= f.submit '編集する', class: "btn btn-brown" %>
+								</td>
+							</tr>
+						</table>
+					</div>
+				<% end %>
 			</div>
 		</div>
 	</div>

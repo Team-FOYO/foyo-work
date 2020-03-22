@@ -2,67 +2,82 @@
     <div class="row">
         <div class="deli">
             <div class="col-xs-12">
-			<h4>配送先登録/一覧</h4>
-		<!-- 配送先登録用フォーム -->
-			<div class="delivery-new">
-		　　　　<%= form_for(@delivery) do |f| %>
-		　　　　<div class="field">
-					<%= f.label :postal_code, '郵便番号（ハイフンなし）' %>
-					<%= f.text_field :postal_code, class: "delivery-postcode" %>
-		　　　　</div>
-
-		　　　　<div class="field">
-					<%= f.label :address, '住所' %>
-					<%= f.text_field :address, class: "delivery-address" %>
-		　　　　</div>
-
-				<div class="field">
-					<%= f.label :addressee, '宛名' %>
-					<%= f.text_field :addressee, class: "delivery-addressee" %>
-		　　　　</div>
-
-		　　　　<div class="actions row">
-			　　　<%= f.submit '登録する',class: "btn btn btn-success" %>
-		　　　　</div>
-		　　　<% end %>
+            	<%= form_for(@delivery) do |f| %>
+            	    <div class="col-xs-8">
+            	    	<p class="deli-title">配送先登録</p>
+							<div class="form-group">
+								<table class="table delivery-table">
+									<tr>
+										<th class="col-xs-4">
+											<%= f.label :postal_code, '郵便番号（ハイフンなし）' %>
+										</th>
+										<td>
+											<%= f.text_field :postal_code, class: "form-control" %>
+										</td>
+										<td class="col-xs-3"></td>
+									</tr>
+									<tr>
+										<th class="col-xs-2">
+											<%= f.label :address, '住所' %>
+										</th>
+										<td colspan="2">
+											<%= f.text_field :address, class: "form-control" %>
+										</td>
+									</tr>
+									<tr>
+										<th class="col-xs-2">
+											<%= f.label :addressee, '宛名' %>
+										</th>
+										<td>
+											<%= f.text_field :addressee, class: "form-control" %>
+										</td>
+										<td class="col-xs-3"></td>
+									</tr>
+								</table>
+								<P class="delivery-new">
+									<%= f.submit '登録する',class: "btn btn btn-success" %>
+								</P>
+							</div>
+		　　　	<% end %>
 			</div>
-
-			<div class="delivery-index">
-				<div class="row">
-				 <div class="col-xs-8">
-				   <table class="table">
-					<thead>
-						<tr>
-							<th>郵便番号</th>
-							<th>住所</th>
-							<th>宛名</th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						<% @deliveries.each do |delivery| %>
-						<tr>
-							<td>
-								<%= delivery.postal_code%>
-							</td>
-							<td>
-								<%= delivery.address%>
-							</td>
-							<td>
-								<%= delivery.addressee%>
-							</td>
-							<td>
-								<%= link_to '編集する',edit_delivery_path(delivery), class: "btn btn-brown" %>
-							</td>
-							<td><%= link_to '削除する',delivery_path(delivery), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger" %>
-							</td>
-						</tr>
-						<% end %>
-					</tbody>
-				</table>
-			</div>
+            <div class="col-xs-10">
+				<div class="delivery-index">
+					<p class="deli-title">配送先一覧</p>
+					   <table class="table deli-table">
+						<thead>
+							<tr>
+								<th>郵便番号</th>
+								<th>住所</th>
+								<th>宛名</th>
+								<th></th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<% @deliveries.each do |delivery| %>
+							<tr>
+								<td class="col-xs-2">
+									<%= delivery.postal_code%>
+								</td>
+								<td class="col-xs-4"abbr="">
+									<%= delivery.address%>
+								</td>
+								<td class="col-xs-3">
+									<%= delivery.addressee%>
+								</td>
+								<td class="col-xs-1">
+									<%= link_to '編集する',edit_delivery_path(delivery), class: "btn btn-brown" %>
+								</td>
+								<td class="col-xs-1">
+									<%= link_to '削除する',delivery_path(delivery), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger" %>
+								</td>
+							</tr>
+							<% end %>
+						</tbody>
+						</table>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </div>
