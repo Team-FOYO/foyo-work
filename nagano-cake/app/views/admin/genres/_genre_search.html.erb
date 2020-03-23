@@ -2,7 +2,7 @@
 	<div class="genre_table">
 		<div class="genre_thead">ジャンル検索</div>
 		<% genres.each do |genre| %>
-			<div class="genre_tr"><%= link_to genre.name, searched_index_item_path(genre) %></div>
+			<div class="genre_tr"><%= link_to genre.name, searched_index_item_path(genre), class: "genre_link" %></div>
 		<% end %>
 	</div>
 </div>
