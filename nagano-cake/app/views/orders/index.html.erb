@@ -1,44 +1,42 @@
-<div class="new">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <h3><span style="background-color:#e9e9e9;">注文履歴一覧</span></h3><br>
-                <!-- 注文履歴一覧テーブル -->
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th class="col-xs-2" style="background-color:#e9e9e9;">注文日</th>
-                            <th class="col-xs-3" style="background-color:#e9e9e9;">配送先</th>
-                            <th class="col-xs-2" style="background-color:#e9e9e9;">注文商品</th>
-                            <th class="col-xs-1" style="background-color:#e9e9e9;">支払金額</th>
-                            <th class="col-xs-2" style="background-color:#e9e9e9;">ステータス</th>
-                            <th class="col-xs-2" style="background-color:#e9e9e9;">注文詳細</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <a>日時</a>
-                            </td>
-                            <td><a>商品名</a>
-                            </td>
-                            <td><a>郵便番号</a><br>
-                                <a>住所</a><br>
-                                <a>名前</a>
-                            </td>
-                            <td>
-                                <a>金額</a>
-                            </td>
-                            <td>
-                                <a>入金確認</a>
-                            </td>
-                            <td>
-                                <button type="button" class="btn btn-primary">表示する</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+<div class="order-index-container">
+    <h3>注文履歴一覧</h3>
+    <table class="table order-index">
+        <table border="1" align="center" width="1000" height="100">
+            <thead>
+                <tr height="50">
+                    <th bgcolor="#EEEEEE">注文日</th>
+                    <th bgcolor="#EEEEEE">配送先</th>
+                    <th bgcolor="#EEEEEE">注文商品</th>
+                    <th bgcolor="#EEEEEE">支払金額</th>
+                    <th bgcolor="#EEEEEE">ステータス</th>
+                    <th bgcolor="#EEEEEE">注文詳細</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @orders.each do |order| %>
+                <tr>
+                    <td>
+                        <%=  order.created_at%>
+                    </td>
+                    <td>
+                        <%= order.postal_code %><%= order.address%><%= order.addressee%>
+                    </td>
+                    <td>
+                        <% order.order_items.each do |order_item| %>
+                        <%= order_item.item.name %><br>
+                        <% end %>
+                    </td>
+                    <td>
+                        <%= order.charge %>円
+                    </td>
+                    <td>
+                        <%= order.status %>
+                    </td>
+                    <td>
+                        <%= link_to '表示する', order_path(order), class: "btn btn-sm btn-primary" %>
+                    </td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
 </div>
