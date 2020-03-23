@@ -1,4 +1,6 @@
 class Admin::UsersController < ApplicationController
+	#before_action :authenticate_admin_admin!
+
 	def order_index
 		@user = User.find(params[:id])
 		@orders = Order.where(user_id: @user.id)
