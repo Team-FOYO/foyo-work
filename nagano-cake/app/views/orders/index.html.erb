@@ -1,15 +1,16 @@
-<div class="order-index-container">
-    <h3>注文履歴一覧</h3>
-    <table class="table order-index">
-        <table border="1" align="center" width="1000" height="100">
+<div class="container">
+    <div class="row order-total">
+        <div class="col-xs-12">
+            <p class="order-title">注文履歴一覧</p>
+            <table class="table table-bordered order-table-y">
             <thead>
-                <tr height="50">
-                    <th bgcolor="#EEEEEE">注文日</th>
-                    <th bgcolor="#EEEEEE">配送先</th>
-                    <th bgcolor="#EEEEEE">注文商品</th>
-                    <th bgcolor="#EEEEEE">支払金額</th>
-                    <th bgcolor="#EEEEEE">ステータス</th>
-                    <th bgcolor="#EEEEEE">注文詳細</th>
+                <tr>
+                    <th class="col-xs-2" bgcolor="#EEEEEE">注文日</th>
+                    <th class="col-xs-4" bgcolor="#EEEEEE">配送先</th>
+                    <th class="col-xs-2" bgcolor="#EEEEEE">注文商品</th>
+                    <th class="col-xs-1" bgcolor="#EEEEEE">支払金額</th>
+                    <th class="col-xs-2" bgcolor="#EEEEEE">ステータス</th>
+                    <th class="col-xs-1" bgcolor="#EEEEEE">注文詳細</th>
                 </tr>
             </thead>
             <tbody>
@@ -19,7 +20,9 @@
                         <%=  order.created_at%>
                     </td>
                     <td>
-                        <%= order.postal_code %><%= order.address%><%= order.addressee%>
+                        <%= order.postal_code %><br>
+                        <%= order.address%><br>
+                        <%= order.addressee%><br>
                     </td>
                     <td>
                         <% order.order_items.each do |order_item| %>
@@ -33,10 +36,12 @@
                         <%= order.status %>
                     </td>
                     <td>
-                        <%= link_to '表示する', order_path(order), class: "btn btn-sm btn-primary" %>
+                        <%= link_to '表示する', order_path(order), class: "btn btn-sm btn-brown" %>
                     </td>
                 </tr>
                 <% end %>
             </tbody>
         </table>
+    </div>
+</div>
 </div>
