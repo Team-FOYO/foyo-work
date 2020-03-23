@@ -23,25 +23,25 @@
             <!--if文でサインインとアウト時の表示を変更-->
             <% if user_signed_in? %>
             <li class="navbar-text">ようこそ <strong><%= current_user.first_name%><%= current_user.last_name%></strong> さん！</li>
-            <li><%= link_to 'ながのCAKEについて', homes_about_path %></li>
-            <li><%= link_to 'マイページ', user_path(current_user) %></li>
-            <li><%= link_to '商品一覧', items_path %></li>
-            <li><%= link_to 'カート', cart_items_path %></li>
-            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete%></li>
+            <li class="topmenu"><%= link_to 'ながのCAKEについて', homes_about_path %></li>
+            <li class="topmenu"><%= link_to 'マイページ', user_path(current_user) %></li>
+            <li class="topmenu"><%= link_to '商品一覧', items_path %></li>
+            <li class="topmenu"><%= link_to 'カート', cart_items_path %></li>
+            <li class="topmenu"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete%></li>
 
             <% elsif admin_admin_signed_in? %>
-            <li><%= link_to '商品一覧', admin_items_path %></li>
-            <li><%= link_to '会員一覧', admin_users_path %></li>
-            <li><%= link_to '注文履歴一覧', admin_orders_path  %></li>
-            <li><%= link_to 'ジャンル管理', admin_genres_path %></li>
+            <li class="topmenu"><%= link_to '商品一覧', admin_items_path %></li>
+            <li class="topmenu"><%= link_to '会員一覧', admin_users_path %></li>
+            <li class="topmenu"><%= link_to '注文履歴一覧', admin_orders_path  %></li>
+            <li class="topmenu"><%= link_to 'ジャンル管理', admin_genres_path %></li>
 
             <% elsif current_page?(new_admin_admin_session_path) %>
 
             <% else %>
-            <li><%= link_to 'ながのCAKEについて', homes_about_path %></li>
-            <li><%= link_to '商品一覧', items_path %></li>
-            <li><%= link_to '新規登録',new_user_registration_path %></li>
-            <li><%= link_to 'ログイン', new_user_session_path %></li>
+            <li class="topmenu"><%= link_to 'ながのCAKEについて', homes_about_path %></li>
+            <li class="topmenu"><%= link_to '商品一覧', items_path %></li>
+            <li class="topmenu"><%= link_to '新規登録',new_user_registration_path %></li>
+            <li class="topmenu"><%= link_to 'ログイン', new_user_session_path %></li>
             <% end %>
           </ul>
         </nav>
@@ -59,12 +59,14 @@
     <footer>
       <div class="container">
         <div class="row">
-          <p>----------ながのCAKE----------</p>
-          <p>【所在地】　〒123-4567　長野県長野市〇〇1 丁目２−３</p>
-          <p class="footer-address">【電話番号】     123-4567-8901</p>
+            <div class="footer-contents">
+              <%= link_to image_tag('logo.png', class: 'footerlogo'), root_path %>
+              <p class="footer-contents-p">【所在地】〒123-4567　長野県長野市〇〇1 丁目２−３  【電話番号】123-4567-8901</p>
+            </div>
         </div>
       </div>
     </footer>
     <!-- フッターの記述 -->
   </body>
 </html>
+

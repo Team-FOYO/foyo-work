@@ -28,7 +28,6 @@
 }
 
 
-
 header {
 	a {
 	color: SaddleBrown;
@@ -44,6 +43,11 @@ header {
 }
 	ul {
 	padding-top: 10px;
+	padding-right: 20px;
+		.topmenu :hover{
+ 	    color: Ivory;
+        background-color: SaddleBrown;
+    }
   }
 }
 
@@ -51,18 +55,26 @@ body {
 	background-color: Ivory;
 }
 
-.glyphicon-log-out{
-	top: 10px;
-	left: 10px;
-}
-
 footer {
+	margin-top: 20px;
+	color: SaddleBrown;
+	background-color: #fadd76;
 	text-align: center;
-	.footer-address {
-	padding-right: 178px;
-	}
+	width: 100%;
+	height: 40px;
 }
-
+.footer-contents{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer-contents-p{
+	margin-top: 10px;
+}
+.footerlogo{
+	width: auto;
+	height: 35px;
+}
 
 .logo {
 	width: 317px;
@@ -82,7 +94,7 @@ footer {
 
 .jumbotron {
 	padding: 10px;
-	background-color: #fadd76
+	background-color: #fadd76;
 }
 
 .item_index_row {
