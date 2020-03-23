@@ -2,10 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.new{
-	margin-top: 50px;
-}
-
 .complete {
   position: absolute;
   top: 50%;
@@ -15,4 +11,25 @@
   transform: translate(-50%,-50%);
   margin:0;
   padding:0;
+  }
+
+  .order-title{
+  font-size: 2em;
+  color: SaddleBrown;
+  }
+  .order-title-sm{
+  font-size: 1.5em;
+  color: SaddleBrown;
+  }
+  .indent{
+    text-indent: 2em;
+  }
+  .cart_form{
+    margin: 5px;
+  }
+  .cart_form-btn{
+    margin: 5px;
+  }
+  .deliselect{
+    padding-left: 40px;
   }
