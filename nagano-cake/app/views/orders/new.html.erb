@@ -50,12 +50,9 @@
                     <%= radio_button_tag :delivery_type, 2, false %>
                     <%= label_tag "登録済住所から選択" %><br>
                     <div class="row">
-<<<<<<< HEAD
                         <div class="col-md-6">
                             <%= collection_select :delivery_address, :id, @delivery, :id, :total_address, {}, class:"custom-select col-7" %>
-=======
                         <div class="deliselect"><%= f.select :address, @delivery.all.map{|o| [o.total_address, o.id]},{},:class => 'form-control' %>
->>>>>>> 416a1b4cd62e12da7e6ce5c889775eb2b5e1dfae
                         </div>
                     </div>
                 </div>
