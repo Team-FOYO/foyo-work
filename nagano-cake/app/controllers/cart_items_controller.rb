@@ -25,15 +25,8 @@ class CartItemsController < ApplicationController
   end
 
   def all_destroy
-    user = User.find(current_user)
-    cart_items = CartItem.find(cart_item_params)
-    cart_item = user.cart_items
-    cart_item.destroy
-    redirect_back(fallback_location: root_path)
-
-    user = User.find(params[:follow_id])
-    following = current_user.unfollow(user)
-    following.destroy
+    @cart_items = current_user.cart_items.all
+    @cart_items.destroy_all
     redirect_back(fallback_location: root_path)
   end
 

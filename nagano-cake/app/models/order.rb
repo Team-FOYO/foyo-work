@@ -2,9 +2,8 @@ class Order < ApplicationRecord
 
 	belongs_to :user
 
-	has_many :order_items
+	has_many :order_items, dependent: :destroy
     has_many :deliveries
-
 	validates :user_id ,presence: true
     validates :status ,presence: true
 

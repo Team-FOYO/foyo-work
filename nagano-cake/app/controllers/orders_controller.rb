@@ -1,72 +1,69 @@
 class OrdersController < ApplicationController
 	def new
-		@user = current_user
+		@user = User.find(current_user.id)
 		@order = Order.new
-		@deliveries = Delivery.where(user_id: current_user.id)
+		@delivery = Delivery.where(user_id: current_user.id)
 	end
 
 	def confirm
-		@order = Order.where(params[:id])
-		@user = current_user.id
-		@cart_items = CartItem.where(user_id: current_user.id)
-		@delivery_charge = 800
+		@order = Order.new(order_params) #way(入金方法)をviewから受け取り
+    	@order.user_id = current_user.id
+
+    #--------radio_buttonの選択に応じた住所を登録する--------
+	    selected_address = "" #変数宣言：orderに格納する住所
+	    case params[:delivery_type] #radioボタンの選択箇所「1 or 2 or 3」で処理選択
+	    when "1" then
+	      @order.postal_code = params[:postal1]
+	      @order.address = params[:address1]
+	      @order.addressee = params[:name1]
+	    when "2" then
+	      @delivery_select = Delivery.find(params[:id])
+	      @order.postal_code = @delivery_select.postal_code
+	      @order.address = @delivery_select.address
+	      @order.addressee = @derivery_select.addressee
+	    when "3" then
+	      @order.postal_code = params[:postal3]
+	      @order.address = params[:address3]
+	      @order.addressee = params[:name3]
+	    end
+
+    #--------ユーザのカート内商品を@cart_productに格納--------
+    	@cart_items = CartItem.where(user_id: current_user.id)
 	end
 
     def create
-    	case params[:selected_btn]
-      		when  '会員住所'
-        		@order = Order.new(order_params)
-        		@order.user_id = current_user.id
-        		@order.postal_code = current_user.postcode
-        		@order.address = current_user.address
-        		@order.addressee = current_user.full_name.to_s
-        		@order.save
-        		redirect_to confirm_orders_path
-      		when  "配送先登録住所"
-        		@order = Order.new(order_params)
-        		@order.user_id = current_user.id
-        		@order.postal_code = Delivery.find(params[:order][:delivery]).postal_code
-        		@order.address = Shipping.find(params[:order][:delivery]).address
-        		@order.address_name = Shipping.find(params[:order][:delivery]).addressee
-        		@order.save
-        		redirect_to confirm_orders_path
-      		when  "新しい住所"
-        		@order = Order.new(order_params)
-        		@order.user_id = current_user.id
-        		@order.save
-        		redirect_to confirm_orders_path
-        	end
+    	@order = Order.new(order_params)
+    	@order.user_id = current_user.id
+    	@order.save!
+    	@cart_items = current_user.cart_items.all
+    	@cart_items.each do |cart_item|
+    		@order_item = OrderItem.new
+    		@order_item.item_id = cart_item.item_id
+    		@order_item.quantity = cart_item.quantity
+    		@order_item.unit_price = cart_item.item.tax
+    		@order_item.order_id = @order.id
+    		@order_item.status = 0
+    		@order_item.save!
+    	end
+      	@cart_items.destroy_all
+      	redirect_to complete_orders_path
+    	
     end
 
 	def complete
 	end
 
 	def show
+		@order = Order.find(params[:id])
 	end
 
 	def index
-	end
-
-	def update
-			@cart_items = CartItem.where(user_id: current_user.id)
-	        @cart_items.each do |cart_item|
-			    @order_item = OrderItem.new
-			    @order_item.order_id = @order.id
-			    @order_item.item_id = cart_item.item_id
-			    @order_item.quantity = cart_item.quantity
-			    @order_item.unit_price = cart_item.item.price
-			    @order_item.status = 1
-			end
-		 if @order_item.save
-	        @cart_items = CartItem.where(user_id: current_user.id)
-	        @cart_items.destroy_all
-	        @user = current_user
-	        redirect_to complete_orders_path
-	    end
+		@user = User.find(current_user.id)
+		@orders = @user.orders
 	end
 
 	private
 	def order_params
-    	params.permit(:customer_id, :postcode, :address, :address_name,:delivery_charge, :charge, :payment, :status, :delivery)
+    	params.require(:order).permit(:user_id, :postal_code, :address, :addressee,:delivery_charge, :charge, :payment, :status, :delivery)
   	end
 end
