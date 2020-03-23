@@ -22,7 +22,7 @@
             <!--if文でサインインとアウト時の表示を変更-->
             <% if user_signed_in? %>
             <li class="navbar-text welcome-text">ようこそ <strong><%= current_user.first_name%><%= current_user.last_name%></strong> さん！</li>
-            <li class="topmenu"><%= link_to 'ながのCAKEについて', homes_about_path %></li>
+            <li class="topmenu"><%= link_to ' ABOUT ', homes_about_path %></li>
             <li class="topmenu"><%= link_to 'マイページ', user_path(current_user) %></li>
             <li class="topmenu"><%= link_to '商品一覧', items_path %></li>
             <li class="topmenu"><%= link_to 'カート', cart_items_path %></li>

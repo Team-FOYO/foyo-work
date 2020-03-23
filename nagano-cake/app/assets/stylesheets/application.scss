@@ -21,6 +21,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+	font-family: Arial;
 }
 
 .section{
@@ -35,12 +36,13 @@
 header {
 	a {
 	color: SaddleBrown;
-	font-family: ＭＳ Ｐゴシック;
-	font-size: 18px;
+	font-family: Arial;
+	font-size: 16px;
+	font-weight: bold;
 }
 	li {
 	font-size: 15px;
-	padding: 4px;
+	padding: 6px;
 	margin-right: -20px;
 	position: absolute;
 	left: 50px;
@@ -48,8 +50,8 @@ header {
 	ul {
 	padding-right: 20px;
 		.topmenu :hover{
- 	    color: Ivory;
-        background-color: SaddleBrown;
+ 	    color: #b33319;
+        background-color: #fadd76;
     }
   }
 
@@ -63,6 +65,7 @@ header {
 	margin: 0px;
 }
 .welcome-text{
+	font-family: Arial;
   	margin:15px 0px 15px 15px;
   	color: #3f312b;
   	font-size: 14px;
