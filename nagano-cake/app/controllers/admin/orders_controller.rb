@@ -1,11 +1,12 @@
 class Admin::OrdersController < ApplicationController
 	def index
 		@orders = Order.all
+		@user = User.all
 	end
 
 	def edit
 		@order = Order.find(params[:id])
-		@order_items = Order_item.where(order_id: @order.id)
+		@order_items = OrderItem.where(order_id: @order.id)
 		@delivery_charge = 800
 	end
 
@@ -20,6 +21,6 @@ class Admin::OrdersController < ApplicationController
 
 	private
 	def order_params
-    	params.require(:order).permit(:address,:payment,:status)
+    	params.require(:order).permit(:user_id,:address,:payment,:status)
   	end
 end

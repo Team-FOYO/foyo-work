@@ -15,10 +15,10 @@
                 <tbody>
                     <% @orders.each do |order| %>
                     <tr>
-                        <th><%= order.created_at %></th>
-                        <th><%= order.user %></th>
+                        <th><%=link_to edit_admin_order_path(order.id) do%><%= order.created_at %><% end %></th>
+                        <th><%= order.user.full_name %></th>
                         <!--↓ eachで出されたorder毎にそのorder.idに属するorder_itemのquanitityカラムの値を合計したものを出したい ↓-->
-                        <th><%= order.order_item.sum(:quantity) %></th>
+                        <th><%= order.order_items.sum(:quantity) %></th>
                         <th><%= order.status %></th>
                   </tr>
                     <% end %>
