@@ -1,6 +1,6 @@
-    <div class="container">
-        <%= form_for @order, url: confirm_orders_path, method: :get do |f|%>
-        <div class="form-group">
+<div class="container">
+    <%= form_for @order, url: confirm_orders_path, method: :get do |f|%>
+    <div class="form-group">
         <div class="container">
             <div class="row">
                 <div>
@@ -51,8 +51,9 @@
                     <%= label_tag "登録済住所から選択" %><br>
                     <div class="row">
                         <div class="col-md-6">
-                            <%= collection_select :delivery_address, :id, @delivery, :id, :total_address, {}, class:"custom-select col-7" %>
-                        <!--<div class="deliselect"><%= f.select :address, @delivery.all.map{|o| [o.total_address, o.id]},{},:class => 'form-control' %>-->
+                            <div class="deliselect">
+                                <%= collection_select :delivery_address, :id, @delivery, :id, :total_address, {}, class: 'form-control' %>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -96,5 +97,5 @@
         </div>
         <% end %>
     </div>
-    </div>
+</div>
 </div>
