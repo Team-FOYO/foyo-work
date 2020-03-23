@@ -1,20 +1,20 @@
-<div class="new">
     <div class="container">
         <%= form_for @order, url: confirm_orders_path, method: :get do |f|%>
+        <div class="form-group">
         <div class="container">
             <div class="row">
-                <div class="col-md-2 col-md-offset-1">
-                    <h3 style="background-color:rgba(200,200,200,0.5);text-align:center">注文情報入力</h3>
+                <div>
+                    <h3 class="order-title">注文情報入力</h3>
                 </div>
             </div>
             <!--支払い方法-->
             <div class="row">
-                <div class="col-md-2">
-                    <h4>支払い方法</h4>
+                <div class="col-xs-2">
+                    <h4 class="order-title-sm">支払い方法</h4>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-2 col-md-offset-1">
+                <div class="col-xs-2 col-xs-offset-1">
                     <%= f.radio_button :payment, :クレジットカード, checked: true %>
                     <%= f.label "クレジットカード" %>
                     <br>
@@ -24,19 +24,19 @@
             </div>
             <!--お届け先-->
             <div class="row">
-                <div class="col-md-2">
-                    <h4>お届け先</h4>
+                <div class="col-xs-2">
+                    <h4 class="order-title-sm">お届け先</h4>
                 </div>
             </div>
             <!--radio_button1-->
             <div class="row">
-                <div class="col-md-9 col-md-offset-1">
+                <div class="col-xs-9 col-xs-offset-1">
                     <%= radio_button_tag :delivery_type, 1, true %>
                     <%= label_tag "ご自身の住所" %><br>
-                    <p>
+                    <p class="indent">
                         <%= current_user.postcode + current_user.address %>
                     </p>
-                    <p>
+                    <p class="indent">
                         <%= current_user.first_name + current_user.first_name %>
                     </p>
                     <%= hidden_field_tag :postal1, @user.postcode %>
@@ -46,54 +46,58 @@
             </div>
             <!--radio_button2-->
             <div class="row">
-                <div class="col-md-9 col-md-offset-1">
+                <div class="col-xs-7 col-xs-offset-1">
                     <%= radio_button_tag :delivery_type, 2, false %>
                     <%= label_tag "登録済住所から選択" %><br>
                     <div class="row">
+<<<<<<< HEAD
                         <div class="col-md-6">
                             <%= collection_select :delivery_address, :id, @delivery, :id, :total_address, {}, class:"custom-select col-7" %>
+=======
+                        <div class="deliselect"><%= f.select :address, @delivery.all.map{|o| [o.total_address, o.id]},{},:class => 'form-control' %>
+>>>>>>> 416a1b4cd62e12da7e6ce5c889775eb2b5e1dfae
                         </div>
                     </div>
                 </div>
             </div>
             <!--radio_button3-->
             <div class="row">
-                <div class="col-md-9 col-md-offset-1">
+                <div class="col-xs-9 col-xs-offset-1">
                     <%= radio_button_tag :delivery_type, 3, false %>
                     <%= label_tag "新しいお届け先" %><br>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <span>郵便番号(ハイフンなし)</span>
+                    <div class="row cart_form">
+                        <div class="col-xs-3">
+                            <p class="indent">郵便番号(ハイフンなし)</p>
                         </div>
-                        <div class="col-md-6">
-                            <%= text_field_tag :postal3 %>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <span>住所</span>
-                        </div>
-                        <div class="col-md-6">
-                            <%= text_field_tag :address3 %>
+                        <div class="col-xs-3">
+                            <%= text_field_tag :postal3,'',class: "form-control" %>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <span>宛名</span>
+                    <div class="row cart_form">
+                        <div class="col-xs-3">
+                            <p class="indent">住所</p>
                         </div>
-                        <div class="col-md-6">
-                            <%= text_field_tag :name3 %>
+                        <div class="col-xs-6">
+                            <%= text_field_tag :address3,'',class: "form-control"%>
+                        </div>
+                    </div>
+                    <div class="row cart_form">
+                        <div class="col-xs-3">
+                            <p class="indent">宛名</p>
+                        </div>
+                        <div class="col-xs-3">
+                            <%= text_field_tag :name3,'',class: "form-control"%>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-2 col-md-offset-5">
-                    <%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
+            <div class="row cart_form-btn">
+                <div class="col-xs-2 col-xs-offset-5">
+                    <%= f.submit "確認画面へ進む", class: "btn btn-brown" %>
                 </div>
             </div>
         </div>
         <% end %>
     </div>
-</div>
+    </div>
 </div>
