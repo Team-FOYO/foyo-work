@@ -15,14 +15,13 @@
       <div class="container">
         <div class="row-header-text">
         <nav class="nav navbar-nav navbar-left">
-          <h2 class="header-mark"><%= image_tag('mark.png') %></h2>
-          <h2><%= link_to image_tag('logo.png', class: 'logo'), root_path %></h2>
+          <h2 class="titlelogo"><%= link_to image_tag('logo3.png', class: 'headerlogo'), root_path %></h2>
         </nav>
         <nav>
           <ul class="nav nav-pills navbar-right">
             <!--if文でサインインとアウト時の表示を変更-->
             <% if user_signed_in? %>
-            <li class="navbar-text">ようこそ <strong><%= current_user.first_name%><%= current_user.last_name%></strong> さん！</li>
+            <li class="navbar-text welcome-text">ようこそ <strong><%= current_user.first_name%><%= current_user.last_name%></strong> さん！</li>
             <li class="topmenu"><%= link_to 'ながのCAKEについて', homes_about_path %></li>
             <li class="topmenu"><%= link_to 'マイページ', user_path(current_user) %></li>
             <li class="topmenu"><%= link_to '商品一覧', items_path %></li>
@@ -60,7 +59,7 @@
       <div class="container">
         <div class="row">
             <div class="footer-contents">
-              <%= link_to image_tag('logo.png', class: 'footerlogo'), root_path %>
+              <%= link_to image_tag('logo2.png', class: 'footerlogo'), root_path %>
               <p class="footer-contents-p">【所在地】〒123-4567　長野県長野市〇〇1 丁目２−３  【電話番号】123-4567-8901</p>
             </div>
         </div>
