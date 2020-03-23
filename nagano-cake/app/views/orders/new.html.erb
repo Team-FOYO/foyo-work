@@ -1,6 +1,7 @@
 <div class="new">
     <div class="container">
         <%= form_for @order, url: confirm_orders_path, method: :get do |f|%>
+        <div class="form-group">
         <div class="container">
             <div class="row">
                 <div class="col-md-2 col-md-offset-1">
@@ -10,7 +11,7 @@
             <!--支払い方法-->
             <div class="row">
                 <div class="col-md-2">
-                    <h4>支払い方法</h4>
+                    <h4 class="order-title">支払い方法</h4>
                 </div>
             </div>
             <div class="row">
@@ -25,7 +26,7 @@
             <!--お届け先-->
             <div class="row">
                 <div class="col-md-2">
-                    <h4>お届け先</h4>
+                    <h4 class="order-title">お届け先</h4>
                 </div>
             </div>
             <!--radio_button1-->
@@ -51,7 +52,9 @@
                     <%= label_tag "登録済住所から選択" %><br>
                     <div class="row">
                         <div class="col-md-6">
-                            <%= f.collection_select :address, @delivery, :id, :total_address %>
+                            <%#= f.input :address, collection:@delivery.map { |v| [v.total_address, v.id]} %>
+                            <%#= f.collection_select :address, @delivery, :id, :total_address %>
+                            <%= f.select :address, @delivery.all.map{|o| [o.total_address, o.id]},{},:class => 'form-control' %>
                         </div>
                     </div>
                 </div>
@@ -66,7 +69,7 @@
                             <span>郵便番号(ハイフンなし)</span>
                         </div>
                         <div class="col-md-6">
-                            <%= text_field_tag :postal3 %>
+                            <%= text_field_tag :postal3,'',class: "form-control" %>
                         </div>
                     </div>
                     <div class="row">
@@ -74,7 +77,7 @@
                             <span>住所</span>
                         </div>
                         <div class="col-md-6">
-                            <%= text_field_tag :address3 %>
+                            <%= text_field_tag :address3,'',class: "form-control"%>
                         </div>
                     </div>
                     <div class="row">
@@ -82,18 +85,19 @@
                             <span>宛名</span>
                         </div>
                         <div class="col-md-6">
-                            <%= text_field_tag :name3 %>
+                            <%= text_field_tag :name3,'',class: "form-control"%>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-2 col-md-offset-5">
-                    <%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
+                    <%= f.submit "確認画面へ進む", class: "btn btn-brown" %>
                 </div>
             </div>
         </div>
         <% end %>
+    </div>
     </div>
 </div>
 </div>
