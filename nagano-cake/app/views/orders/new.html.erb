@@ -52,7 +52,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <%= collection_select :delivery_address, :id, @delivery, :id, :total_address, {}, class:"custom-select col-7" %>
-                        <div class="deliselect"><%= f.select :address, @delivery.all.map{|o| [o.total_address, o.id]},{},:class => 'form-control' %>
+                        <!--<div class="deliselect"><%= f.select :address, @delivery.all.map{|o| [o.total_address, o.id]},{},:class => 'form-control' %>-->
                         </div>
                     </div>
                 </div>
