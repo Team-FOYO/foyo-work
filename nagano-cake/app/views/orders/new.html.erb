@@ -51,7 +51,7 @@
                     <%= label_tag "登録済住所から選択" %><br>
                     <div class="row">
                         <div class="col-md-6">
-                            <%= f.collection_select :address, @delivery, :id, :total_address %>
+                            <%= collection_select :delivery_address, :id, @delivery, :id, :total_address, {}, class:"custom-select col-7" %>
                         </div>
                     </div>
                 </div>
