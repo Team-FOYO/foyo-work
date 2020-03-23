@@ -53,16 +53,27 @@ th,td {
 }
 
 // admin_edit
-.item_edit {
-	margin-top: 5em;
-}
-
 .item_edit_row {
-.field {
+	margin-top: 5em;
 
-}
-}
+.item_attachment_field {
+	margin: 0 auto;
+	margin-top: 1em;
+	width: 70% !important;
+}}
 
+.item_edit_label {
+	padding-left: 3em;
+
+.item_edit_field {
+.column2 {
+	height: 6em;
+
+}}}
+
+#image_select {
+	display:none;
+}
 
 // item_2index
 .item_div {

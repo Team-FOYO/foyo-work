@@ -1,9 +1,9 @@
 <div class="container">
-    <div class="row item_edit_row">
+    <div class="row">
         <div class="itemindex">
             <div class="col-xs-12">
             	<span class="item_span">商品 編集画面</span>
-            	<div class="row">
+            	<div class="row item_edit_row">
 				<!-- エラーメッセージ -->
 				<% if @item.errors.any? %>
 				  <div id="error_explanation" class="alert alert-danger">
@@ -14,39 +14,35 @@
 				    </ul>
 				  </div>
 				<% end %>
-				<div class="col-xs-2">  </div>
 
 				<%= form_for(@item,url:admin_item_path) do |f| %>
 					<div class="form-group">
-					<div class="col-xs-3 item_edit">
-						<%= attachment_image_tag @item, :image, fallback: "no_image.jpg" %>
+					<div class="col-xs-3 col-xs-offset-1 item_edit_image">
+						<%= attachment_image_tag @item, :image, fallback: "no_image.jpg",id:"file-preview" %>
 
-						<%= f.label :image,'商品画像' %>
-						<%= f.attachment_field :image %>
+						<%= f.attachment_field :image, class: "btn btn btn-brown item_attachment_field", include_blank: "画像選択", id:"image_select"%>
+						<label for="image_select" class="btn btn btn-brown item_attachment_field">選択</label>
 					</div>
 					</div>
 
-					<div class="form-horizontal" role="form">
-					<div class="col-xs-3 field item_edit">
-						<div><%= f.text_field :name %></div>
-						<div><%= f.label :name,'商品名' %></div>
-
-						<div><%= f.text_area :description %></div>
-						<div><%= f.label :description,'商品説明' %></div>
-
-						<div><%= f.text_field :no_tax %>円</div>
-						<div><%= f.label :no_tax,'税抜価格' %></div>
-
-						<div><%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい" %></div>
-						<div><%= f.label :genre_id,'商品ジャンル' %></div>
-
-						<div><%= f.select :is_active, [["販売中", "true"], ["売り切れ", "false"]], include_blank: "選択して下さい" %></div>
-						<div><%= f.label :is_active,'販売ステータス' %></div>
+					<div class="col-xs-2 item_edit_label">
+						<div class="column1"><%= f.label :name,'商品名' %>	</div>
+						<div class="column2"><%= f.label :description,'商品説明' %></div>
+						<div class="column3"><%= f.label :no_tax,'税抜価格' %></div>
+						<div class="column4"><%= f.label :genre_id,'商品ジャンル' %></div>
+						<div class="column5"><%= f.label :is_active,'販売<br>ステータス'.html_safe %></div>
 					</div>
+
+					<div class="col-xs-3 item_edit_field">
+						<div class="column1"><%= f.text_field :name, class:"form-control" %></div>
+						<div class="column2"><%= f.text_area :description, class:"form-control" %></div>
+						<div class="column3"><%= f.text_field :no_tax, class:"form-control" %>円</div>
+						<div class="column4"><%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい", class:"form-control" %></div>
+						<div class="column5"><%= f.select :is_active, [["販売中", "true"], ["売り切れ", "false"]], include_blank: "選択して下さい", class:"form-control" %></div>
 					</div>
 
 					<div class="col-xs-1 col-xs-offset-10">
-					　　　<%= f.submit '編集する',class: "btn btn btn-primary" %>
+					　　　<%= f.submit '編集する',class: "btn btn btn-brown" %>
 					</div>
 
 				<% end %>
@@ -57,4 +53,16 @@
 		</div>
 	</div>
 </div>
+<script>
+	document.getElementById('image_select').addEventListener('change', function (e) {
+    // 1枚だけ表示する
+    var file = e.target.files[0];
 
+    // ファイルのブラウザ上でのURLを取得する
+    var blobUrl = window.URL.createObjectURL(file);
+
+    // img要素に表示
+    var img = document.getElementById('file-preview');
+    img.src = blobUrl;
+});
+</script>
