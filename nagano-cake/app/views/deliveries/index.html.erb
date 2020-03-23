@@ -6,17 +6,17 @@
 		<!-- 配送先登録用フォーム -->
 			<div class="delivery-new">
 		　　　　<%= form_for(@delivery) do |f| %>
-		　　　　<div class="field">
+		　　　　<div class="field-post">
 					<%= f.label :postal_code, '郵便番号（ハイフンなし）' %>
 					<%= f.text_field :postal_code, class: "delivery-postcode" %>
 		　　　　</div>
 
-		　　　　<div class="field">
+		　　　　<div class="field-address">
 					<%= f.label :address, '住所' %>
 					<%= f.text_field :address, class: "delivery-address" %>
 		　　　　</div>
 
-				<div class="field">
+				<div class="field-adresee">
 					<%= f.label :addressee, '宛名' %>
 					<%= f.text_field :addressee, class: "delivery-addressee" %>
 		　　　　</div>

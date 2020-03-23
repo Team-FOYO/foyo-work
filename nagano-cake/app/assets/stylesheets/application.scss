@@ -24,7 +24,7 @@
 }
 
 .section{
-	padding-top:215px;
+	padding-top:90px;
 }
 
 
@@ -63,20 +63,12 @@ footer {
 	}
 }
 
-.item_index_row {
-.table {
-	margin: 0 auto;
-	width: 80%;
-	border: solid 1px;
-	border-color: silver;
-}
-}
 
 .logo {
-	width: 360px;
-	height: 360px;
+	width: 317px;
+	height: 67px;
 	position: absolute;
-	top: -140px;
+	top: 8px;
 	left: 120px;
 }
 
@@ -91,4 +83,13 @@ footer {
 .jumbotron {
 	padding: 10px;
 	background-color: #fadd76
+}
+
+.item_index_row {
+.table {
+	margin: 0 auto;
+	width: 80%;
+	border: solid 1px;
+	border-color: silver;
+}
 }
