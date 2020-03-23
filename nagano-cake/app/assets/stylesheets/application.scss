@@ -21,68 +21,92 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+	font-family: Arial;
 }
 
 .section{
-	padding-top:90px;
+	padding-top:85px;
+	min-height: 98vh;
+    position: relative;/*←相対位置*/
+    padding-bottom: 10px;/*←footerの高さ*/
+    box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
 }
-
 
 
 header {
 	a {
 	color: SaddleBrown;
-	font-family: ＭＳ Ｐゴシック;
-	font-size: 18px;
+	font-family: Arial;
+	font-size: 16px;
+	font-weight: bold;
 }
 	li {
 	font-size: 15px;
-	padding: 4px;
+	padding: 6px;
 	margin-right: -20px;
 	position: absolute;
 	left: 50px;
 }
 	ul {
-	padding-top: 10px;
+	padding-right: 20px;
+		.topmenu :hover{
+ 	    color: #b33319;
+        background-color: #fadd76;
+    }
   }
+
+  height: 75px;
 }
+.titlelogo{
+	margin: 0px;
+}
+
+.navbar-text{
+	margin: 0px;
+}
+.welcome-text{
+	font-family: Arial;
+  	margin:15px 0px 15px 15px;
+  	color: #3f312b;
+  	font-size: 14px;
+  }
+
 
 body {
 	background-color: Ivory;
 }
 
-.glyphicon-log-out{
-	top: 10px;
-	left: 10px;
-}
 
 footer {
+	color: SaddleBrown;
+	background-color: #fadd76;
 	text-align: center;
-	.footer-address {
-	padding-right: 178px;
-	}
+	width: 100%;
+	height: 40px;
+	position: absolute;/*←絶対位置*/
 }
 
-
-.logo {
-	width: 317px;
-	height: 67px;
-	position: absolute;
-	top: 8px;
-	left: 120px;
+.footer-contents{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-.header-mark{
-	width: 180px;
-	height: 180px;
+.footer-contents-p{
+	margin-top: 10px;
+}
+.footerlogo{
+	width: auto;
+	height: 25px;
+}
+.headerlogo {
+	width: auto;
+	height: 60px;
 	position: absolute;
-	top: -63px;
-	left: -20px;
 }
 
 .jumbotron {
 	padding: 10px;
-	background-color: #fadd76
+	background-color: #fadd76;
 }
 
 .item_index_row {
