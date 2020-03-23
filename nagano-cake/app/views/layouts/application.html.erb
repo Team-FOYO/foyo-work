@@ -29,18 +29,12 @@
             <li class="topmenu"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete%></li>
 
             <% elsif admin_admin_signed_in? %>
-<<<<<<< HEAD
+
             <li class="topmenu"><%= link_to '商品一覧', admin_items_path %></li>
             <li class="topmenu"><%= link_to '会員一覧', admin_users_path %></li>
             <li class="topmenu"><%= link_to '注文履歴一覧', admin_orders_path  %></li>
             <li class="topmenu"><%= link_to 'ジャンル管理', admin_genres_path %></li>
-=======
-            <li><%= link_to '商品一覧', admin_items_path %></li>
-            <li><%= link_to '会員一覧', admin_users_path %></li>
-            <li><%= link_to '注文履歴一覧', admin_orders_path  %></li>
-            <li><%= link_to 'ジャンル管理', admin_genres_path %></li>
-            <li><%= link_to 'ログアウト', destroy_admin_admin_session_path, method: :delete%></li>
->>>>>>> 9c93aa77c32b24587aecd5033c4a5edea1befceb
+            <li class="topmenu"><%= llink_to 'ログアウト', destroy_admin_admin_session_path, method: :delete %></li>
 
             <% elsif current_page?(new_admin_admin_session_path) %>
 
