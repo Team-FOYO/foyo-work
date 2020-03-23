@@ -1,8 +1,8 @@
 <div class="container">
     <h1 class="order-title">注文履歴詳細</h1>
-    <div class="row">
-        <div class="col-xs-7">
-        <div class="col-xs-12">
+    <div class="row order-total">
+        <div class="col-xs-8">
+        <div class="col-xs-10">
             <h2  class="order-title-sm">注文情報</h2>
             <table class="table table-bordered">
                     <tbody>
@@ -15,9 +15,9 @@
                         <tr>
                             <th bgcolor="#EEEEEE">配送先</th>
                             <td>
-                                <%= @order.postal_code %>
-                                <%= @order.address %>
-                                <%= @order.addressee %>
+                                <%= @order.postal_code %><br>
+                                <%= @order.address %><br>
+                                <%= @order.addressee %><br>
                             </td>
                         </tr>
                         <tr>
@@ -67,7 +67,7 @@
                 </table>
             </div>
         </div>
-        <div class="col-xs-3">
+        <div class="col-xs-4">
             <h2 class="order-title-sm">請求情報</h2>
             <table class="table table-bordered">
                     <tbody>
@@ -85,11 +85,14 @@
                         <tr>
                             <th class="col-xs-5" bgcolor="#EEEEEE">ご請求額</th>
                             <td>
-                                <%= @order.charge %>円
+                                <strong><%= @order.charge %></strong>円
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+        <div class="order-total-btn">
+            <%= link_to '注文履歴一覧に戻る',orders_path, class: "btn btn-lg btn-brown" %>
+        </div>
      </div>
 </div>

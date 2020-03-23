@@ -33,6 +33,11 @@
   .deliselect{
     padding-left: 40px;
   }
-  .order_item{
-    width: 800px;
+  .order-total{
+    position: relative;
+  }
+  .order-total-btn{
+    position: absolute;
+    right: 80px;
+    bottom: 50px;
   }
