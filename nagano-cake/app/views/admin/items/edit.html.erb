@@ -16,30 +16,33 @@
 				<% end %>
 
 				<%= form_for(@item,url:admin_item_path) do |f| %>
-					<div class="form-group">
+					<table></table>
 					<div class="col-xs-3 col-xs-offset-1 item_edit_image">
 						<%= attachment_image_tag @item, :image, fallback: "no_image.jpg",id:"file-preview" %>
 
-						<%= f.attachment_field :image, class: "btn btn btn-brown item_attachment_field", include_blank: "画像選択", id:"image_select"%>
-						<label for="image_select" class="btn btn btn-brown item_attachment_field">選択</label>
-					</div>
+						<%= f.attachment_field :image, class: "btn btn btn-brown item_attachment_field", id:"image_select"%>
+						<label for="image_select" class="btn btn btn-brown item_attachment_field">画像選択</label>
 					</div>
 
 					<div class="col-xs-2 item_edit_label">
-						<div class="column1"><%= f.label :name,'商品名' %>	</div>
-						<div class="column2"><%= f.label :description,'商品説明' %></div>
-						<div class="column3"><%= f.label :no_tax,'税抜価格' %></div>
-						<div class="column4"><%= f.label :genre_id,'商品ジャンル' %></div>
-						<div class="column5"><%= f.label :is_active,'販売<br>ステータス'.html_safe %></div>
+						<div class="row column1"><%= f.label :name,'商品名' %>	</div>
+						<div class="row column2"><%= f.label :description,'商品説明' %></div>
+						<div class="row column3"><%= f.label :no_tax,'税抜価格' %></div>
+						<div class="row column4"><%= f.label :genre_id,'商品ジャンル' %></div>
+						<div class="row column5"><%= f.label :is_active,'販売<br>ステータス'.html_safe %></div>
 					</div>
 
 					<div class="col-xs-3 item_edit_field">
-						<div class="column1"><%= f.text_field :name, class:"form-control" %></div>
-						<div class="column2"><%= f.text_area :description, class:"form-control" %></div>
-						<div class="column3"><%= f.text_field :no_tax, class:"form-control" %>円</div>
-						<div class="column4"><%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい", class:"form-control" %></div>
-						<div class="column5"><%= f.select :is_active, [["販売中", "true"], ["売り切れ", "false"]], include_blank: "選択して下さい", class:"form-control" %></div>
+						<div class="row column1"><%= f.text_field :name, class: "form-control" %></div>
+						<div class="row column2"><%= f.text_area :description, class: "form-control", :size=>"14x3"  %></div>
+						<div class="row column3"><%= f.text_field :no_tax, class: "form-control" %></div>
+						<div class="row column4"><%= f.select :genre_id, Genre.all.map{|o| [o.name, o.id]},{},:class => 'form-control' %></div>
+						<div class="row column5"><%= f.select :is_active, [["販売中", "true"], ["売り切れ", "false"]], {include_blank: "選択して下さい"}, {class: 'form-control'} %></div>
 					</div>
+					<%# f.select :address, @delivery.all.map{|o| [o.total_address, o.id]},{},:class => 'form-control' %>
+					<%# f.select :カラム名, @配列.all.map{|引数| [引数.表示させるカラム, 引数.配列のカラム]},{},:class => 'クラス名' %>
+					<!-- ↑クラス名の前に「,{}」があるが、第4引数は不要でも、第5引数を書きたいときは｛｝カッコだけ必要らしい -->
+					<div class="col-xs-10"></div>
 
 					<div class="col-xs-1 col-xs-offset-10">
 					　　　<%= f.submit '編集する',class: "btn btn btn-brown" %>
