@@ -5,20 +5,26 @@
 
 //genre_search
 .genre_table {
-	background-color: #fff;
 	border-left: solid 1px;
 	border-right: solid 1px;
 	border-bottom: solid 1px;
 	border-color: gray;
+	font-size: 1.2em;
+	color: SaddleBrown;
 }
 .genre_thead {
-	background-color: #faf0e6;
+	padding: 0.15em 0;
 	border-top: solid 1px;
 	border-bottom: solid 1px;
 	text-align: center;
+	font-size: 1.2em;
 	border-color: gray;
 }
 
 .genre_tr {
-	margin: 0.5em;
+	margin: 0.7em;
+}
+
+.genre_link {
+	color:SaddleBrown;
 }
