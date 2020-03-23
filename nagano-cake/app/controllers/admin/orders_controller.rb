@@ -14,11 +14,10 @@ class Admin::OrdersController < ApplicationController
 
 	def update
 		@order = Order.find(params[:id])
-		if @order.update(order_params)
-  			redirect_to edit_admin_order(@order), notice: "successfully updated"
-  		else
-  			render :edit
-  		end
+		@order.update(order_params)
+  		redirect_back(fallback_location: root_path)
+		@order_item.update(order_params)
+  		redirect_back(fallback_location: root_path)
 	end
 
 	private

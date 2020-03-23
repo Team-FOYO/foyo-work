@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
 	      @order.address = params[:address1]
 	      @order.addressee = params[:name1]
 	    when "2" then
-	      @delivery_select = Delivery.find(params[:id])
+	      @delivery_select = Delivery.find(params[:delivery_address][:id])
 	      @order.postal_code = @delivery_select.postal_code
 	      @order.address = @delivery_select.address
 	      @order.addressee = @derivery_select.addressee
@@ -65,6 +65,9 @@ class OrdersController < ApplicationController
 	end
 
 	private
+	def delivery_params
+    	params.require(:delivery_address).permit(:id)
+  	end
 	def order_params
     	params.require(:order).permit(:user_id, :postal_code, :address, :addressee,:delivery_charge, :charge, :payment, :status, :delivery)
   	end
