@@ -34,7 +34,7 @@
             <li class="topmenu"><%= link_to '会員一覧', admin_users_path %></li>
             <li class="topmenu"><%= link_to '注文履歴一覧', admin_orders_path  %></li>
             <li class="topmenu"><%= link_to 'ジャンル管理', admin_genres_path %></li>
-            <li class="topmenu"><%= llink_to 'ログアウト', destroy_admin_admin_session_path, method: :delete %></li>
+            <li class="topmenu"><%= link_to 'ログアウト', destroy_admin_admin_session_path, method: :delete %></li>
 
             <% elsif current_page?(new_admin_admin_session_path) %>
 
