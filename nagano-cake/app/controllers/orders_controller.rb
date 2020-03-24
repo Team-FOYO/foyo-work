@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
 	      @delivery_select = Delivery.find(params[:delivery_address][:id])
 	      @order.postal_code = @delivery_select.postal_code
 	      @order.address = @delivery_select.address
-	      @order.addressee = @derivery_select.addressee
+	      @order.addressee = @delivery_select.addressee
 	    when "3" then
 	      @order.postal_code = params[:postal3]
 	      @order.address = params[:address3]

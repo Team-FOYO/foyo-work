@@ -1,7 +1,7 @@
 <div class="container">
     <h1>注文詳細画面</h1>
     <div class="row">
-        <div class="col col-xs-6">
+        <div class="col col-xs-8">
             <table>
                 <h3>注文情報</h3>
                 <table border="1" width="700" height="200">
@@ -41,20 +41,20 @@
                 </table>
             </table>
             <h3>注文内容</h3>
-            <table border="1" width="700" height="200">
+            <table border="1" width="700">
                 <thead>
                     <tr>
-                        <th>商品</th>
-                        <th>単価（税込）</th>
-                        <th>個数</th>
-                        <th>小計</th>
-                        <th></th>
-                        <th>制作ステータス</th>
+                        <th bgcolor="#EEEEEE">商品</th>
+                        <th bgcolor="#EEEEEE">単価（税込）</th>
+                        <th bgcolor="#EEEEEE">個数</th>
+                        <th bgcolor="#EEEEEE">小計</th>
+                        <th bgcolor="#EEEEEE"></th>
+                        <th bgcolor="#EEEEEE">制作ステータス</th>
                     </tr>
                 </thead><br>
                 <tbody>
                     <% @sum = 0 %>
-                    <% @order.order_items.each do |order_item| %>
+                    <% @order_items.each do |order_item| %>
                     <tr>
                         <td>
                             <%= order_item.item.name %>
@@ -72,12 +72,11 @@
                         <% @sum += subtotal %>
                         <td>
                         <th>
-                            <%= order_item.status %>
                             <%#= form_with model: @order_item, local: true do |f| %>
-                            <%= form_with @order_item,admin_order_item_path(order_item.id),method: :patch  do |f| %>
-                            <%= f.select :status, [["着手不可","着手不可"],["制作待ち","制作待ち"],["製作中","製作中"],["制作完了","制作完了"],] ,selected: order_item.status %>
+                            <%= form_for order_item, url: admin_order_item_path(order_item.id)  do |f| %>
+                            <%= f.select :status, [["着手不可","着手不可"],["制作待ち","制作待ち"],["製作中","製作中"],["制作完了","制作完了"]] ,value: order_item.status%>
                             <!-- value: @order.order_item_make_status を入れる-->
-                            <%= f.submit "更新", method: :patch,class: "btn btn-primary" %>
+                            <%= f.submit "更新",class: "btn btn-primary" %>
                             <% end %>
                         </th>
                         </td>
@@ -86,36 +85,37 @@
                 </tbody>
             </table>
         </div>
+        <div class="admin-order-edit-charge">
+            <div class="col col-xs-4">
+                <table border="1" width="300" height="200">
+                    <tbody>
+                        <tr>
+                            <td class="col-xs-5" bgcolor="#EEEEEE">
+                                <h5>商品合計</h5>
+                            </td>
+                            <td class="col-xs-7">
+                                <%= @sum %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-5" bgcolor="#EEEEEE">
+                                <h5>送料</h5>
+                            </td>
+                            <td class="col-xs-7">
+                                <%= @order.delivery_charge %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-5" bgcolor="#EEEEEE">
+                                <h5>請求金額合計</h5>
+                            </td>
+                            <td class="col-xs-7">
+                                <%= @order.charge %>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-    <div class="col col-xs-6">
-        <table border="1" width="300" height="200">
-            <tbody>
-                <tr>
-                    <td class="col-xs-5">
-                        <h5>商品合計</h5>
-                    </td>
-                    <td class="col-xs-7">
-                        <%= @sum %>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-xs-5">
-                        <h5>送料</h5>
-                    </td>
-                    <td class="col-xs-7">
-                        <%= @order.delivery_charge %>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-xs-5">
-                        <h5>請求金額合計</h5>
-                    </td>
-                    <td class="col-xs-7">
-                        <%= @order.charge %>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
 </div>

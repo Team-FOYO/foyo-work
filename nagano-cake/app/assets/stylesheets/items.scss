@@ -30,11 +30,12 @@ button.new_button {
 	margin: 0 auto;
 	width: 80%;
 	border: 1px solid silver;
-.th {
+th {
 	color: SaddleBrown;
-}
-}
-}
+.item_link {
+	color: SaddleBrown;
+}}}}
+
 
 // admin_show
 .item_show_image {
@@ -44,9 +45,9 @@ button.new_button {
 .item_show_table {
 th {
 	width: 12em;
+	color: SaddleBrown;
 }
 th,td {
-	color: SaddleBrown;
 	border-top: 0px !important;
     border-bottom: 0px !important;
 }
@@ -58,22 +59,30 @@ th,td {
 	margin-top: 5em;
 
 .item_attachment_field {
-	margin: 0 auto;
-	margin-top: 1em;
+	margin: 1em auto;
 	width: 70% !important;
 }}
 
-.item_edit_label {
-	padding-left: 4em !important;
+.label_column {
+	padding: 0.25em 0;
+	padding-left: 3em;
+	width: 9em;
 }
 
-.column2 {
-	height: 6em;
+.field_column {
+	padding: 0.25em 0;
+	padding-left: 3em;
+	width: 20em;
+}
+.yen {
+	padding-left: 0.25em;
+	vertical-align: bottom;
 }
 
 #image_select {
 	display: none;
 }
+
 
 // item_2index
 .item_div {
@@ -91,5 +100,5 @@ th,td {
 
 .item_description {
 	min-height:11em ;
-	max-height:22em ;
+	max-height:30em ;
 }

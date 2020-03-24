@@ -2,7 +2,7 @@ class Admin::OrdersController < ApplicationController
 	#before_action :authenticate_admin_admin!
 
 	def index
-		@orders = Order.all
+		@orders = Order.page(params[:page]).reverse_order
 		@user = User.all
 	end
 
@@ -15,8 +15,6 @@ class Admin::OrdersController < ApplicationController
 	def update
 		@order = Order.find(params[:id])
 		@order.update(order_params)
-  		redirect_back(fallback_location: root_path)
-		@order_item.update(order_params)
   		redirect_back(fallback_location: root_path)
 	end
 
