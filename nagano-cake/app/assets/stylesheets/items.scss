@@ -7,6 +7,7 @@
 img {
 	max-width: 100%;
 	height: auto;
+	margin: 0 auto;
 }
 
 .item_span {
@@ -32,9 +33,18 @@ button.new_button {
 	border: 1px solid silver;
 th {
 	color: SaddleBrown;
+}}}
+
 .item_link {
 	color: SaddleBrown;
-}}}}
+	text-decoration: underline;
+}
+
+.item_link:hover {
+  color: SaddleBrown;
+  background-color: Wheat;
+  border-color: Wheat;
+}
 
 
 // admin_show
@@ -85,20 +95,34 @@ th,td {
 
 
 // item_2index
+.items_row {
+	margin-top: 3.5em;
+}
+
 .item_div {
 	margin: 1em 0;
+}
+
+.item_p {
+	color: SaddleBrown;
 }
 
 // item_show
 .item_image {
 	margin-left: 3em;
+	margin-top: 2.4em;
 }
 
 .item_name {
 	font-size: 2em;
+	color: SaddleBrown;
 }
 
 .item_description {
 	min-height:11em ;
 	max-height:30em ;
+}
+
+.item_show_box {
+	margin-top: 2.4em;
 }
