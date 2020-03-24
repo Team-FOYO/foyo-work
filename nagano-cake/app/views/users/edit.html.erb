@@ -2,10 +2,10 @@
 	<div class="row">
 		<div class="col-xs-12">
 			<p class="user-title">登録情報編集</p>
-			<div class="col-xs-8">
+			<div class="col-xs-9">
 				<%= form_for(@user) do |f| %>
 					<div class="form-group">
-						<table class="table user-table">
+						<table class="table user-edit-table">
 							<tr>
 								<th class="col-xs-2">名前</th>
 								<td>
@@ -64,11 +64,11 @@
 							</td>
 						</tr>
 						<tr>
-							<td colspan="2"></td>
-							<td colspan="2">
-								<%= f.submit "編集内容を保存する" ,class: "btn btn-brown" %>
+							<td></td>
+							<td align="center" colspan="3">
+								<%= f.submit "編集内容を保存する" ,class: "btn btn-lg btn-brown" %>
 							</td>
-							<td>
+							<td align="right">
 								<%= link_to '退会する',leave_users_path, class: "btn btn-danger" %>
 							</td>
 						</tr>

@@ -3,7 +3,7 @@
 		<div class="col-xs-12">
 			<p class="user-title">マイページ</p>
 			  <div class="row">
-		        <table class="col-xs-6 user-table">
+		        <table class="col-xs-6 user-title-table">
 		        	<tbody>
 		        		<tr>
 		        			<th class="col-xs-2"><h4><strong>登録情報</strong></th>
@@ -22,39 +22,40 @@
 				<div class="col-xs-8">
 				   <table class="table table-bordered user-table-line">
 					<tr>
-						<th class="col-xs-2">氏名</th>
+						<th class="col-xs-2" bgcolor="#faf0e6">氏名</th>
 						<td class="col-xs-4"><%= @user.first_name%><%= @user.last_name%></td>
 					</tr>
 					<tr>
-						<th class="col-xs-2">カナ</th>
+						<th class="col-xs-2" bgcolor="#faf0e6">カナ</th>
 						<td class="col-xs-4"><%= @user.first_name_kana%><%= @user.last_name_kana%></td>
 					</tr>
 					<tr>
-						<th class="col-xs-2">郵便番号</th>
+						<th class="col-xs-2" bgcolor="#faf0e6">郵便番号</th>
 						<td class="col-xs-4"><%= @user.postcode %></td>
 					</tr>
 					<tr>
-						<th class="col-xs-2">住所</th>
+						<th class="col-xs-2" bgcolor="#faf0e6">住所</th>
 						<td class="col-xs-4"><%= @user.address %></td>
 					</tr>
 					<tr>
-					 	<th class="col-xs-2">電話番号</th>
+					 	<th class="col-xs-2" bgcolor="#faf0e6">電話番号</th>
 						<td class="col-xs-4"><%= @user.phone_number %></td>
 					</tr>
 					<tr>
-						<th class="col-xs-2">メールアドレス</th>
+						<th class="col-xs-2" bgcolor="#faf0e6">メールアドレス</th>
 						<td class="col-xs-4"><%= @user.email %></td>
 					</tr>
 		<!-- User側での退会フラグ確認用（最後に消す） -->
+					<%#
 					<tr>
-						<th class="col-xs-2" style="background-color:red;">★最後に消す★退会フラグ</th>
+						<th class="col-xs-2" bgcolor="#faf0e6" style="background-color:red;">★最後に消す★退会フラグ</th>
 						<td class="col-xs-4"><%= @user.if_is_active%></td>
-					</tr>
+					</tr> <%#end%>
 		<!-- User側での退会フラグ確認用（最後に消す） -->
 				   </table>
 		        </div>
 		        <div>
-		        <table class="col-xs-8 user-table">
+		        <table class="col-xs-8 user-title-table">
 		        	<tbody>
 		        		<tr>
 		        			<th class="col-xs-2"><h4><strong>配送先</strong></h4></th>
