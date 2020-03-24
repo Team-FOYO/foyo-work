@@ -31,7 +31,12 @@
     padding-bottom: 40px;/*←footerの高さ*/
     box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
 }
-
+#notice{
+	color: SaddleBrown;
+	font-family: Arial;
+	font-size: 1.1em;
+	background-color: #fadd76;
+}
 
 header {
 	a {

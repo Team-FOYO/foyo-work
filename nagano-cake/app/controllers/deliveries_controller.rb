@@ -10,7 +10,7 @@ class DeliveriesController < ApplicationController
   		@delivery = Delivery.new(delivery_params)
   		@delivery.user_id = current_user.id
     		if @delivery.save
-  				redirect_to deliveries_path, notice: "successfully created"
+  				redirect_to deliveries_path, notice: "配送先登録が成功しました。"
   			else
   		@deliveries  = current_user.deliveries
   		render 'index'
@@ -24,7 +24,7 @@ class DeliveriesController < ApplicationController
 	def update
 		@delivery = Delivery.find(params[:id])
   			if @delivery.update(delivery_params)
-  				redirect_to deliveries_path, notice: "successfully updated!"
+  				redirect_to deliveries_path, notice: "配送先情報を変更しました。"
   			else
   		  		render "edit"
   			end
@@ -33,7 +33,7 @@ class DeliveriesController < ApplicationController
 	def destroy
 	  	@delivery = Delivery.find(params[:id])
 	    @delivery.destroy
-	  	redirect_to deliveries_path, notice: "successfully delete"
+	  	redirect_to deliveries_path, notice: "配送先情報を削除しました。"
 	end
 # private-----------------
 	private
