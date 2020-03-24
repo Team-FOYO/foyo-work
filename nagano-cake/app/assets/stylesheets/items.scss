@@ -32,9 +32,18 @@ button.new_button {
 	border: 1px solid silver;
 th {
 	color: SaddleBrown;
+}}}
+
 .item_link {
 	color: SaddleBrown;
-}}}}
+	text-decoration: underline;
+}
+
+.item_link:hover {
+  color: SaddleBrown;
+  background-color: Wheat;
+  border-color: Wheat;
+}
 
 
 // admin_show
