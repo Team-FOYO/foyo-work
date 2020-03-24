@@ -8,16 +8,16 @@
                     <div class="form-group">
                         <table class="table delivery-table">
                             <tr>
-                                <th class="col-xs-4">
+                                <th class="col-xs-3">
                                     <%= f.label :postal_code, '郵便番号（ハイフンなし）' %>
                                 </th>
-                                <td>
+                                <td class="col-xs-3">
                                     <%= f.text_field :postal_code, class: "form-control" %>
                                 </td>
                                 <td class="col-xs-3"></td>
                             </tr>
                             <tr>
-                                <th class="col-xs-2">
+                                <th class="col-xs-3">
                                     <%= f.label :address, '住所' %>
                                 </th>
                                 <td colspan="2">
@@ -25,26 +25,25 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th class="col-xs-2">
+                                <th class="col-xs-3">
                                     <%= f.label :addressee, '宛名' %>
                                 </th>
-                                <td>
+                                <td class="col-xs-3">
                                     <%= f.text_field :addressee, class: "form-control" %>
                                 </td>
                                 <td class="col-xs-3"></td>
                             </tr>
                         </table>
                         <P class="delivery-new">
-                            <%= f.submit '登録する',class: "btn btn btn-success" %>
+                            <%= f.submit '登録する',class: "btn btn-lg btn-success" %>
                         </P>
                     </div>
-                    　　　
                     <% end %>
                 </div>
                 <div class="col-xs-10">
                     <div class="delivery-index">
                         <p class="deli-title">配送先一覧</p>
-                        <table class="table deli-table">
+                        <table class="table table-bordered deli-index-table">
                             <thead>
                                 <tr>
                                     <th>郵便番号</th>

@@ -7,7 +7,7 @@
 				   <table class="table admin-user-show-table">
 					   	<tr>
 							<th class="col-xs-2">会員ID</th>
-							<td class="col-xs-3"><h5>
+							<td class="col-xs-3"><h5><%= @user.id %>
 								<% if @user.is_active == true %>
 									<span class="label label-success"><%= @user.if_is_active%>会員</span>
 								<% else %>
@@ -42,7 +42,7 @@
 						</tr>
 						<tr>
 							<td class="col-xs-1"><%= link_to '編集する', edit_admin_user_path(@user), class: "btn btn-brown " %></td>
-							<td class="col-xs-3"><%= link_to '注文履歴一覧を見る', admin_orders_path, class: "btn btn-brown " %></td>
+							<td class="col-xs-3"><%= link_to '注文履歴一覧を見る', order_index_admin_user_path(@user), class: "btn btn-brown " %></td>
 						</tr>
 					</table>
 				</div>
