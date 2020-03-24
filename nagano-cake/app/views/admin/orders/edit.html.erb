@@ -4,72 +4,93 @@
         <div class="col col-xs-8">
             <table>
                 <h3>注文情報</h3>
-                <table border="1" width="700" height="200">
+                <table class="table-bordered" border="1" width="700" height="250">
                     <tbody>
                         <tr>
-                            <th bgcolor="#EEEEEE">購入者</th>
+                            <th style="background-color:#faf0e6;"><p class="text">購入者</p></th>
                             <td>
                                 <%= link_to admin_user_path(@order.user_id) do %>
-                                <%= @order.user.full_name %>
+                                <p class="text">
+                                    <%= @order.user.full_name %>
+                                </p>
                                 <% end %>
                             </td>
                         </tr>
                         <tr>
-                            <th bgcolor="#EEEEEE">配送先</th>
+                            <th style="background-color:#faf0e6;"><p class="text">配送先</p></th>
                             <td>
-                                <%= @order.postal_code %>
-                                <%= @order.address %>
-                                <%= @order.addressee %>
+                                <p class="text">
+                                    <%= @order.postal_code %>
+                                </p>
+                                <p class="text">
+                                    <%= @order.address %>
+                                </p>
+                                <p class="text">
+                                    <%= @order.addressee %>
+                                </p>
                             </td>
                         </tr>
                         <tr>
-                            <th bgcolor="#EEEEEE">支払方法</th>
+                            <th style="background-color:#faf0e6;"><p class="text">支払方法</p></th>
                             <td>
-                                <%= @order.payment %>
+                                <p class="text">
+                                    <%= @order.payment %>
+                                </p>
                             </td>
                         </tr>
                         <tr>
-                            <th bgcolor="#EEEEEE">注文ステータス</th>
+                            <th style="background-color:#faf0e6;"><p class="text">注文ステータス</p></th>
                             <td>
-                                <%= form_for @order,url: admin_order_path(@order) do |f| %>
-                                <%= f.select :status, [["入金待ち","入金待ち"],["入金確認","入金確認"],["製作中","製作中"],["発送準備中","発送準備中"],["発送済み","発送済み"],], value: @order.status %>
-                                <%= f.submit "更新", class: "btn btn-primary" %>
-                                <% end %>
+                                <div class="admin-orders-edit-orderstatus">
+                                    <%= form_for @order,url: admin_order_path(@order) do |f| %>
+                                    <%= f.select :status, [["入金待ち","入金待ち"],["入金確認","入金確認"],["製作中","製作中"],["発送準備中","発送準備中"],["発送済み","発送済み"],], value: @order.status, class: "form-control" %>
+                                    <%= f.submit "更新", class: "btn btn-primary w-30" %>
+                                    <% end %>
+                                </div>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </table>
             <h3>注文内容</h3>
-            <table border="1" width="700">
-                <thead>
-                    <tr>
-                        <th bgcolor="#EEEEEE">商品</th>
-                        <th bgcolor="#EEEEEE">単価（税込）</th>
-                        <th bgcolor="#EEEEEE">個数</th>
-                        <th bgcolor="#EEEEEE">小計</th>
-                        <th bgcolor="#EEEEEE"></th>
-                        <th bgcolor="#EEEEEE">制作ステータス</th>
+            <table class="table-bordered" border="1" width="700">
+                <thead class="admin-order-edit-orderitems-head">
+                    <tr class="admin-order-edit-orderitems-head-tr">
+                        <th style="background-color:#faf0e6;">商品</th>
+                        <th style="background-color:#faf0e6;">単価（税込）</th>
+                        <th style="background-color:#faf0e6;">個数</th>
+                        <th style="background-color:#faf0e6;">小計</th>
+                        <th style="background-color:#faf0e6;"></th>
+                        <th style="background-color:#faf0e6;">制作ステータス</th>
                     </tr>
                 </thead><br>
-                <tbody>
+                <tbody class="admin-order-edit-orderitems-body">
                     <% @sum = 0 %>
                     <% @order_items.each do |order_item| %>
                     <tr>
                         <td>
-                            <%= order_item.item.name %>
+                            <p class="text">
+                                <%= order_item.item.name %>
+                            </p>
                         </td>
                         <td>
-                            <%= order_item.unit_price %>
+                            <p class="text">
+                                <%= order_item.unit_price %>
+                            </p>
                         </td>
                         <td>
-                            <%= order_item.quantity %>
+                            <p class="text">
+                                <%= order_item.quantity %>
+                            </p>
                         </td>
                         <td>
-                            <%= order_item.unit_price * order_item.quantity %>
+                            <p class="text">
+                                <%= order_item.unit_price * order_item.quantity %>
                         </td>
                         <% subtotal = order_item.unit_price * order_item.quantity %>
-                        <% @sum += subtotal %>
+                        <p class="text">
+                            <% @sum += subtotal %>
+                        </p>
                         <td>
                         <th>
                             <%#= form_with model: @order_item, local: true do |f| %>
@@ -87,30 +108,36 @@
         </div>
         <div class="admin-order-edit-charge">
             <div class="col col-xs-4">
-                <table border="1" width="300" height="200">
+                <table class="table-bordered" border="1" width="300" height="200">
                     <tbody>
                         <tr>
-                            <td class="col-xs-5" bgcolor="#EEEEEE">
+                            <td class="col-xs-5" style="background-color:#faf0e6;">
                                 <h5>商品合計</h5>
                             </td>
                             <td class="col-xs-7">
-                                <%= @sum %>
+                                <p class="text">
+                                    <%= @sum %>
+                                </p>
                             </td>
                         </tr>
                         <tr>
-                            <td class="col-xs-5" bgcolor="#EEEEEE">
+                            <td class="col-xs-5" style="background-color:#faf0e6;">
                                 <h5>送料</h5>
                             </td>
                             <td class="col-xs-7">
-                                <%= @order.delivery_charge %>
+                                <p class="text">
+                                    <%= @order.delivery_charge %>
+                                </p>
                             </td>
                         </tr>
                         <tr>
-                            <td class="col-xs-5" bgcolor="#EEEEEE">
+                            <td class="col-xs-5" style="background-color:#faf0e6;">
                                 <h5>請求金額合計</h5>
                             </td>
                             <td class="col-xs-7">
-                                <%= @order.charge %>
+                                <p class="text">
+                                    <%= @order.charge %>
+                                </p>
                             </td>
                         </tr>
                     </tbody>
