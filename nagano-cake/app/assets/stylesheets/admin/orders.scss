@@ -1,5 +1,5 @@
 .admin-order-edit-charge{
-	margin-top: 330px;
+	margin-top: 385px;
 }
 
 .admin-order-index-title{
@@ -7,7 +7,11 @@ color: SaddleBrown;
 }
 
 .admin-order-edit-orderitems-head{
-	line-height: 30px
+	line-height: 30px;
+}
+
+.admin-order-edit-orderitems-head-tr-th{
+	line-height: 30px;
 }
 
 .admin-order-edit-orderitems-body{
@@ -15,14 +19,41 @@ color: SaddleBrown;
 }
 
 .admin-orders-edit-orderstatus{
-	padding-left: 30px;
+	padding-left: 10px;
 }
 
 .text{
 	padding-left: 10px;
-	font-size: 15px
+	font-size: 15px;
+	margin: 0;
 }
 
-.btn-primary{
-	width:60px;
+.pribyn{
+	width:80px;
+	font-size: 15px;
+}
+
+.text-title{
+	color: SaddleBrown;
+}
+
+.text-subtitle{
+	color: SaddleBrown;
+}
+
+.text-subtitle-sub{
+	color: SaddleBrown;
+}
+
+.orderdetail{
+	margin-top:0px;
+}
+
+.production-status{
+  width:40px;
+}
+
+.ad-order-edit-charge{
+	position: absolute;
+	top: 80px;
 }

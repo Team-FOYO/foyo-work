@@ -1,14 +1,16 @@
 <div class="container">
-    <h1>注文詳細画面</h1>
+    <h1 class="text-title">注文詳細画面</h1>
     <div class="row">
         <div class="col col-xs-8">
             <table>
-                <h3>注文情報</h3>
-                <table class="table-bordered" border="1" width="700" height="250">
+                <h3 class="text-subtitle">注文情報</h3>
+                <table class="table-bordered" border="1" width="740" height="250">
                     <tbody>
                         <tr>
-                            <th style="background-color:#faf0e6;"><p class="text">購入者</p></th>
-                            <td>
+                            <th class="col-xs-5" style="background-color:#faf0e6;">
+                                <p class="text">購入者</p>
+                            </th>
+                            <td class="col-xs-7">
                                 <%= link_to admin_user_path(@order.user_id) do %>
                                 <p class="text">
                                     <%= @order.user.full_name %>
@@ -17,8 +19,10 @@
                             </td>
                         </tr>
                         <tr>
-                            <th style="background-color:#faf0e6;"><p class="text">配送先</p></th>
-                            <td>
+                            <th class="col-xs-5" style="background-color:#faf0e6;">
+                                <p class="text">配送先</p>
+                            </th>
+                            <td class="col-xs-7">
                                 <p class="text">
                                     <%= @order.postal_code %>
                                 </p>
@@ -31,20 +35,24 @@
                             </td>
                         </tr>
                         <tr>
-                            <th style="background-color:#faf0e6;"><p class="text">支払方法</p></th>
-                            <td>
+                            <th class="col-xs-5" style="background-color:#faf0e6;">
+                                <p class="text">支払方法</p>
+                            </th>
+                            <td class="col-xs-7">
                                 <p class="text">
                                     <%= @order.payment %>
                                 </p>
                             </td>
                         </tr>
                         <tr>
-                            <th style="background-color:#faf0e6;"><p class="text">注文ステータス</p></th>
-                            <td>
+                            <th class="col-xs-5" style="background-color:#faf0e6;">
+                                <p class="text">注文ステータス</p>
+                            </th>
+                            <td class="col-xs-7">
                                 <div class="admin-orders-edit-orderstatus">
                                     <%= form_for @order,url: admin_order_path(@order) do |f| %>
-                                    <%= f.select :status, [["入金待ち","入金待ち"],["入金確認","入金確認"],["製作中","製作中"],["発送準備中","発送準備中"],["発送済み","発送済み"],], value: @order.status, class: "form-control" %>
-                                    <%= f.submit "更新", class: "btn btn-primary w-30" %>
+                                    <%= f.select :status, [["入金待ち","入金待ち"],["入金確認","入金確認"],["製作中","製作中"],["発送準備中","発送準備中"],["発送済み","発送済み"],], value: @order.status, class: 'form-control' %>
+                                    <%= f.submit "更新", class: "btn btn-primary pribyn" %>
                                     <% end %>
                                 </div>
                             </td>
@@ -52,97 +60,109 @@
                     </tbody>
                 </table>
             </table>
-            <h3>注文内容</h3>
-            <table class="table-bordered" border="1" width="700">
-                <thead class="admin-order-edit-orderitems-head">
-                    <tr class="admin-order-edit-orderitems-head-tr">
-                        <th style="background-color:#faf0e6;">商品</th>
-                        <th style="background-color:#faf0e6;">単価（税込）</th>
-                        <th style="background-color:#faf0e6;">個数</th>
-                        <th style="background-color:#faf0e6;">小計</th>
-                        <th style="background-color:#faf0e6;"></th>
-                        <th style="background-color:#faf0e6;">制作ステータス</th>
-                    </tr>
-                </thead><br>
-                <tbody class="admin-order-edit-orderitems-body">
-                    <% @sum = 0 %>
-                    <% @order_items.each do |order_item| %>
-                    <tr>
-                        <td>
-                            <p class="text">
-                                <%= order_item.item.name %>
-                            </p>
-                        </td>
-                        <td>
-                            <p class="text">
-                                <%= order_item.unit_price %>
-                            </p>
-                        </td>
-                        <td>
-                            <p class="text">
-                                <%= order_item.quantity %>
-                            </p>
-                        </td>
-                        <td>
-                            <p class="text">
-                                <%= order_item.unit_price * order_item.quantity %>
-                        </td>
-                        <% subtotal = order_item.unit_price * order_item.quantity %>
-                        <p class="text">
-                            <% @sum += subtotal %>
-                        </p>
-                        <td>
-                        <th>
-                            <%#= form_with model: @order_item, local: true do |f| %>
-                            <%= form_for order_item, url: admin_order_item_path(order_item.id)  do |f| %>
-                            <%= f.select :status, [["着手不可","着手不可"],["制作待ち","制作待ち"],["製作中","製作中"],["制作完了","制作完了"]] ,value: order_item.status%>
-                            <!-- value: @order.order_item_make_status を入れる-->
-                            <%= f.submit "更新",class: "btn btn-primary" %>
-                            <% end %>
-                        </th>
-                        </td>
-                    </tr>
-                    <% end %>
-                </tbody>
-            </table>
         </div>
-        <div class="admin-order-edit-charge">
-            <div class="col col-xs-4">
-                <table class="table-bordered" border="1" width="300" height="200">
-                    <tbody>
+    </div>
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="orderdetail">
+                <table class="table-bordered">
+                    <h3 class="text-subtitle-sub">注文内容</h3>
+                    <thead class="admin-order-edit-orderitems-head">
                         <tr>
-                            <td class="col-xs-5" style="background-color:#faf0e6;">
-                                <h5>商品合計</h5>
-                            </td>
-                            <td class="col-xs-7">
+                            <th class="col-xs-3" style="background-color:#faf0e6;">
+                                <p class="text">商品</p>
+                            </th>
+                            <th class="col-xs-2" style="background-color:#faf0e6;">
+                                <p class="text">単価(税込)</p>
+                            </th>
+                            <th class="col-xs-2" style="background-color:#faf0e6;">
+                                <p class="text">個数</p>
+                            </th>
+                            <th class="col-xs-2" style="background-color:#faf0e6;">
+                                <p class="text">小計</p>
+                            </th>
+                            <th class="col-xs-3 production-status" style="background-color:#faf0e6;">
+                                <p class="text">制作ステータス</p>
+                            </th>
+                        </tr>
+                    </thead><br>
+                    <tbody class="admin-order-edit-orderitems-body">
+                        <% @sum = 0 %>
+                        <% @order_items.each do |order_item| %>
+                        <tr>
+                            <td>
                                 <p class="text">
-                                    <%= @sum %>
+                                    <%= order_item.item.name %>
                                 </p>
                             </td>
-                        </tr>
-                        <tr>
-                            <td class="col-xs-5" style="background-color:#faf0e6;">
-                                <h5>送料</h5>
-                            </td>
-                            <td class="col-xs-7">
+                            <td>
                                 <p class="text">
-                                    <%= @order.delivery_charge %>
+                                    <%= order_item.unit_price %>
                                 </p>
                             </td>
-                        </tr>
-                        <tr>
-                            <td class="col-xs-5" style="background-color:#faf0e6;">
-                                <h5>請求金額合計</h5>
-                            </td>
-                            <td class="col-xs-7">
+                            <td>
                                 <p class="text">
-                                    <%= @order.charge %>
+                                    <%= order_item.quantity %>
                                 </p>
                             </td>
+                            <td>
+                                <p class="text">
+                                    <%= order_item.unit_price * order_item.quantity %>
+                                </p>
+                            </td>
+                            <% subtotal = order_item.unit_price * order_item.quantity %>
+                            <p class="text">
+                                <% @sum += subtotal %>
+                            </p>
+                            <td>
+                                <div class="admin-orders-edit-orderstatus">
+                                    <%= form_for order_item, url: admin_order_item_path(order_item.id)  do |f| %>
+                                    <%= f.select :status, [["着手不可","着手不可"],["制作待ち","制作待ち"],["製作中","製作中"],["制作完了","制作完了"]] ,value: order_item.status,　class: "form-control"%>
+                                    <%= f.submit "更新",class: "btn btn-primary" %>
+                                    <% end %>
+                                </div>
+                            </td>
                         </tr>
+                        <% end %>
                     </tbody>
                 </table>
-            </div>
+            </table>
+        </div>
+        <div class="col col-xs-4">
+            <table class="table-bordered ad-order-edit-charge" border="1" width="300" height="150">
+                <tbody>
+                    <tr>
+                        <td class="col-xs-6" style="background-color:#faf0e6;">
+                            <p class="text"><strong>商品合計</strong></p>
+                        </td>
+                        <td class="col-xs-6">
+                            <p class="text">
+                                <%= @sum %>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-6" style="background-color:#faf0e6;">
+                            <p class="text"><strong>送料</strong></p>
+                        </td>
+                        <td class="col-xs-6">
+                            <p class="text">
+                                <%= @order.delivery_charge %>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-6" style="background-color:#faf0e6;">
+                            <p class="text"><strong>請求金額合計</strong></p>
+                        </td>
+                        <td class="col-xs-6">
+                            <p class="text">
+                                <%= @order.charge %>
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

@@ -61,7 +61,7 @@ class OrdersController < ApplicationController
 
 	def index
 		@user = User.find(current_user.id)
-		@orders = @user.orders
+		@orders = @user.orders.page(params[:page]).reverse_order
 	end
 
 	private
