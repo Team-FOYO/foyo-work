@@ -11,9 +11,8 @@
 						<%= link_to '退会しない',user_path(current_user), class: "btn btn-lg btn-success" %>
 					</div>
 					<div class="col-xs-6">
-						<%= form_for @user do |f| %>
-						<%= f.hidden_field :is_active, :value => false %>
-						<%= f.submit "退会する",class: "btn btn-lg btn-danger" %>
+						<% if user_signed_in? && @user.id == current_user.id %>
+						<%= link_to '退会する',active_leave_users_path,method: :patch,data: {confirm: "本当に退会してしますか？"},class: "btn btn-lg btn-danger"%>
 						<% end %>
 					</div>
 				</div>

@@ -18,7 +18,7 @@
 							<tr>
 								<td><%= user.id%></td>
 								<td>
-									<%= link_to admin_user_path(user) do %>
+									<%= link_to admin_user_path(user), class: "link" do %>
 									<%= user.first_name%><%= user.last_name%>
 									<% end %>
 								</td>
