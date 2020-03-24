@@ -30,15 +30,35 @@
 //about//
 
 .about-title{
-  font-family: arial unicode ms;
-  font-size: 40px;
+  width: 370px;
+  height: 140px;
   position: relative;
-  left: 1.2em;
+  left: 460px;
+}
+
+.about-detail{
+  width: 460px;
+  height: 160px;
+  position: relative;
+  left: 160px;
 }
 
 .about-box1{
-  width: 300px;
-  height: 400px;
- border: dashed 4px LightCoral;
- margin-left: 30px;
+  width: 720px;
+  height: 50px;
+  text-align: center;
+  background-color: Cornsilk;
+  position: relative;
+  left: 315px;
+  border: double 5px SaddleBrown;
+}
+
+ .about-text1{
+  font-size: 20px;
+  position: relative;
+  top: 5px;
+}
+
+.about-text2{
+  font-size: 20px;
 }
