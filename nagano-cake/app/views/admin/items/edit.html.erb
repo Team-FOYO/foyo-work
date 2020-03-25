@@ -14,7 +14,7 @@
 				    	</ul>
 				    </div>
 				<% end %>
-
+				<div>
 				<%= form_for(@item,url:admin_item_path) do |f| %>
 					<!-- 登録した画像を表示 -->
 					<div class="col-xs-3 col-xs-offset-2 item_edit_image">
@@ -54,10 +54,11 @@
 
 					<!-- 編集保存ボタン -->
 					<div class="col-xs-1 col-xs-offset-10">
-					　　　<%= f.submit '変更を保存する',class: "btn btn btn-brown" %>
+					　　　<%= f.submit '変更を保存する',class: "btn btn-brown" %>
 					</div>
 
 				<% end %>
+				</div>
 				</div>
 			</div>
 		</div>
