@@ -9,8 +9,12 @@ class CartItemsController < ApplicationController
   def create
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.user_id = current_user.id
-    @cart_item.save
-    redirect_to cart_items_path
+    if @cart_item.quantity.nil?
+      redirect_back(fallback_location: root_path) and return
+    else
+      @cart_item.save
+      redirect_to cart_items_path
+    end
  	end
 
   def update
