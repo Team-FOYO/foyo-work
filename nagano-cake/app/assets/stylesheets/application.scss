@@ -122,10 +122,18 @@ footer {
 	border-color: silver;
 }
 }
-
+.top-more {
+	text-align: right;
+	font-size: 1.1em;
+}
 .link {
 	color: SaddleBrown;
 	text-decoration: underline;
+}
+.link:hover {
+  color: SaddleBrown;
+  background-color: Wheat;
+  border-color: Wheat;
 }
 // ↓devise関係css
 

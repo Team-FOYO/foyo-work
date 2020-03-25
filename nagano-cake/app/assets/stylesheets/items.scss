@@ -77,6 +77,7 @@ th,td {
 	padding: 0.25em 0;
 	padding-left: 3em;
 	width: 9em;
+	color: SaddleBrown;
 }
 
 .field_column {
@@ -95,9 +96,6 @@ th,td {
 
 
 // item_2index
-.items_row {
-	margin-top: 3.5em;
-}
 
 .item_div {
 	margin: 1em 0;
@@ -125,4 +123,13 @@ th,td {
 
 .item_show_box {
 	margin-top: 2.4em;
+}
+.item_show_table{
+	th{
+		color: SaddleBrown;
+		font-size: 1.2em;
+	}
+	td{
+		font-size: 1.2em;
+	}
 }
