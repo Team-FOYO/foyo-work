@@ -14,14 +14,18 @@
 		<!-- 編集フォーム -->
 		<div class="col-xs-11 col-xs-offset-1">
 		<div class="row">
-		<span class="genre_form_span">ジャンル</span>
 		<%= form_for(@genre, url:admin_genre_path, html: { class: "genre_form" }) do |f| %>
-
-			<%= f.text_field :name %>
-			<span class="genre_span"><%= f.radio_button :is_active, :true, checked: true %>有効</span>
-			<span class="genre_span"><%= f.radio_button :is_active, :false %>無効</span>
-			<%= f.submit '変更を保存する', class: "btn btn-brown" %>
-
+			<table>
+				<tbody>
+					<tr>
+						<td><span class="genre_form_span">ジャンル</span></td>
+						<td><%= f.text_field :name ,class: "form-control"%></td>
+						<td><span class="genre_span"><%= f.radio_button :is_active, :true, checked: true %> 有効</span></td>
+						<td><span class="genre_span"><%= f.radio_button :is_active, :false %> 無効</span></td>
+						<td><%= f.submit '変更を保存する', class: "btn btn-brown" %></td>
+					</tr>
+				</tbody>
+			</table>
 		<% end %>
 		</div>
 		</div>

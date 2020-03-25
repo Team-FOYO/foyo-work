@@ -48,16 +48,15 @@
 								<td class="label_column"><%= f.label :is_active,'販売<br>ステータス'.html_safe %></td>
 								<td class="field_column"><%= f.select :is_active, [["販売中", "true"], ["売り切れ", "false"]], {include_blank: "選択して下さい"}, {class: 'form-control'} %></td>
 							</tr>
+							<tr>
+								<td align="right" colspan="2">
+									<%= f.submit '変更を保存する',class: "btn btn-lg btn-brown" %>
+								</td>
+							</tr>
 						</tbody>
 					</table>
-					</div>
-
-					<!-- 編集保存ボタン -->
-					<div class="col-xs-1 col-xs-offset-10">
-					　　　<%= f.submit '変更を保存する',class: "btn btn-brown" %>
-					</div>
-
 				<% end %>
+				</div>
 				</div>
 				</div>
 			</div>

@@ -1,14 +1,14 @@
 <div class="container">
     <div class="row">
         <div class="itemindex">
-            <div class="col-xs-12">
+            <div class="col-xs-10 col-xs-offset-1">
             	<span class="item_span">商品 詳細画面</span>
             	<div class="row item_show_image">
-					<div class="col-xs-3 col-xs-offset-1">
+					<div class="col-xs-4 col-xs-offset-1">
 						<%= attachment_image_tag @item, :image, fallback: "no_image.jpg" %>
 				   	</div>
 
-				   	<div class="col-xs-7">
+				   	<div class="col-xs-6">
 				   		<table class="table item_show_table">
 							<tr>
 								<th>商品名</th>
@@ -30,12 +30,11 @@
 								<th>販売ステータス</th>
 								<td><%= @item.if_is_active %></td>
 							</tr>
+							<tr>
+								<td align="right" colspan="2"><%= link_to '　編集する　',edit_admin_item_path(@item), class: "btn btn-lg btn-brown" %></td>
+							</tr>
 					 	</table>
-					 	<div class="col-xs-1 col-xs-offset-11">
-					 		<%= link_to '編集する',edit_admin_item_path(@item), class: "btn btn-brown" %>
-					 	</div>
 			       </div>
-			       <div class="col-xs-1">　</div>
 				</div>
             </div>
         </div>
