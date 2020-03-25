@@ -12,7 +12,7 @@
 					</div>
 					<div class="col-xs-6">
 						<% if user_signed_in? && @user.id == current_user.id %>
-						<%= link_to '退会する',active_leave_users_path,method: :patch,data: {confirm: "本当に退会してしますか？"},class: "btn btn-lg btn-danger"%>
+						<%= link_to '退会する',active_leave_users_path,method: :patch,data: {confirm: "本当に退会しますか？"},class: "btn btn-lg btn-danger"%>
 						<% end %>
 					</div>
 				</div>
