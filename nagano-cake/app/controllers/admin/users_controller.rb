@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-	#before_action :authenticate_admin_admin!
+	before_action :authenticate_admin_admin!
 
 	def order_index
 		@user = User.find(params[:id])
