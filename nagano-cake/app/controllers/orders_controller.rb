@@ -28,8 +28,6 @@ class OrdersController < ApplicationController
 	      @order.address = params[:address3]
 	      @order.addressee = params[:name3]
 	    end
-
-    #--------ユーザのカート内商品を@cart_productに格納--------
     	@cart_items = CartItem.where(user_id: current_user.id)
 	end
 
@@ -37,6 +35,11 @@ class OrdersController < ApplicationController
     	@order = Order.new(order_params)
     	@order.user_id = current_user.id
     	@order.save!
+    	@delivery = Delivery.new(delivery_params)
+    	@delivery.user_id = current_user.id
+    	if params[:type] == "3" then
+    	@delivery.save!
+    	end
     	@cart_items = current_user.cart_items.all
     	@cart_items.each do |cart_item|
     		@order_item = OrderItem.new
@@ -70,5 +73,7 @@ class OrdersController < ApplicationController
 	def order_params
     	params.require(:order).permit(:user_id, :postal_code, :address, :addressee,:delivery_charge, :charge, :payment, :status, :delivery)
   	end
-end
+  	def delivery_params
+  		params.require(:order).permit(:user_id, :postal_code, :address, :addressee )
+  	end
 end

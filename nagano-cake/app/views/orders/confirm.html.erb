@@ -55,6 +55,9 @@
                 <%= f.hidden_field :address, :value => @order.address%>
                 <%=  @order.addressee%>
                 <%= f.hidden_field :addressee, :value => @order.addressee%>
+                <% if params[:delivery_type] == "3"%>
+                <%= hidden_field_tag :type, "3"%>
+                <% end %>
             </h4>
         </div>
         <div class="col-md-4">
