@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
-	#before_action :authenticate_user!,except:[:index,:show]
+	before_action :authenticate_user!,except:[:index,:show]
 
 	def index
 		@genres = Genre.all
-		@items = Item.all
+		@items = Item.all.reverse_order
 	end
 
 	def searched_index

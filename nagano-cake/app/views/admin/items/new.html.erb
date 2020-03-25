@@ -3,61 +3,61 @@
         <div class="itemindex">
             <div class="col-xs-12">
 				<span class="item_span">商品 新規登録画面</span>
-				<div class="row item_edit_row">
-				<!-- エラーメッセージ -->
-				<% if @item.errors.any? %>
-				    <div id="error_explanation" class="alert alert-danger">
-				    	<ul>
-					        <% @item.errors.full_messages.each do |message| %>
-					            <li><%= message %></li>
-					        <% end %>
-				    	</ul>
-				    </div>
-				<% end %>
+					<div class="row item_edit_row">
+					<!-- エラーメッセージ -->
+					<% if @item.errors.any? %>
+					    <div id="error_explanation" class="alert alert-danger">
+					    	<ul>
+						        <% @item.errors.full_messages.each do |message| %>
+						            <li><%= message %></li>
+						        <% end %>
+					    	</ul>
+					    </div>
+					<% end %>
 
-				<%= form_for(@item,url:admin_items_path) do |f| %>
-					<!-- 画像表示領域 -->
-					<div class="col-xs-3 col-xs-offset-2 item_edit_image">
-						<%= attachment_image_tag @item, :image, fallback: "no_image.jpg", id: "file-preview" %>
+					<%= form_for(@item,url:admin_items_path) do |f| %>
+						<!-- 画像表示領域 -->
+						<div class="col-xs-3 col-xs-offset-2 item_edit_image">
+							<%= attachment_image_tag @item, :image, fallback: "no_image.jpg", id: "file-preview" %>
 
-						<%= f.attachment_field :image, class: "btn btn-brown item_attachment_field", id: "image_select"%>
-						<label for="image_select" class="btn btn-brown item_attachment_field" style="display: block;">画像選択</label>
+							<%= f.attachment_field :image, class: "btn btn-brown item_attachment_field", id: "image_select"%>
+							<label for="image_select" class="btn btn-brown item_attachment_field" style="display: block;">画像選択</label>
+						</div>
+
+						<!-- 新規入力フォーム -->
+						<table>
+							<tbody>
+								<tr>
+									<td class="label_column"><%= f.label :name,'商品名' %></td>
+									<td class="field_column"><%= f.text_field :name, class: "form-control" %></td>
+								</tr>
+								<tr>
+									<td class="label_column"><%= f.label :description,'商品説明' %></td>
+									<td class="field_column"><%= f.text_area :description, class: "form-control", :size=>"14x3" %></td>
+								</tr>
+								<tr>
+									<td class="label_column"><%= f.label :no_tax,'税抜価格' %></td>
+									<td class="field_column"><%= f.text_field :no_tax, class: "form-control" %></td>
+									<td class="yen">円</td>
+								</tr>
+								<tr>
+									<td class="label_column"><%= f.label :genre_id,'商品ジャンル' %></td>
+									<td class="field_column"><%= f.select :genre_id, Genre.all.map{|o| [o.name, o.id]},{},:class => 'form-control' %></td>
+								</tr>
+								<tr>
+									<td class="label_column"><%= f.label :is_active,'販売<br>ステータス'.html_safe %></td>
+									<td class="field_column"><%= f.select :is_active, [["販売中", "true"], ["売り切れ", "false"]], {include_blank: "選択して下さい"}, {class: 'form-control'} %></td>
+								</tr>
+							</tbody>
+						</table>
+						</div>
+
+						<!-- 新規登録ボタン -->
+						<div class="col-xs-1 col-xs-offset-10">
+						　　　<%= f.submit '新規登録',class: "btn btn-brown" %>
+						</div>
+						<% end %>
 					</div>
-
-					<!-- 新規入力フォーム -->
-					<table>
-						<tbody>
-							<tr>
-								<td class="label_column"><%= f.label :name,'商品名' %></td>
-								<td class="field_column"><%= f.text_field :name, class: "form-control" %></td>
-							</tr>
-							<tr>
-								<td class="label_column"><%= f.label :description,'商品説明' %></td>
-								<td class="field_column"><%= f.text_area :description, class: "form-control", :size=>"14x3" %></td>
-							</tr>
-							<tr>
-								<td class="label_column"><%= f.label :no_tax,'税抜価格' %></td>
-								<td class="field_column"><%= f.text_field :no_tax, class: "form-control" %></td>
-								<td class="yen">円</td>
-							</tr>
-							<tr>
-								<td class="label_column"><%= f.label :genre_id,'商品ジャンル' %></td>
-								<td class="field_column"><%= f.select :genre_id, Genre.all.map{|o| [o.name, o.id]},{},:class => 'form-control' %></td>
-							</tr>
-							<tr>
-								<td class="label_column"><%= f.label :is_active,'販売<br>ステータス'.html_safe %></td>
-								<td class="field_column"><%= f.select :is_active, [["販売中", "true"], ["売り切れ", "false"]], {include_blank: "選択して下さい"}, {class: 'form-control'} %></td>
-							</tr>
-						</tbody>
-					</table>
-					</div>
-
-					<!-- 新規登録ボタン -->
-					<div class="col-xs-1 col-xs-offset-10">
-					　　　<%= f.submit '新規登録',class: "btn btn btn-brown" %>
-					</div>
-
-				<% end %>
 				</div>
 			</div>
 		</div>
