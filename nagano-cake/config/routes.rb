@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update] do
   		collection do
-  		   get 'leave'
+  		   # get 'leave'
+         get  "leave"
+         patch "active_leave"
   		end
   end
 
