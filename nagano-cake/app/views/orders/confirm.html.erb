@@ -41,7 +41,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <h4 class="orders-detail-title">支払方法</h4>
             <h4>
                 <%=  @order.payment%>
@@ -82,7 +82,10 @@
         </div>
     </div>
     <div class="col-md-offset-4 col-md-4 create-order-link">
+        <% if @sum == 0%>
+        <% else %>
         <%= f.submit "購入を確定する", class: 'btn btn-success btn-lg active' %>
+        <% end %>
     </div>
     <% end %>
     <% end %>

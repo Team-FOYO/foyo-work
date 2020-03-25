@@ -31,7 +31,7 @@
                             </td>
                             <td>
                                 <%= form_for cart_item do |f| %>
-                                <%= f.text_field :quantity,class: "col-xs-3 cart-form"%>
+                                <%= f.text_field :quantity,class: "col-xs-4 cart-form"%>
                                 <div class="col-xs-3"></div>
                                 <%= f.submit '変更',class: "btn btn-primary col-xs-4" %>
                                 <% end %>
@@ -67,7 +67,10 @@
                         </div>
                     </table>
                 </div>
+                <% if @sum == 0%>
+                <% else %>
                 <%= link_to '情報入力にすすむ',new_order_path(@user),class: "btn btn-success col-xs-2"%>
+                <% end %>
             </div>
         </div>
     </div>

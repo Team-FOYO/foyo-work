@@ -37,7 +37,7 @@
                         <%= current_user.postcode + current_user.address %>
                     </p>
                     <p class="indent">
-                        <%= current_user.first_name + current_user.first_name %>
+                        <%= current_user.first_name + current_user.last_name %>
                     </p>
                     <%= hidden_field_tag :postal1, @user.postcode %>
                     <%= hidden_field_tag :address1, @user.address %>
