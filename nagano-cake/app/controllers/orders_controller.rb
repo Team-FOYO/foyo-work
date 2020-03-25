@@ -49,7 +49,6 @@ class OrdersController < ApplicationController
     	end
       	@cart_items.destroy_all
       	redirect_to complete_orders_path
-    	
     end
 
 	def complete
@@ -71,4 +70,5 @@ class OrdersController < ApplicationController
 	def order_params
     	params.require(:order).permit(:user_id, :postal_code, :address, :addressee,:delivery_charge, :charge, :payment, :status, :delivery)
   	end
+end
 end
