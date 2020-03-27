@@ -21,14 +21,19 @@
 	position: relative;
 	left: 43px;
 }
-
-.cart-form{
-	position: relative;
-	left: 32px;
-	top: 5px;
-	background-size: 20px;
+.cart-table{
+	.cart-form{
+		width: 50%;
+		position: relative;
+		background-size: 20px;
+	}
+	.form-control{
+		width: 50%;
+	}
+	.cart-btn{
+		margin-left: 10px;
+	}
 }
-
 .continue{
 	width: 125px;
 }

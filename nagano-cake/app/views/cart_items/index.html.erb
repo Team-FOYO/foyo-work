@@ -6,7 +6,7 @@
                 <div class="col-xs-7"></div>
                 <%= link_to 'カートを空にする',all_destroy_cart_items_path,method: :delete,class: "btn btn-danger col-xs-2"%>
                 <br><br>
-                <table class="table table-bordered">
+                <table class="table table-bordered cart-table">
                     <thead>
                         <tr>
                             <th class="col-xs-4" style="background-color:#faf0e6;">商品名</th>
@@ -29,13 +29,14 @@
                                     <%= cart_item.item.tax%>
                                 </h4>
                             </td>
+                                <div class="form-inline">
                             <td>
                                 <%= form_for cart_item do |f| %>
-                                <%= f.text_field :quantity,class: "col-xs-4 cart-form"%>
-                                <div class="col-xs-3"></div>
-                                <%= f.submit '変更',class: "btn btn-primary col-xs-4" %>
+                                <%= f.text_field :quantity,class: "col-xs-4 cart-form form-control"%>
+                                <%= f.submit '変更',class: "btn btn-brown col-xs-4 cart-btn" %>
                                 <% end %>
                             </td>
+                            </div>
                             <td>
                                 <h4>
                                     <%= cart_item.item.tax*cart_item.quantity%>
@@ -50,7 +51,7 @@
                     </tbody>
                 </table>
                 <div class="col-xs-8 pull-left">
-                    <%= link_to '買い物を続ける',root_path, class: "btn btn-primary continue"%>
+                    <%= link_to '買い物を続ける',root_path, class: "btn btn-brown continue"%>
                 </div>
                 <div class="col-xs-4">
                     <table class="table table-bordered">
@@ -58,10 +59,10 @@
                             <th class="col-xs-4" style="background-color:#faf0e6;">
                                 <h4>合計金額</h4>
                             </th>
-                            <th class="col-xs-8">
-                                <h4>
+                            <th class="col-xs-8" style="background-color:white;">
+                                <h3 align="right">
                                     <%= @sum%>
-                                </h4>
+                                </h3>
                             </th>
                             </tr>
                         </div>
@@ -69,7 +70,7 @@
                 </div>
                 <% if @sum == 0%>
                 <% else %>
-                <%= link_to '情報入力にすすむ',new_order_path(@user),class: "btn btn-success col-xs-2"%>
+                <%= link_to '情報入力にすすむ',new_order_path(@user),class: "btn btn-lg  btn-success col-xs-2"%>
                 <% end %>
             </div>
         </div>
